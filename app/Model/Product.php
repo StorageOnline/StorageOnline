@@ -12,4 +12,13 @@ class Product extends Model
     public $timestamps = false;
 
     protected $fillable = ['*'];
+
+    /**
+     * Связь один ко многим
+     * таблица Product к Price
+     */
+    public function relationPrice()
+    {
+        return $this->hasMany('App\Model\Price', 'product_id', 'id');
+    }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 11 2018 г., 23:04
+-- Время создания: Фев 20 2018 г., 01:06
 -- Версия сервера: 5.6.37
 -- Версия PHP: 5.6.31
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `iprtest`
+-- База данных: `storageonline`
 --
 
 -- --------------------------------------------------------
@@ -165,6 +165,20 @@ INSERT INTO `outgoing_payment_orders` (`id`, `counterparty_id`, `sum`, `quantity
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `prices`
+--
+
+CREATE TABLE `prices` (
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL,
+  `updated_at` timestamp NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `products`
 --
 
@@ -269,6 +283,12 @@ ALTER TABLE `outgoing_payment_orders`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `prices`
+--
+ALTER TABLE `prices`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `products`
 --
 ALTER TABLE `products`
@@ -320,6 +340,11 @@ ALTER TABLE `outgoing_invoices`
 --
 ALTER TABLE `outgoing_payment_orders`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT для таблицы `prices`
+--
+ALTER TABLE `prices`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT для таблицы `products`
 --

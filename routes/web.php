@@ -61,7 +61,7 @@ Route::group(['prefix' => '/reports'], function (){
 });
 
 
-Route::get('/storage', 'HomeController@index')->name('storage');
+Route::get('/storage', 'StorageController@index')->name('storage');
 
 Route::get('/users', 'UserController@index')->name('users');
 
