@@ -19,7 +19,7 @@
                             <thead >
                             <tr>
                                 <th class="text-center" style="width: 50px;">&#8470;</th>
-                                <th style="width: 430px;">Наименование</th>
+                                <th style="width: 530px;">Наименование</th>
                                 <th style="width: 120px;padding-left: 0px!important;text-align: center;">Кол-во</th>
                                 <th class="text-center" style="width: 120px;">Цена</th>
                                 <th class="text-center" colspan="2" style="width: 50px;">Действия</th>
