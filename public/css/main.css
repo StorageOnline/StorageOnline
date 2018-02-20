@@ -1,0 +1,28 @@
+
+
+
+.red {
+	color: red;
+}
+
+.panel-default>.panel-heading {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.nav>li:hover {
+    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+}
+
+.table>tbody>tr>td,
+.table>tbody>tr>th, 
+.table>tfoot>tr>td, 
+.table>tfoot>tr>th, 
+.table>thead>tr>td, 
+.table>thead>tr>th {
+	border: 1px solid #ddd;
+}
+
+.add-btn-row {
+	margin: 20px 0;
+}
