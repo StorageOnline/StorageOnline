@@ -538,6 +538,8 @@ function editOutgoingOrder(id) {
         data: { id:id},
         error: function (data) {
             console.log('Ошибка в editOutgoingOrder()');
+            console.log(data);
+
         },
         success: function (data) {
             $('#outgoing_payment_order_id').val(data.id);

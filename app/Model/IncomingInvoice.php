@@ -18,6 +18,6 @@ class IncomingInvoice extends Model
      */
     public function relationProduct()
     {
-        return $this->hasOne('App\Model\Product', 'id', 'product_id');
+        return $this->hasOne('App\Model\Product', 'id', 'product_id')->withTrashed();
     }
 }

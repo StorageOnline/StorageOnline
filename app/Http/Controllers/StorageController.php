@@ -18,7 +18,7 @@ class StorageController extends Controller
      */
     public function index()
     {
-        $items = Product::all();
+        $items = Product::withTrashed()->get();
         foreach($items as $item) {
             $item->relationPrice;
         }
