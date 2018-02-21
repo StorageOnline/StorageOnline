@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading text-center">Товары</div>
+                    <div class="panel-heading text-center">Склад</div>
 
                     <div class="panel-body">
                         <a href="#modal" class="btn btn-success"  data-toggle="modal" onclick="clearProductModal()">Добавить</a>
@@ -28,6 +28,7 @@
                                 <td>{{ $product['name'] }}</td>
                                 <td>{{ $product['quantity'] }}</td>
                                 <td>{{ $product['price'] }}</td>
+                                @if(!$product['deleted_at'])
                                 <td class="text-center"><a href="#modal" data-toggle="modal" onclick="editProduct({{ $product['id'] }})">
                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                     </a>
@@ -35,6 +36,7 @@
                                         <i class="fa fa-trash-o fa-lg"></i>
                                     </a>
                                 </td>
+                                @endif
                             </tr>
                         @endforeach
                         </tbody>

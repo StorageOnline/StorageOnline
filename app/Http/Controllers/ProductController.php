@@ -72,8 +72,8 @@ class ProductController extends Controller
     public function delProduct(Request $request)
     {
         $id = $request->id;
-
-        if(Product::destroy($id)) {
+        $item = Product::find($id);
+        if($item->delete()) {
             return $this->getAllProducts();
         }
     }
