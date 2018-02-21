@@ -3,42 +3,52 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading text-center">Товары</div>
 
                     <div class="panel-body">
-                        <a href="#modal" class="btn btn-success"  data-toggle="modal" onclick="clearProductModal()">Добавить</a>
-                    </div>
-
-                    <table id="" class="table">
-                        <thead>
-                        <tr>
-                            <th style="width: 40px;">&#8470;</th>
-                            <th style="width: 230px;">Наименование</th>
-                            <th style="width: 50px;padding-left: 0px!important;text-align: center;">Кол-во</th>
-                            <th style="width: 50px;">Цена</th>
-                            <th style="width: 50px;">Действия</th>
-                        </tr>
-                        </thead>
-                        <tbody id="all-product-tab" class="">
-                        @foreach($products as $product)
+                        <div class="row">
+                            <div class="col-md-12 add-btn-row">
+                                <a href="#modal" class="btn btn-success"  data-toggle="modal" onclick="clearProductModal()">Добавить</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                            <table id="" class="table">
+                            <thead >
                             <tr>
-                                <td>{{ $product['id'] }}</td>
-                                <td>{{ $product['name'] }}</td>
-                                <td>{{ $product['quantity'] }}</td>
-                                <td>{{ $product['price'] }}</td>
-                                <td class="text-center"><a href="#modal" data-toggle="modal" onclick="editProduct({{ $product['id'] }})">
-                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                    </a>
-                                    <a class="col-md-offset-3" href="#" onclick="delProduct({{ $product['id'] }})">
-                                        <i class="fa fa-trash-o fa-lg"></i>
-                                    </a>
-                                </td>
+                                <th class="text-center" style="width: 50px;">&#8470;</th>
+                                <th style="width: 530px;">Наименование</th>
+                                <th style="width: 120px;padding-left: 0px!important;text-align: center;">Кол-во</th>
+                                <th class="text-center" style="width: 120px;">Цена</th>
+                                <th class="text-center" colspan="2" style="width: 50px;">Действия</th>
                             </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody id="all-product-tab" class="text-center">
+                            @foreach($products as $product)
+                                <tr>
+                                    <td>{{ $product['id'] }}</td>
+                                    <td class="text-left">{{ $product['name'] }}</td>
+                                    <td>{{ $product['quantity'] }}</td>
+                                    <td>{{ $product['price'] }}</td>
+                                    <td class="text-center"><a href="#modal" data-toggle="modal" onclick="editProduct({{ $product['id'] }})">
+                                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                                        </a>
+                                    </td>    
+                                    <td class="text-center">
+                                        <a href="#" onclick="delProduct({{ $product['id'] }})">
+                                            <i class="fa fa-trash-o fa-lg red"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                            </table>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
