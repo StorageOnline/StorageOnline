@@ -28,6 +28,7 @@
                                 <td>{{ $product['name'] }}</td>
                                 <td>{{ $product['quantity'] }}</td>
                                 <td>{{ $product['price'] }}</td>
+                                @if(!$product['deleted_at'])
                                 <td class="text-center"><a href="#modal" data-toggle="modal" onclick="editProduct({{ $product['id'] }})">
                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                     </a>
@@ -35,6 +36,7 @@
                                         <i class="fa fa-trash-o fa-lg"></i>
                                     </a>
                                 </td>
+                                @endif
                             </tr>
                         @endforeach
                         </tbody>
