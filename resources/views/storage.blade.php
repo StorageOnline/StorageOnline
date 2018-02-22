@@ -16,6 +16,7 @@
                         <tr>
                             <th style="width: 40px;">&#8470;</th>
                             <th style="width: 230px;">Наименование</th>
+                            <th style="width: 50px;padding-left: 0px!important;text-align: center;">Код</th>
                             <th style="width: 50px;padding-left: 0px!important;text-align: center;">Кол-во</th>
                             <th style="width: 50px;">Цена</th>
                             <th style="width: 50px;">Действия</th>
@@ -25,7 +26,12 @@
                         @foreach($products as $product)
                             <tr>
                                 <td>{{ $product['id'] }}</td>
-                                <td>{{ $product['name'] }}</td>
+                                <td>{{ $product['name'] }}
+                                    @if($product['deleted_at'])
+                                        <span style="color: indianred">(удален - {{ $product['deleted_at'] }})</span>
+                                    @endif
+                                </td>
+                                <td>{{ $product['code'] }}</td>
                                 <td>{{ $product['quantity'] }}</td>
                                 <td>{{ $product['price'] }}</td>
                                 @if(!$product['deleted_at'])
@@ -62,6 +68,10 @@
                 <input id="product_id" type="hidden" class="form-control" name="product_id">
                 <div class="col-md-6">
                     <input id="product_name" type="text" class="form-control" name="product_name" value="{{ old('product_name') }}" required autofocus>
+                </div>
+                <label for="product_code" class="col-md-4 control-label">Код</label>
+                <div class="col-md-6">
+                    <input id="product_code" type="text" class="form-control" name="product_code" value="{{ old('product_code') }}" required>
                 </div>
                 <label for="product_quantity" class="col-md-4 control-label">Количество</label>
                 <div class="col-md-6">
