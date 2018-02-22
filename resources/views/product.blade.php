@@ -19,7 +19,8 @@
                             <thead >
                             <tr>
                                 <th class="text-center" style="width: 50px;">&#8470;</th>
-                                <th style="width: 530px;">Наименование</th>
+                                <th style="width: 430px;">Наименование</th>
+                                <th style="width: 100px;padding-left: 0px!important;text-align: center;">Код</th>
                                 <th style="width: 120px;padding-left: 0px!important;text-align: center;">Кол-во</th>
                                 <th class="text-center" style="width: 120px;">Цена</th>
                                 <th class="text-center" colspan="2" style="width: 50px;">Действия</th>
@@ -30,6 +31,7 @@
                                 <tr>
                                     <td>{{ $product['id'] }}</td>
                                     <td class="text-left">{{ $product['name'] }}</td>
+                                    <td>{{ $product['code'] }}</td>
                                     <td>{{ $product['quantity'] }}</td>
                                     <td>{{ $product['price'] }}</td>
                                     <td class="text-center"><a href="#modal" data-toggle="modal" onclick="editProduct({{ $product['id'] }})">
@@ -70,6 +72,10 @@
                 <input id="product_id" type="hidden" class="form-control" name="product_id">
                 <div class="col-md-6">
                     <input id="product_name" type="text" class="form-control" name="product_name" value="{{ old('product_name') }}" required autofocus>
+                </div>
+                <label for="product_code" class="col-md-4 control-label">Код</label>
+                <div class="col-md-6">
+                    <input id="product_code" type="text" class="form-control" name="product_code" value="{{ old('product_code') }}" required>
                 </div>
                 <label for="product_quantity" class="col-md-4 control-label">Количество</label>
                 <div class="col-md-6">
