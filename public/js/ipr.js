@@ -161,6 +161,7 @@ function updateProductsList(data)
         var stringTab = '<tr>'
             + '<td>' + item.id + '</td>'
             + '<td>' + item.name + '</td>'
+            + '<td>' + item.code + '</td>'
             + '<td>' + item.quantity + '</td>'
             + '<td>' + item.price + '</td>'
             + '<td class="text-center"><a href="#modal" data-toggle="modal" onclick="editProduct( ' + item.id + ')">'
