@@ -30,26 +30,35 @@ class ProductController extends Controller
         $id = $request->product_id;
         $name = $request->product_name;
         $quantity = $request->product_quantity;
+        $code = $request->product_code;
         $price = $request->product_price;
 
         if($id) {
             $product = Product::find($id);
             $product->name = $name;
+            $product->code = $code;
             $product->quantity = $quantity;
             $product->price = $price;
         } else {
             $product = new Product();
 
             $product->name = $name;
+            $product->code = $code;
             $product->quantity = $quantity;
             $product->price = $price;
         }
 //        dump($product->name);
         $product->save();
 
-        $products = $this->getAllProducts();
+        /*$products = $this->getAllProducts();
 
-        return $products;
+        return $products;*/
+
+        // для отображение при работе через Form
+        $items = Product::all();
+        $products ['products'] = $items->toArray();
+
+        return redirect('products');
 
     }
 

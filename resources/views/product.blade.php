@@ -68,7 +68,22 @@
             </div>
             <div class="modal-body">
                 {{ csrf_field() }}
-                <label for="product_name" class="col-md-4 control-label">Наименование</label>
+                {!! Form::open(array('url' => 'products/set-product', 'method' => 'post')) !!}
+                    {!! Form::label('product_name', 'Наименование', ['class' => 'col-md-4 control-label']) !!}
+                    {!! Form::text('product_name', 'Наименование',['class' => 'col-md-6 control-label', 'id' => 'product_name', 'placeholder' => 'Наименование', 'required']) !!}
+
+                    {!! Form::label('product_code', 'Код', ['class' => 'col-md-4 control-label']) !!}
+                    {!! Form::text('product_code', 'Код', ['class' => 'col-md-6 control-label']) !!}
+
+                    {!! Form::label('product_quantity', 'Количество', ['class' => 'col-md-4 control-label']) !!}
+                    {!! Form::text('product_quantity', 'Количество', ['class' => 'col-md-6 control-label']) !!}
+
+                    {!! Form::label('product_price', 'Цена', ['class' => 'col-md-4 control-label']) !!}
+                    {!! Form::text('product_price', 'Цена', ['class' => 'col-md-6 control-label']) !!}
+
+                    {!! Form::submit('Сохранить', ['class' => 'btn btn-danger col-md-2 col-md-offset-8']) !!}
+                {!! Form::close() !!}
+                {{--<label for="product_name" class="col-md-4 control-label">Наименование</label>
                 <input id="product_id" type="hidden" class="form-control" name="product_id">
                 <div class="col-md-6">
                     <input id="product_name" type="text" class="form-control" name="product_name" value="{{ old('product_name') }}" required autofocus>
@@ -89,7 +104,7 @@
                     <button id="" type="submit" form="" class="btn btn-danger" onclick="setProducts();">
                         Сохранить
                     </button>
-                </div>
+                </div>--}}
             </div>
         </div>
     </div>

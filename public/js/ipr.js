@@ -6,6 +6,7 @@ function setProducts()
     var product = {
         'product_id': $('#product_id').val(),
         'product_name': $('#product_name').val(),
+        'product_code': $('#product_code').val(),
         'product_quantity': $('#product_quantity').val(),
         'product_price': $('#product_price').val()
     };
