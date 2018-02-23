@@ -9,6 +9,9 @@
 
                     <div class="panel-body">
                         <a href="#modal" class="btn btn-success"  data-toggle="modal" onclick="clearProductModal()">Добавить</a>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Поиск" name="search">
+                        </div>
                     </div>
 
                     <table id="" class="table">

@@ -9,6 +9,10 @@
 
                     <div class="panel-body">
                         <a href="#modal" class="btn btn-success"  data-toggle="modal" onclick="clearIncomingModal()">Добавить</a>
+                        <a href="#" class="btn btn-danger"  onclick="">Возврат товара</a>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Поиск" name="search">
+                        </div>
                     </div>
                     {{--<a href="#modal3" data-fancybox data-src="#modal3" class="popup">Модальное окно</a>--}}
 
