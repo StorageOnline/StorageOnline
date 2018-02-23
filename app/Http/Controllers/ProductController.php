@@ -30,22 +30,20 @@ class ProductController extends Controller
         $id = $request->product_id;
         $name = $request->product_name;
         $quantity = $request->product_quantity;
+        $code = $request->product_code;
         $price = $request->product_price;
 
-        if($id) {
-            $product = Product::find($id);
-            $product->name = $name;
-            $product->quantity = $quantity;
-            $product->price = $price;
+        $product = Product::updateOrCreate(['id' => $id], ['name' => $name, 'code' => $code, 'quantity' => $quantity, 'price' => $price]);
+        // проверка и изменение цены если пользователь всё изменения
+        if(!empty($product->relationPrice)) {
+            // получение последней цены на товар
+            $product_price = $product->relationPrice()->latest()->first()->price;
+            if($product_price != $price) {
+                $product->relationPrice()->create(['price' => $price]);
+            }
         } else {
-            $product = new Product();
-
-            $product->name = $name;
-            $product->quantity = $quantity;
-            $product->price = $price;
+            $product->relationPrice()->create(['price' => $price]);
         }
-//        dump($product->name);
-        $product->save();
 
         $products = $this->getAllProducts();
 
@@ -61,7 +59,15 @@ class ProductController extends Controller
         $id = $request->id;
 
         $productInfo = Product::find($id);
-        $product = $productInfo->toArray();
+        // получение всех цен на товар
+        $prices = $productInfo->relationPrice;
+        // получение последней цены товара
+        $price_last = $productInfo->relationPrice()->orderby('id', 'desc')->first()->price;
+        $product = [
+            'product_info' => $productInfo->toArray(),
+            'product_prices' => $prices,
+            'product_price' => $price_last,
+        ];
 
         return $product;
     }

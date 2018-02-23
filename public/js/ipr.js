@@ -7,6 +7,7 @@ function setProducts()
         'product_id': $('#product_id').val(),
         'product_name': $('#product_name').val(),
         'product_quantity': $('#product_quantity').val(),
+        'product_code': $('#product_code').val(),
         'product_price': $('#product_price').val()
     };
 
@@ -72,10 +73,12 @@ function editProduct(id)
             alert("Ошибка при редактировании товара");
         },
         success: function (data) {
-            $('#product_id').val(data.id);
-            $('#product_name').val(data.name);
-            $('#product_quantity').val(data.quantity);
-            $('#product_price').val(data.price);
+            console.log(data);
+            $('#product_id').val(data.product_info.id);
+            $('#product_name').val(data.product_info.name);
+            $('#product_code').val(data.product_info.code);
+            $('#product_quantity').val(data.product_info.quantity);
+            $('#product_price').val(data.product_price);
 
         }
     });
