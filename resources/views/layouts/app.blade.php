@@ -19,6 +19,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Storage.Online Система управления складом онлайн</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('font-awesome/css/font-awesome.min.css') }}">

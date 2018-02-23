@@ -73,13 +73,11 @@ function editProduct(id)
             alert("Ошибка при редактировании товара");
         },
         success: function (data) {
-            // console.log(data.product_prices);
             var datas = new Array();
             var price = new Array();
             $.each(data.product_prices, function (i, item) {
                 price[i] = item.price;
             })
-            // console.log(price);
             datas = {
                 name: data.product_info.name,
                 data: price,
