@@ -5,7 +5,9 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Storage.Online Система управления складом онлайн</div>
+                {{--<div class="panel-heading">Storage.Online Система управления складом онлайн</div>--}}
+                <div class="panel-heading">{{ __('messages.main_title') }}</div>
+                <div class="panel-heading">{{ App::getLocale() }}</div>
 
                 <div class="panel-body">
                     @if (session('status'))

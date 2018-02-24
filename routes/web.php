@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/localization/{locale}', 'LocalizationController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => '/products'], function () {

@@ -43,6 +43,9 @@
                 <li><a href="{{ route('users') }}">Пользователи</a></li>
                 <li><a href="{{ route('log') }}">Журнал</a></li>
             </ul>
+            <a href="localization/ru">rus</a>
+            <a href="localization/ua">ua</a>
+            <a href="localization/en">en</a>
         </div>
 
         <div class="navbar navbar-default navbar-fixed-top hidden-md hidden-lg">

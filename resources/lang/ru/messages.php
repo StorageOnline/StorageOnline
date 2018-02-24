@@ -1,8 +1,9 @@
 <?php
 
 return [
+    'main_title' => 'Storage.Online Система управления складом онлайн',
     'goods' => 'Товары',
-    'counterparties' => 'Склад',
+    'counterparties' => 'Контрагенты',
     'incoming_order' => 'Приходный ордер',
     'outgoing_order' => 'Расходный ордер',
     'report' => 'Отчет',
