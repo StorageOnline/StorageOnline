@@ -42,9 +42,9 @@
                             <tr>
                                 <td>{{ $counterparty['id'] }}</td>
                                 @if($counterparty['type'] == 1)
-                                    <td class="btn-danger">Покупатель</td>
+                                    <td class=""><span class="label label-danger">Покупатель</span></td>
                                 @else
-                                    <td class="btn-success">Поставщик</td>
+                                    <td class=""><span class="label label-success">Поставщик</span></td>
                                 @endif
                                 <td>{{ $counterparty['name'] }}</td>
                                 <td class="small-display">{{ $counterparty['tel'] }}</td>

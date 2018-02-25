@@ -208,6 +208,13 @@ select#counterparty_type, select#counterparty_id{height: 36px;}
     font-size: 4rem;
 }
 
+#all-counterparty-tab span.label.label-success{
+    padding: 6px 8px;
+}
+
+#all-counterparty-tab span.label.label-danger{
+    padding: 6px;
+}
 
 
 @media (max-width: 1199px) {
