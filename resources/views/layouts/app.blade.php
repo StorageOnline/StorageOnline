@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
     <!-- Latest compiled and minified CSS -->
@@ -26,22 +27,31 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('font/icomoon.css') }}">
+
+
 
 
 </head>
 <body>
     <div id="app">
-        <div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm">
+        <div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm scrollBar">
             <a class="navmenu-brand visible-md visible-lg alert-success" href="/home">Storage.Online</a>
             <ul class="nav navmenu-nav">
-                <li class="beta"><a href="{{ route('products') }}">Товары</a></li>
-                <li class="beta"><a href="{{ route('counterparty') }}">Контрагенты</a></li>
-                <li class="beta"><a href="{{ route('incoming-payment-order') }}">Приходный ордер</a></li>
-                <li><a href="{{ route('outgoing-payment-order') }}">Расходный ордер</a></li>
-                <li><a href="{{ route('reports') }}">Отчеты</a></li>
-                <li class="beta"><a href="{{ route('storage') }}">Склад</a></li>
-                <li><a href="{{ route('users') }}">Пользователи</a></li>
-                <li><a href="{{ route('log') }}">Журнал</a></li>
+                <li class="products"><a href="{{ route('products') }}"><i class="icon icon-shop2"></i> Товары</a></li>
+                <li class="counterparty"><a href="{{ route('counterparty') }}"><i class="icon icon-address-book"></i> Контрагенты</a></li>
+                <li class="incoming-payment-order"><a href="{{ route('incoming-payment-order') }}"><i class="icon icon-box-add"></i> Приходный ордер</a></li>
+                <li class="outgoing-payment-order"><a href="{{ route('outgoing-payment-order') }}"><i class="icon icon-box-remove"></i> Расходный ордер</a></li>
+                <li class="reports"><a href="{{ route('reports') }}"><i class="icon icon-clipboard"></i> Отчеты</a></li>
+                <li class="storage"><a href="{{ route('storage') }}"><i class="icon icon-truck"></i> Склад</a></li>
+                <li class="users"><a href="{{ route('users') }}"><i class="icon icon-users"></i> Пользователи</a></li>
+                <li class="log"><a href="{{ route('log') }}"><i class="icon icon-book"></i> Журнал</a></li>
+                <div class="nav-bottom clearfix" style="height: 385px;">
+                    <a href="#" style="border-right: 0px;" data-toggle="tooltip" title="Выход"><i class="fa fa-power-off"></i></a>
+                    <a href="#" style="border-right: 0px;" data-toggle="tooltip" title="Калькулятор"><i class="fa fa-calculator"></i></a>
+                    <a href="#" style="border-right: 0px;" data-toggle="tooltip" title="Настройки"><i class="fa fa-gears"></i></a>
+                    <a href="#" style="border-right: 0px;" data-toggle="tooltip" title="Рандомно захуярить депутата"><i class="fa fa-rocket"></i></a>
+                </div>
             </ul>
         </div>
 
@@ -76,14 +86,14 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ route('products') }}">Товары</a></li>
-                        <li><a href="{{ route('counterparty') }}">Контрагенты</a></li>
-                        <li><a href="{{ route('incoming-payment-order') }}">Приходный ордер</a></li>
-                        <li><a href="{{ route('outgoing-payment-order') }}">Расходный ордер</a></li>
-                        <li><a href="{{ route('reports') }}">Отчеты</a></li>
-                        <li><a href="{{ route('storage') }}">Склад</a></li>
-                        <li><a href="{{ route('users') }}">Пользователи</a></li>
-                        <li><a href="{{ route('log') }}">Журнал</a></li>
+                        <li><a href="{{ route('products') }}"><i class="icon icon-cart"></i> Товары</a></li>
+                        <li><a href="{{ route('counterparty') }}"><i class="icon"></i> Контрагенты</a></li>
+                        <li><a href="{{ route('incoming-payment-order') }}"><i class="icon"></i> Приходный ордер</a></li>
+                        <li><a href="{{ route('outgoing-payment-order') }}"><i class="icon"></i> Расходный ордер</a></li>
+                        <li><a href="{{ route('reports') }}"><i class="icon"></i> Отчеты</a></li>
+                        <li><a href="{{ route('storage') }}"><i class="icon"></i> Склад</a></li>
+                        <li><a href="{{ route('users') }}"><i class="icon"></i> Пользователи</a></li>
+                        <li><a href="{{ route('log') }}"><i class="icon"></i> Журнал</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -127,5 +137,29 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/ipr.js') }}" type="text/javascript"></script>
+    <script>
+       
+
+  
+
+        $(function () {
+            if(location.pathname == "/products") $('.products').addClass('active-li-menu');
+            if(location.pathname == "/counterparty") $('.counterparty').addClass('active-li-menu');
+            if(location.pathname == "/incoming-payment-order") $('.incoming-payment-order').addClass('active-li-menu');
+            if(location.pathname == "/outgoing-payment-order") $('.outgoing-payment-order').addClass('active-li-menu');
+            if(location.pathname == "/reports") $('.reports').addClass('active-li-menu');
+            if(location.pathname == "/storage") $('.storage').addClass('active-li-menu');
+            if(location.pathname == "/users") $('.users').addClass('active-li-menu');
+            if(location.pathname == "/log") $('.log').addClass('active-li-menu');
+
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip({
+                    placement : 'top'
+                });
+            });
+        });
+    
+    </script>
 </body>
 </html>
+

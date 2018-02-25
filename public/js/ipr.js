@@ -172,17 +172,19 @@ function updateProductsList(data)
 
         var stringTab = '<tr>'
             + '<td>' + item.id + '</td>'
-            + '<td>' + item.name + '</td>'
-            + '<td>' + item.code + '</td>'
-            + '<td>' + item.quantity + '</td>'
-            + '<td>' + item.price + '</td>'
+            + '<td class="text-left">' + item.name + '</td>'
+            + '<td class="small-display">' + item.code + '</td>'
+            + '<td class="small-display">' + item.quantity + '</td>'
+            + '<td class="small-display">' + item.price + '</td>'
+            + '<td class="text-center preview"><a href="" data-toggle="" onclick="">'
+                    + '<i class="fa fa-eye" aria-hidden="true"></i>'
+                + '</a>' + '</td>'
             + '<td class="text-center"><a href="#modal" data-toggle="modal" onclick="editProduct( ' + item.id + ')">'
                     + '<i class="fa fa-pencil" aria-hidden="true"></i>'
-                + '</a>'
-                + '<a class="col-md-offset-3" href="#" onclick="delProduct( ' + item.id + ')">'
-                    + '<i class="fa fa-trash-o fa-lg"></i>'
-                + '</a>'
-            + '</td>'
+                + '</a>' + '</td>'
+            + '<td class="text-center"><a href="#" onclick="delProduct( ' + item.id + ')">'
+                    + '<i class="fa fa-trash-o fa-lg red"></i>'
+                + '</a>' + '</td>'
             + '</tr>';
 
         $('#all-product-tab').append(stringTab);
@@ -205,15 +207,17 @@ function updateCounterpartyList(data)
             + '<td>' + item.id + '</td>'
             + itemType
             + '<td>' + item.name + '</td>'
-            + '<td>' + item.tel + '</td>'
-            + '<td>' + item.email + '</td>'
+            + '<td class="small-display">' + item.tel + '</td>'
+            + '<td class="small-display">' + item.email + '</td>'
+            + '<td class="text-center preview"><a href="" data-toggle="" onclick="">'
+            + '<i class="fa fa-eye" aria-hidden="true"></i>'
+            + '</a>' + '</td>'
             + '<td class="text-center"><a href="#modal" data-toggle="modal" onclick="editCounterparty( ' + item.id + ')">'
             + '<i class="fa fa-pencil" aria-hidden="true"></i>'
-            + '</a>'
-            + '<a class="col-md-offset-3" href="#" onclick="delCounterparty( ' + item.id + ')">'
-            + '<i class="fa fa-trash-o fa-lg"></i>'
-            + '</a>'
-            + '</td>'
+            + '</a>' + '</td>'
+            + '<td class="text-center"><a href="#" onclick="delCounterparty( ' + item.id + ')">'
+            + '<i class="fa fa-trash-o fa-lg red"></i>'
+            + '</a>' + '</td>'
             + '</tr>';
 
         $('#all-counterparty-tab').append(stringTab);
@@ -667,18 +671,19 @@ function getAllIncomingOrders() {
             $.each(data, function (i, item) {
                 var stringTab = '<tr>'
                     + '<td>' + item.id + '</td>'
-                    + '<td>' + item.updated_at + '</td>'
+                    + '<td class="small-display">' + item.updated_at + '</td>'
                     + '<td>' + item.relation_counterparty.name + '</td>'
-                    + '<td>' + item.quantity + '</td>'
-                    + '<td>' + item.sum + '</td>'
-                    + '<td class="text-center">'
-                    + '<a href="#modal"  data-toggle="modal" onclick="editIncomingOrder( ' + item.id + ')">'
+                    + '<td class="small-display text-center">' + item.quantity + '</td>'
+                    + '<td class="small-display text-center">' + item.sum + '</td>'
+                    + '<td class="text-center preview"><a href="" data-toggle="" onclick="">'
+                    + '<i class="fa fa-eye" aria-hidden="true"></i>'
+                    + '</a>' + '</td>'
+                    + '<td class="text-center"><a href="#modal" data-toggle="modal" onclick="editIncomingOrder( ' + item.id + ')">'
                     + '<i class="fa fa-pencil" aria-hidden="true"></i>'
-                    + '</a>'
-                    + '<a class="col-md-offset-3" href="#" onclick="delIncomingOrder( ' + item.id + ')">'
-                    + '<i class="fa fa-trash-o fa-lg"></i>'
-                    + '</a>'
-                    + '</td>'
+                    + '</a>' + '</td>'
+                    + '<td class="text-center"><a href="#" onclick="delIncomingOrder( ' + item.id + ')">'
+                    + '<i class="fa fa-trash-o fa-lg red"></i>'
+                    + '</a>' + '</td>'
                     + '</tr>';
 
                 $('#all-incoming-tab').append(stringTab);
@@ -703,18 +708,19 @@ function getAllOutgoingOrders() {
             $.each(data, function (i, item) {
                 var stringTab = '<tr>'
                     + '<td>' + item.id + '</td>'
-                    + '<td>' + item.updated_at + '</td>'
+                    + '<td class="small-display text-center">' + item.updated_at + '</td>'
                     + '<td>' + item.relation_counterparty.name + '</td>'
-                    + '<td>' + item.quantity + '</td>'
-                    + '<td>' + item.sum + '</td>'
-                    + '<td class="text-center">'
-                    + '<a href="#modal"  data-toggle="modal" onclick="editOutgoingOrder( ' + item.id + ')">'
+                    + '<td class="small-display text-center">' + item.quantity + '</td>'
+                    + '<td class="small-display text-center">' + item.sum + '</td>'
+                    + '<td class="text-center preview"><a href="" data-toggle="" onclick="">'
+                    + '<i class="fa fa-eye" aria-hidden="true"></i>'
+                    + '</a>' + '</td>'
+                    + '<td class="text-center"><a href="#modal" data-toggle="modal" onclick="editOutgoingOrder( ' + item.id + ')">'
                     + '<i class="fa fa-pencil" aria-hidden="true"></i>'
-                    + '</a>'
-                    + '<a class="col-md-offset-3" href="#" onclick="delOutgoingOrder( ' + item.id + ')">'
-                    + '<i class="fa fa-trash-o fa-lg"></i>'
-                    + '</a>'
-                    + '</td>'
+                    + '</a>' + '</td>'
+                    + '<td class="text-center"><a href="#" onclick="delOutgoingOrder( ' + item.id + ')">'
+                    + '<i class="fa fa-trash-o fa-lg red"></i>'
+                    + '</a>' + '</td>'
                     + '</tr>';
 
                 $('#all-outgoing-tab').append(stringTab);
@@ -722,6 +728,7 @@ function getAllOutgoingOrders() {
         }
     });
 }
+
 
 /**
  * Формирование отчета за период

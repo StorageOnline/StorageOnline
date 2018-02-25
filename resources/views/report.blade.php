@@ -1,34 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container small-container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-12 small-column">
                 <div class="panel panel-default">
                     <div class="panel-heading text-center">Отчеты</div>
 
                     <div class="panel-body">
-                        <div class="row">
-                            <input id="date_start" class="col-md-3 col-md-offset-1" type="date" name="date_start"/>
-                            <input id="date_end" class="col-md-3 col-md-offset-1" type="date" name="date_end"/>
+                        <div class="row report-date">
+                            <div class="col-md-3">
+                                <input id="date_start" type="date" name="date_start"/>
+                            </div>
+                            <div class="col-md-3">
+                                <input id="date_end" type="date" name="date_end"/>
+                            </div>
                             <a href="#modal" class="btn btn-success col-md-offset-1"  onclick="getReport()">Сформировать</a>
                         </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table id="" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 40px;">&#8470;</th>
+                                            <th style="width: 230px;">Наименование</th>
+                                            <th style="width: 50px;padding-left: 0px!important;text-align: center;">Период</th>
+                                            <th style="width: 50px;">Сумма</th>
+                                            <th style="width: 50px;">Действия</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="all-report-tab" class="">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
                     </div>
-
-                    <table id="" class="table">
-                        <thead>
-                        <tr>
-                            <th style="width: 40px;">&#8470;</th>
-                            <th style="width: 230px;">Наименование</th>
-                            <th style="width: 50px;padding-left: 0px!important;text-align: center;">Период</th>
-                            <th style="width: 50px;">Сумма</th>
-                            <th style="width: 50px;">Действия</th>
-                        </tr>
-                        </thead>
-                        <tbody id="all-report-tab" class="">
-
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>

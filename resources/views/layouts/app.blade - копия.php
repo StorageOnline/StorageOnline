@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{ asset('font-awesome/css/font-awesome.min.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}"> -->
 
 </head>
 <body>
