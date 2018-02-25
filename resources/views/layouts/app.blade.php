@@ -37,6 +37,9 @@
     <div id="app">
         <div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm scrollBar">
             <a class="navmenu-brand visible-md visible-lg alert-success" href="/home">Storage.Online</a>
+            <a href="/setlocale/en">eng</a>
+            <a href="/setlocale/ua">ukr</a>
+            <a href="/setlocale/ru">rus</a>
             <ul class="nav navmenu-nav">
                 <li class="products"><a href="{{ route('products') }}"><i class="icon icon-shop2"></i> Товары</a></li>
                 <li class="counterparty"><a href="{{ route('counterparty') }}"><i class="icon icon-address-book"></i> Контрагенты</a></li>
