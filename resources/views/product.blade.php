@@ -77,7 +77,7 @@
 <!-- HTML-код модального окна -->
 <div id="modal" class="modal fade">
     <div class="modal-dialog modal-lg modalInsideEmployee">
-        <div class="modal-content" style="min-height: 600px; height: 750px;">
+        <div class="modal-content">
             <div class="modal-header" style="text-align: center;">
                 <h4 class="modal-title" style="display: inline-block;">Информация о товаре</h4>
                 <button id="" type="button" class="close" data-dismiss="modal" aria-hidden="true">×
@@ -116,11 +116,16 @@
                             Сохранить
                         </button>
                     </div>
-                    <div id="container" style="min-width: 310px;
-                                max-width: 800px;
-                                height: 400px;
-                                margin: 0 auto;"></div>
+                   
                 </div>
+                 
+            </div>
+            <div class="modal-footer">
+                <div id="container" class="" style="min-width: 310px;
+                                max-width: 800px;
+                                /*height: 400px;*/
+                                margin: 0 auto;">
+                    </div>
             </div>
         </div>
     </div>
