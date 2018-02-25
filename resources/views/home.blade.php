@@ -5,7 +5,8 @@
     <div class="row">
         <div class="col-md-12 small-column">
             <div class="panel panel-default">
-                <div class="panel-heading">Storage.Online Система управления складом онлайн</div>
+                {{--<div class="panel-heading">Storage.Online Система управления складом онлайн</div>--}}
+                <div class="panel-heading">{{ trans('menu.main_title') }}</div>
 
                 <div class="panel-body">
                     @if (session('status'))
