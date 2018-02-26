@@ -25,6 +25,39 @@
                                     </div>
                                 </div>
                             </div>
+                             <div class="col-md-8"> 
+                            <ul class="filter">
+                                <li class="dropLi">
+                                  <ul class="nav nav-pills">
+                                    <li role="presentation" class="dropdown bgB center">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="true">
+                                            Сортировать 
+                                        </a>
+                                        <ul class="dropdown-menu dropLi sortFilter">
+                                            <form method="POST" name='form_name2' id='form_name2'>
+
+                                                <li><a href="#" class="dropdown-item"><input type="checkbox" id="awesome" name="cheks" value="0" onclick="sel_all2('form_name2')"/>
+                                                    <label for="awesome"></label><span>Выбрать все</span></a></li>
+                                                
+                                                <li><a href="#" class="dropdown-item"><input type="checkbox" id="awesome1" name="cheks" value="1" />
+                                                <label for="awesome1"></label><span>№</span></a></li>
+
+                                               <li><a href="#" class="dropdown-item"><input type="checkbox" id="awesome2" name="cheks" value="2" />
+                                                <label for="awesome2"></label><span>Имя</span></a></li>
+
+                                                <li><a href="#" class="dropdown-item"><input type="checkbox" id="awesome3" name="cheks" value="3" />
+                                                <label for="awesome3"></label><span>E-mail</span></a></li>
+
+                                                <li><a href="#" class="dropdown-item"><input type="checkbox" id="awesome4" name="cheks" value="4" />
+                                                <label for="awesome4"></label><span>Роль</span></a></li>
+                                            </form>
+                                             <li><a href="#" class="dropdown-item"><label class="pointer">Применить</label></a></li>
+                                   </ul>
+                               </li>
+                           </ul>
+                        </li>
+                        </ul>
+                        </div>
                         </div>
                     <table id="" class="table">
                         <thead>
@@ -54,8 +87,8 @@
                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                     </a>
                                 </td>
-                                <td>
-                                    <a class="col-md-offset-3" href="#" onclick="delProduct({{ $user['id'] }})">
+                                <td class="text-center">
+                                    <a  href="#" onclick="delProduct({{ $user['id'] }})">
                                         <i class="fa fa-trash-o fa-lg red"></i>
                                     </a>
                                 </td>
