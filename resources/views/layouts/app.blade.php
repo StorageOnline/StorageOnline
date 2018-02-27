@@ -7,6 +7,8 @@
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
     <script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/checkbox.js') }}" type="text/javascript"></script>
+
     <!-- Latest compiled and minified JavaScript -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
     <!-- Latest compiled and minified CSS -->
@@ -28,6 +30,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('font/icomoon.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-extended.css') }}">
+
+    
 
 
 
@@ -37,9 +42,12 @@
     <div id="app">
         <div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm scrollBar">
             <a class="navmenu-brand visible-md visible-lg alert-success" href="/home">Storage.Online</a>
-            <a href="/setlocale/en">eng</a>
-            <a href="/setlocale/ua">ukr</a>
-            <a href="/setlocale/ru">rus</a>
+            <div class="flags">
+                <a class="navmenu-brand visible-md visible-lg eng" href="/setlocale/en" data-toggle="flags" title="Английский"></a>
+                <a class="navmenu-brand visible-md visible-lg ua" href="/setlocale/ua" data-toggle="flags" title="Украинский"></a>
+                <a class="navmenu-brand visible-md visible-lg rus" href="/setlocale/ru" data-toggle="flags" title="Русский"></a> 
+            </div>
+            
             <ul class="nav navmenu-nav">
                 <li class="products"><a href="{{ route('products') }}"><i class="icon icon-shop2"></i> Товары</a></li>
                 <li class="counterparty"><a href="{{ route('counterparty') }}"><i class="icon icon-address-book"></i> Контрагенты</a></li>
@@ -65,6 +73,11 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand alert-success" href="/home">Storage.Online</a>
+           <!--  <div class="flags">
+                <a class="navmenu-brand visible-md visible-lg eng" href="/setlocale/en" data-toggle="flags" title="Английский"></a>
+                <a class="navmenu-brand visible-md visible-lg ua" href="/setlocale/ua" data-toggle="flags" title="Украинский"></a>
+                <a class="navmenu-brand visible-md visible-lg rus" href="/setlocale/ru" data-toggle="flags" title="Русский"></a> 
+            </div> -->
         </div>
 
 
@@ -158,6 +171,9 @@
             $(document).ready(function(){
                 $('[data-toggle="tooltip"]').tooltip({
                     placement : 'top'
+                });
+                 $('[data-toggle="flags"]').tooltip({
+                    placement : 'bottom'
                 });
             });
         });

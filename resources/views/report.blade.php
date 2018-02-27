@@ -14,8 +14,44 @@
                             </div>
                             <div class="col-md-3">
                                 <input id="date_end" type="date" name="date_end"/>
+
                             </div>
+                            <div class="col-md-3">
                             <a href="#modal" class="btn btn-success col-md-offset-1"  onclick="getReport()">Сформировать</a>
+                            </div>
+                        <div class="col-md-3"> 
+                            <ul class="filter">
+                                <li class="dropLi">
+                                    <ul class="nav nav-pills">
+                                    <li role="presentation" class="dropdown bgB center">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="true">
+                                            Сортировать 
+                                        </a>
+                                        <ul class="dropdown-menu dropLi sortFilter">
+                                            <form method="POST" name='form_name2' id='form_name2'>
+
+                                                <li><a href="#" class="dropdown-item"><input type="checkbox" id="awesome" name="cheks" value="0" onclick="sel_all2('form_name2')"/>
+                                                    <label for="awesome"></label><span>Выбрать все</span></a></li>
+                                                
+                                                <li><a href="#" class="dropdown-item"><input type="checkbox" id="awesome1" name="cheks" value="1" />
+                                                <label for="awesome1"></label><span>№</span></a></li>
+
+                                                <li><a href="#" class="dropdown-item"><input type="checkbox" id="awesome3" name="cheks" value="3" />
+                                                <label for="awesome3"></label><span>Наименование</span></a></li>
+
+                                                <li><a href="#" class="dropdown-item"><input type="checkbox" id="awesome4" name="cheks" value="4" />
+                                                <label for="awesome4"></label><span>Период</span></a></li>
+
+                                                <li><a href="#" class="dropdown-item"><input type="checkbox" id="awesome5" name="cheks" value="5" />
+                                                <label for="awesome5"></label><span>Сумма</span></a></li>
+                                            </form>
+                                            <li><a href="#" class="dropdown-item"><label class="pointer">Применить</label></a></li>
+                                        </ul>
+                                    </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">

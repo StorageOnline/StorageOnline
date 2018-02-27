@@ -4,6 +4,10 @@ a:focus, a:hover {
     text-decoration: none;
 }
 
+.pointer{
+    cursor: pointer;
+}
+
 .rightBorderNone {
     border-bottom-right-radius: 0!important;
     border-top-right-radius: 0!important;
@@ -216,13 +220,133 @@ select#counterparty_type, select#counterparty_id{height: 36px;}
     padding: 6px;
 }
 
+.visible-lg {
+    display: inline-block!important;
+}
+
+a.navmenu-brand.visible-md.visible-lg.eng {background: url(../img/flag/usa-flag.png);}
+a.navmenu-brand.visible-md.visible-lg.ua{background: url(../img/flag/ukraine-flag.png);}
+a.navmenu-brand.visible-md.visible-lg.rus{background: url(../img/flag/russia-flag.png);}
+
+.flags{
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.flags a{
+    padding-top: 9px;
+}
+
+/*фильтры*/
+
+li.dropdown {
+    background: -webkit-gradient(linear, left top, left bottom, from(#313843), to(#2c343d));
+    border-radius: 6px;
+    color: white;
+}
+
+.filter a.dropdown-item:hover {
+    border-radius: 6px;
+    color: #2ab27b!important;
+}
+
+.filter .nav>li>a:focus{
+    background: -webkit-gradient(linear, left top, left bottom, from(#313843), to(#2c343d));
+    border-radius: 6px;
+}
+
+.filter ul li a {
+    padding: 5px 38px;
+    display: block;
+    font-size: 14px;
+}
+
+.filter .nav>li>a:hover{
+    background-color: transparent;
+}
+
+ul.nav.nav-pills{
+    float: right;
+}
+
+.dropdown-toggle::after{
+    display: none;
+}
+
+a.dropdown-toggle{
+    color: #fff;
+}
+
+.filter .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    background-color: transparent;
+    border-color: #3097D1;
+}
+
+
+ul.filter{
+     list-style: none;
+    -webkit-padding-start: 0px;
+}
+
+.open > a {
+    outline: 0;
+}
+
+a, area, button, [role="button"], input, label, select, summary, textarea {
+    touch-action: manipulation;
+}
+
+.open > .dropdown-menu {
+    transform: scale(1, 1);
+    opacity: 1;
+}
+
+.filter input[type="checkbox"] {
+  position: absolute;
+  clip: rect(0,0,0,0);
+}
+
+.filter input[type="checkbox"] + label {
+  display: inline-block;
+  width:20px;
+  height:20px;
+  background: #ccc;
+  background-image: linear-gradient(#ddd, #bbb);
+  border: 1px solid rgba(0,0,0,.2);
+  box-shadow: 0 1px white inset;
+  text-align: center;
+  text-shadow: 0 1px 1px white;
+  cursor: pointer;
+  border: 3px solid grey;
+  
+}
+
+.filter input[type="checkbox"]:checked + label,
+.filter input[type="checkbox"]:active + label {
+  box-shadow: .04em .1em .2em rgba(0,0,0,.6) inset;
+  border: 3px solid grey;
+  background: green;
+
+}
+
+.filter label {
+    margin-bottom: 0px;
+    margin-right: 5px;
+}
+
+.filter span{
+    vertical-align: super;
+}
+
+
+/*фильтры*/
 
 @media (max-width: 1199px) {
     .preview {display: table-cell;}
 }
 
 @media (max-width: 991px) {
-    
+   ul.nav.nav-pills {margin-bottom: 12px;}
 }
 
 @media (max-width: 767px) {
