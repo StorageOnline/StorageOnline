@@ -43,25 +43,25 @@
         <div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm scrollBar">
             <a class="navmenu-brand visible-md visible-lg alert-success" href="/home">Storage.Online</a>
             <div class="flags">
-                <a class="navmenu-brand visible-md visible-lg eng" href="/setlocale/en" data-toggle="flags" title="Английский"></a>
-                <a class="navmenu-brand visible-md visible-lg ua" href="/setlocale/ua" data-toggle="flags" title="Украинский"></a>
-                <a class="navmenu-brand visible-md visible-lg rus" href="/setlocale/ru" data-toggle="flags" title="Русский"></a> 
+                <a class="navmenu-brand visible-md visible-lg eng" href="/setlocale/en" data-toggle="flags" title="{{ trans('menu.eng') }}"></a>
+                <a class="navmenu-brand visible-md visible-lg ua" href="/setlocale/ua" data-toggle="flags" title="{{ trans('menu.ukr') }}"></a>
+                <a class="navmenu-brand visible-md visible-lg rus" href="/setlocale/ru" data-toggle="flags" title="{{ trans('menu.rus') }}"></a>
             </div>
             
             <ul class="nav navmenu-nav">
-                <li class="products"><a href="{{ route('products') }}"><i class="icon icon-shop2"></i> Товары</a></li>
-                <li class="counterparty"><a href="{{ route('counterparty') }}"><i class="icon icon-address-book"></i> Контрагенты</a></li>
-                <li class="incoming-payment-order"><a href="{{ route('incoming-payment-order') }}"><i class="icon icon-box-add"></i> Приходный ордер</a></li>
-                <li class="outgoing-payment-order"><a href="{{ route('outgoing-payment-order') }}"><i class="icon icon-box-remove"></i> Расходный ордер</a></li>
-                <li class="reports"><a href="{{ route('reports') }}"><i class="icon icon-clipboard"></i> Отчеты</a></li>
-                <li class="storage"><a href="{{ route('storage') }}"><i class="icon icon-truck"></i> Склад</a></li>
-                <li class="users"><a href="{{ route('users') }}"><i class="icon icon-users"></i> Пользователи</a></li>
-                <li class="log"><a href="{{ route('log') }}"><i class="icon icon-book"></i> Журнал</a></li>
+                <li class="products"><a href="{{ route('products') }}"><i class="icon icon-shop2"></i> {{ trans('menu.products') }}</a></li>
+                <li class="counterparty"><a href="{{ route('counterparty') }}"><i class="icon icon-address-book"></i> {{ trans('menu.counterparty') }}</a></li>
+                <li class="incoming-payment-order"><a href="{{ route('incoming-payment-order') }}"><i class="icon icon-box-add"></i> {{ trans('menu.incoming_order') }}</a></li>
+                <li class="outgoing-payment-order"><a href="{{ route('outgoing-payment-order') }}"><i class="icon icon-box-remove"></i> {{ trans('menu.outgoing_order') }}</a></li>
+                <li class="reports"><a href="{{ route('reports') }}"><i class="icon icon-clipboard"></i> {{ trans('menu.reports') }}</a></li>
+                <li class="storage"><a href="{{ route('storage') }}"><i class="icon icon-truck"></i> {{ trans('menu.storage') }}</a></li>
+                <li class="users"><a href="{{ route('users') }}"><i class="icon icon-users"></i> {{ trans('menu.users') }}</a></li>
+                <li class="log"><a href="{{ route('log') }}"><i class="icon icon-book"></i> {{ trans('menu.log') }}</a></li>
                 <div class="nav-bottom clearfix" style="height: 385px;">
-                    <a href="#" style="border-right: 0px;" data-toggle="tooltip" title="Выход"><i class="fa fa-power-off"></i></a>
-                    <a href="#" style="border-right: 0px;" data-toggle="tooltip" title="Калькулятор"><i class="fa fa-calculator"></i></a>
-                    <a href="#" style="border-right: 0px;" data-toggle="tooltip" title="Настройки"><i class="fa fa-gears"></i></a>
-                    <a href="#" style="border-right: 0px;" data-toggle="tooltip" title="Рандомно захуярить депутата"><i class="fa fa-rocket"></i></a>
+                    <a href="#" style="border-right: 0px;" data-toggle="tooltip" title="{{ trans('menu.exit') }}"><i class="fa fa-power-off"></i></a>
+                    <a href="#" style="border-right: 0px;" data-toggle="tooltip" title="{{ trans('menu.calc') }}"><i class="fa fa-calculator"></i></a>
+                    <a href="#" style="border-right: 0px;" data-toggle="tooltip" title="{{ trans('menu.settings') }}"><i class="fa fa-gears"></i></a>
+                    <a href="#" style="border-right: 0px;" data-toggle="tooltip" title="{{ trans('menu.game') }}"><i class="fa fa-rocket"></i></a>
                 </div>
             </ul>
         </div>
@@ -176,6 +176,8 @@
                     placement : 'bottom'
                 });
             });
+
+
         });
     
     </script>
