@@ -58,7 +58,10 @@
                 <li class="users"><a href="{{ route('users') }}"><i class="icon icon-users"></i> {{ trans('menu.users') }}</a></li>
                 <li class="log"><a href="{{ route('log') }}"><i class="icon icon-book"></i> {{ trans('menu.log') }}</a></li>
                 <div class="nav-bottom clearfix" style="height: 385px;">
-                    <a href="#" style="border-right: 0px;" data-toggle="tooltip" title="{{ trans('menu.exit') }}"><i class="fa fa-power-off"></i></a>
+                    <a href="#" style="border-right: 0px;" data-toggle="tooltip" title="{{ trans('menu.exit') }}" onclick="document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i></a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
                     <a href="#" style="border-right: 0px;" data-toggle="tooltip" title="{{ trans('menu.calc') }}"><i class="fa fa-calculator"></i></a>
                     <a href="#" style="border-right: 0px;" data-toggle="tooltip" title="{{ trans('menu.settings') }}"><i class="fa fa-gears"></i></a>
                     <a href="#" style="border-right: 0px;" data-toggle="tooltip" title="{{ trans('menu.game') }}"><i class="fa fa-rocket"></i></a>

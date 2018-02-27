@@ -353,4 +353,5 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
     .table th, .table td {word-break: break-all;}
     .small-display{display: none;}
     .small-container, .small-column {padding: 0px;}
+    ul.nav.navmenu-nav {min-height: 950px;}
 }
