@@ -801,7 +801,7 @@ function searchFunction() {
             } else {
                 $('#pagination').show();
             }
-            updateProductsList(data);
+            updateProductsList(data.data);
         }
     });
 }

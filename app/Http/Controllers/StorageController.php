@@ -7,9 +7,11 @@ use Illuminate\Http\Request;
 
 class StorageController extends Controller
 {
-    public function __construct()
+    protected $model;
+    public function __construct(Product $product)
     {
         $this->middleware('auth');
+        $this->model = $product;
     }
 
     /**
@@ -18,7 +20,7 @@ class StorageController extends Controller
      */
     public function index()
     {
-        $items = Product::withTrashed()->paginate(3);
+        $items = $this->model->withTrashed()->paginate(3);
 
         foreach($items as $item) {
             $item->relationPrice;
@@ -30,18 +32,18 @@ class StorageController extends Controller
         return view('storage', $products);
     }
 
-    // живой поиск
+    /*// живой поиск
     public function search(Request $request)
     {
         $request_search = '%'.$request->search.'%';
-        $items = Product::withTrashed()->where(function($q) use ($request_search){
+        $items = $this->model->withTrashed()->where(function($q) use ($request_search){
             $q->where('name', 'LIKE', $request_search);
         })->get();
 
         return $items;
-    }
+    }*/
 
-    // Поиск с пагинацией
+    /*// Поиск с пагинацией
     public function getSearch(Request $request)
     {
         $request_search = '%'.$request->search.'%';
@@ -52,5 +54,5 @@ class StorageController extends Controller
         $products ['products'] = $items;
         $products ['render'] = $items->render();
         return view('storage', $products);
-    }
+    }*/
 }

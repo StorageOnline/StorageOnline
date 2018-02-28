@@ -70,7 +70,7 @@ Route::group(['prefix' => '/reports'], function (){
 
 Route::group(['prefix' => '/storage'], function (){
     Route::get('/', 'StorageController@index')->name('storage');
-    Route::get('/search', 'StorageController@getSearch')->name('search');
+    Route::get('/serach', 'StorageController@getSearch')->name('search');
     Route::post('/search', 'StorageController@search');
 });
 
