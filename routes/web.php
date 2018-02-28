@@ -68,8 +68,11 @@ Route::group(['prefix' => '/reports'], function (){
     Route::post('/get-report', 'ReportController@getReport')->name('get-report');
 });
 
-
-Route::get('/storage', 'StorageController@index')->name('storage');
+Route::group(['prefix' => '/storage'], function (){
+    Route::get('/', 'StorageController@index')->name('storage');
+    Route::get('/search', 'StorageController@getSearch')->name('search');
+    Route::post('/search', 'StorageController@search');
+});
 
 Route::get('/users', 'UserController@index')->name('users');
 

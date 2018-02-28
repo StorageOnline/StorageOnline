@@ -16,12 +16,16 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
+                                    <form id="search-form" action="{{ route('search') }}" method="GET">
                                     <div class="input-group">
-                                        <input id="search-table" name="search-table" class="form-control rightBorderNone" placeholder="Поиск по таблице">
+                                        <input id="search-table" name="search" class="form-control rightBorderNone" onkeyup="searchFunction()" placeholder="Поиск по таблице">
                                     <div class="input-group-addon">
-                                        <a href="" class="fa fa-search with-btn" data-toggle="modal" data-target=""><i></i>
+                                        <a href="" class="fa fa-search with-btn" data-toggle="modal" onclick="document.getElementById('search-form').submit();" data-target=""><i></i>
                                         </a>
                                     </div>
+
+                                        {{--{{ csrf_field() }}--}}
+                                    </form>
                                     </div>
                                 </div>
                             </div>
@@ -107,6 +111,9 @@
                         </tbody>
                     </table>
                     </div>
+                <div id="pagination">
+                    {{ $render }}
+                </div>
                 </div>
             </div>
         </div>

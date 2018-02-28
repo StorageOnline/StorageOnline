@@ -780,6 +780,53 @@ function updateReportsList(data) {
 }
 
 /**
+ * посик по таблицам на страницах
+ */
+function searchFunction() {
+    $.ajax({
+        type: "post",
+        url: '/storage/search',
+        data: {
+            search: $("#search-table").val(),
+        },
+        cache: false,
+        error: function (data) {
+            console.log(data);
+            console.log("Ошибка поиска");
+        },
+        success: function(data){
+            console.log("Успешный поиск - " + data);
+            if($("#search-table").val() != ''){
+                $('#pagination').hide();
+            } else {
+                $('#pagination').show();
+            }
+            updateProductsList(data);
+        }
+    });
+}
+
+function getSearchFunction() {
+    $.ajax({
+        type: "get",
+        url: '/storage/search',
+        data: {
+            search: $("#search-table").val(),
+        },
+        cache: false,
+        error: function (data) {
+            console.log(data);
+            console.log("Ошибка поиска");
+        },
+        success: function(data){
+            console.log("Успешный поиск - " + data);
+            updateProductsList(data.products.data);
+            $("#pagin").appendTo(data.render);
+        }
+    });
+}
+
+/**
  * Построение графика
  */
 function setChart(title, subtitle, yAxis, data)
@@ -845,3 +892,4 @@ function setChart(title, subtitle, yAxis, data)
 
     });
 }
+
