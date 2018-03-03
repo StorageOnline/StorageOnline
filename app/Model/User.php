@@ -34,4 +34,12 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Model\Role', 'id', 'role_id');
     }
+
+    /**
+     * Связь многие ко многим
+     */
+    public function relationCompany()
+    {
+        return $this->belongsToMany('App\Model\Companies\Company', 'user_company', 'user_id', 'company_id');
+    }
 }

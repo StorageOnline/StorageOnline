@@ -9,14 +9,17 @@ use App\Model\Product;
 
 class ProductController extends Controller
 {
-    public function __construct()
+    protected $model;
+
+    public function __construct(Product $product)
     {
         $this->middleware('auth');
+        $this->model = $product;
     }
 
     public function index()
     {
-        $items = Product::all();
+        $items = $this->model->all();
         $products ['products'] = $items->toArray();
 
         return view('product', $products);
