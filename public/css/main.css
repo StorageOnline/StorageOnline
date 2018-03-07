@@ -512,6 +512,8 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     .small-container, .small-column {padding: 0px;}
     /*ul.nav.navmenu-nav {min-height: 950px;}*/
     .login-wrapper{padding-left: 14px;}
+    .login-block{    margin-top: 10%;}
+    .material-switch{margin-bottom: 5%;}
 }
 
 @media (max-width: 360px) {
