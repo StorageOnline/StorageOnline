@@ -63,9 +63,10 @@
                         <thead>
                         <tr>
                             <th style="width: 40px;">&#8470;</th>
-                            <th style="width:450px;">Имя</th>
-                            <th class="small-display text-center" style="width: 180px;">email</th>
-                            <th class="small-display text-center" style="width: 180px;">Роль</th>
+                            <th style="width:300px;">Имя</th>
+                            <th class="small-display text-center" style="width: 80px;">email</th>
+                            <th class="small-display text-center" style="width: 80px;">Компания</th>
+                            <th class="small-display text-center" style="width: 80px;">Роль</th>
                             <th colspan="3" style="width: 50px;">Действия</th>
                         </tr>
                         </thead>
@@ -75,6 +76,11 @@
                                 <td>{{ $user['id'] }}</td>
                                 <td>{{ $user['name'] }}</td>
                                 <td class="small-display text-center">{{ $user['email'] }}</td>
+                                <td class="small-display text-center">
+                                    @foreach($user['relationCompany'] as $company)
+                                        {{ $company['name'] }}
+                                    @endforeach
+                                </td>
                                 @foreach($user['relationRole'] as $us)
                                     <td class="small-display text-center">{{ $us['name'] }}</td>
                                 @endforeach

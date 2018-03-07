@@ -18,9 +18,10 @@ class UserController extends Controller
         $users = User::all();
         foreach ($users as $user) {
             $user->relationRole;
+            $user->relationCompany;
         }
         $data['users'] = $users;
-//        dump($data);
+        dump($data);
         return view('user', $data);
     }
 }

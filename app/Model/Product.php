@@ -2,8 +2,10 @@
 
 namespace App\Model;
 
+use App\Scopes\CompanyScope;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Builder;
 
 class Product extends Model
 {
@@ -24,6 +26,15 @@ class Product extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    protected static function boot()
+    {
+        parent::boot();
+        /*static::addGlobalScope('company', function(Builder $builder){
+            $builder->where('company_id', 1);
+        });*/
+        static::addGlobalScope(new CompanyScope());
+    }
 
     /**
      * Связь один ко многим
