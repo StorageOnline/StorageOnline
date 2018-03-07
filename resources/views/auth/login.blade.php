@@ -45,7 +45,7 @@
                             <div class="col-md-7">
                                 <div class="material-switch">
                                     
-                                        <input id="remember" type="checkbox" name="remember" class="checkbox" required=""{{ old('remember') ? 'checked' : '' }}> Remember Me&nbsp;&nbsp;
+                                        <input id="remember" type="checkbox" name="remember" class="checkbox" {{ old('remember') ? 'checked' : '' }}> Remember Me&nbsp;&nbsp;
                                         <label for="remember" class="label-success"></label>
                                 </div>
                             </div>
