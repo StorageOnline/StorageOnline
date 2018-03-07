@@ -231,12 +231,42 @@ a.navmenu-brand.visible-md.visible-lg.rus{background: url(../img/flag/russia-fla
 .flags{
     display: inline-block;
     margin-left: 30px;
+    position: relative;
+    top: 10px;
 }
 
 .flags a{
     padding-top: 9px;
 }
 
+.flags-sm{
+    display: inline-block;
+    position: relative;
+    top: 10px;
+}
+
+.flags-sm a{
+    padding-top: 9px;
+}
+.nav {
+    border-top: 1px solid grey;
+}
+
+a.navmenu-brand.visible-md.visible-lg.alert-success{
+    background-color: transparent;
+}
+
+.navbar-toggle {
+    margin-top: 14px;
+}
+
+.navbar-brand {
+    padding-top: 10px;
+    margin-left: 45px;
+    background: transparent;
+}
+
+.navbar{background: #3e3f42;}
 /*фильтры*/
 
 li.dropdown {
@@ -265,7 +295,7 @@ li.dropdown {
     background-color: transparent;
 }
 
-ul.nav.nav-pills{
+.nav-pills{
     float: right;
 }
 
@@ -341,17 +371,150 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
 
 /*фильтры*/
 
+
+/*авторизация*/
+.panel-default>.panel-heading {
+    border-bottom: 1px solid #fff;
+}
+
+.panel-auth{
+    border: 0px solid #000!important;
+    background-color: #00000069;
+    border-radius: 10px;
+    color: white;
+}
+
+.login {
+    background-color: transparent!important;
+    color: #fff!important;
+
+}
+.email, .password {
+    font-size: 110%;
+    color: #fff;
+    box-shadow: 0 -1px 1px rgba(255, 255, 255, 0.8) inset;
+        background: rgba(0, 0, 0, 0.3);
+}
+
+
+
+.panel-auth label {color:#fff;font-size: 16px;}
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background-color: red!important;}
+
+.panel-auth .fa.fa-envelope-o,.panel-auth .fa.fa-lock{
+    position: relative;
+    font-size: 20px;
+    top: -28px;
+    left: 10px;
+    color:#3c3b3b;
+}
+
+.panel-auth .fa.fa-lock{
+    font-size: 28px;
+    top: -31px;
+}
+   
+.panel-auth input{
+    padding-left:50px!important;color: white;}
+
+.btn-login{
+    width: 100%;
+}
+
+.panel-auth .material-switch > input[type="checkbox"] {
+    display: none;   
+}
+
+.panel-auth .material-switch > label {
+    cursor: pointer;
+    height: 0px;
+    position: relative; 
+    width: 35px;  
+}
+
+.panel-auth .material-switch > label::before {
+    background: rgb(0, 0, 0);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    content: '';
+    height: 16px;
+    margin-top: -8px;
+    position:absolute;
+    opacity: 0.3;
+    transition: all 0.4s ease-in-out;
+    width: 35px;
+}
+.panel-auth .material-switch > label::after {
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    content: '';
+    height: 18px;
+    left: -4px;
+    margin-top: -8px;
+    position: absolute;
+    top: -1px;
+    transition: all 0.3s ease-in-out;
+    width: 18px;
+}
+.panel-auth .material-switch > input[type="checkbox"]:checked + label::before {
+    background: inherit;
+    opacity: 0.5;
+}
+.panel-auth .material-switch > input[type="checkbox"]:checked + label::after {
+    background: inherit;
+    left: 20px;
+}
+
+.login-wrapper{
+    padding-left: 0px;
+}
+
+.forgot, .forgot a {
+    padding-left: 0;
+    color: #ffe643;
+}
+
+.forgot a:hover{color: #ffe643;}
+
+.btn-login {
+    color: #d9eef7;
+    border: solid 1px #0076a3;
+    background: #0095cd;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+    background: -moz-linear-gradient(top, #00adee, #0078a5);
+    background: -ms-linear-gradient(top, #00adee, #0078a5);
+    background-image: -o-linear-gradient(top, #00adee, #0078a5);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00adee', endColorstr='#0078a5');
+}
+
+/*авторизация*/
+@media (min-width: 1024px) and (max-width: 1199px){
+.login-block{width: 40%;}
+}
+
 @media (max-width: 1199px) {
     .preview {display: table-cell;}
+    
 }
 
 @media (max-width: 991px) {
    ul.nav.nav-pills {margin-bottom: 12px;}
+   a.navmenu-brand.visible-md.visible-lg.hidden-sm.alert-success, .flags{display: none!important;}
+   .nav {padding-top: 20px;}
 }
 
 @media (max-width: 767px) {
     .table th, .table td {word-break: break-all;}
     .small-display{display: none;}
     .small-container, .small-column {padding: 0px;}
-    ul.nav.navmenu-nav {min-height: 950px;}
+    /*ul.nav.navmenu-nav {min-height: 950px;}*/
+    .login-wrapper{padding-left: 14px;}
 }
+
+@media (max-width: 360px) {
+       ul.nav.navmenu-nav {min-height: 950px;}
+}
+

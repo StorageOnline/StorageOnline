@@ -22,7 +22,7 @@
                         <div class="col-md-3"> 
                             <ul class="filter">
                                 <li class="dropLi">
-                                    <ul class="nav nav-pills">
+                                    <ul class="nav-pills">
                                     <li role="presentation" class="dropdown bgB center">
                                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="true">
                                             Сортировать 

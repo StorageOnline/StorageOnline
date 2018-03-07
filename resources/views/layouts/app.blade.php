@@ -41,7 +41,7 @@
 <body>
     <div id="app">
         <div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm scrollBar">
-            <a class="navmenu-brand visible-md visible-lg alert-success" href="/home">Storage.Online</a>
+            <a class="navmenu-brand visible-md visible-lg hidden-sm alert-success" href="/home">Storage.Online</a>
             <div class="flags">
                 <a class="navmenu-brand visible-md visible-lg eng" href="/setlocale/en" data-toggle="flags" title="{{ trans('menu.eng') }}"></a>
                 <a class="navmenu-brand visible-md visible-lg ua" href="/setlocale/ua" data-toggle="flags" title="{{ trans('menu.ukr') }}"></a>
@@ -76,11 +76,11 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand alert-success" href="/home">Storage.Online</a>
-           <!--  <div class="flags">
+            <div class="flags-sm">
                 <a class="navmenu-brand visible-md visible-lg eng" href="/setlocale/en" data-toggle="flags" title="Английский"></a>
                 <a class="navmenu-brand visible-md visible-lg ua" href="/setlocale/ua" data-toggle="flags" title="Украинский"></a>
                 <a class="navmenu-brand visible-md visible-lg rus" href="/setlocale/ru" data-toggle="flags" title="Русский"></a> 
-            </div> -->
+            </div>
         </div>
 
 
