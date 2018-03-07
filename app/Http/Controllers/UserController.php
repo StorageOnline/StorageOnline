@@ -8,20 +8,21 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function __construct()
+    public function __construct(User $user)
     {
         $this->middleware('auth');
+        $this->model = $user;
     }
 
     public function index()
     {
-        $users = User::all();
+        $users = $this->model->paginate(10);
         foreach ($users as $user) {
             $user->relationRole;
             $user->relationCompany;
         }
         $data['users'] = $users;
-        dump($data);
+//        dump($data);
         return view('user', $data);
     }
 }

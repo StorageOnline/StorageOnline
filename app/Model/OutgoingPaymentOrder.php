@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use App\Scopes\CompanyScope;
 use Illuminate\Database\Eloquent\Model;
 
 class OutgoingPaymentOrder extends Model
@@ -10,6 +11,16 @@ class OutgoingPaymentOrder extends Model
     protected $table = 'outgoing_payment_orders';
 
     public $timestamps = true;
+
+    /**
+     * Подгрузка "условия запросов (QUERY SCOPES)"
+     * для того, чтоб модель выбирала Расходные ордера в привязке к компании
+     */
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope(new CompanyScope());
+    }
 
     /**
      * Устанавливает связь один к одному между IncomingPaymentOrder и Counterparty

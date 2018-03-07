@@ -110,10 +110,10 @@
                         @endforeach
                         </tbody>
                     </table>
+                    <div id="pagination">
+                        {{ $render }}
                     </div>
-                <div id="pagination">
-                    {{ $render }}
-                </div>
+                    </div>
                 </div>
             </div>
         </div>

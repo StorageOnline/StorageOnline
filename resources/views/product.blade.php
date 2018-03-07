@@ -61,45 +61,48 @@
                         </li>
                         </ul>
                         </div>
-           </div>
-           <div class="row">
-            <div class="col-md-12">
-                <table id="" class="table">
-                    <thead >
-                        <tr>
-                            <th class="text-center" style="width: 50px;">&#8470;</th>
-                            <th style="width: 430px;">Наименование</th>
-                            <th class="small-display" style="width: 100px;padding-left: 0px!important;text-align: center;">Код</th>
-                            <th class="small-display" style="width: 120px;padding-left: 0px!important;text-align: center;">Кол-во</th>
-                            <th class="text-center small-display" style="width: 120px;">Цена</th>
-                            <th class="text-center" colspan="3" style="width: 50px;">Действия</th>
-                        </tr>
-                    </thead>
-                    <tbody id="all-product-tab" class="text-center">
-                        @foreach($products as $product)
-                        <tr>
-                            <td>{{ $product['id'] }}</td>
-                            <td class="text-left">{{ $product['name'] }}</td>
-                            <td class="small-display">{{ $product['code'] }}</td>
-                            <td class="small-display">{{ $product['quantity'] }}</td>
-                            <td class="small-display">{{ $product['price'] }}</td>
-                            <td class="text-center preview"><a href="#modal" data-toggle="modal" >
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                            </a>
-                        </td>
-                        <td class="text-center"><a href="#modal" data-toggle="modal" onclick="editProduct({{ $product['id'] }})">
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                        </a>
-                    </td>    
-                    <td class="text-center">
-                        <a href="#" onclick="delProduct({{ $product['id'] }})">
-                            <i class="fa fa-trash-o fa-lg red"></i>
-                        </a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+                       </div>
+                       <div class="row">
+                        <div class="col-md-12">
+                            <table id="" class="table">
+                                <thead >
+                                    <tr>
+                                        <th class="text-center" style="width: 50px;">&#8470;</th>
+                                        <th style="width: 430px;">Наименование</th>
+                                        <th class="small-display" style="width: 100px;padding-left: 0px!important;text-align: center;">Код</th>
+                                        <th class="small-display" style="width: 120px;padding-left: 0px!important;text-align: center;">Кол-во</th>
+                                        <th class="text-center small-display" style="width: 120px;">Цена</th>
+                                        <th class="text-center" colspan="3" style="width: 50px;">Действия</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="all-product-tab" class="text-center">
+                                    @foreach($products as $product)
+                                    <tr>
+                                        <td>{{ $product['id'] }}</td>
+                                        <td class="text-left">{{ $product['name'] }}</td>
+                                        <td class="small-display">{{ $product['code'] }}</td>
+                                        <td class="small-display">{{ $product['quantity'] }}</td>
+                                        <td class="small-display">{{ $product['price'] }}</td>
+                                        <td class="text-center preview"><a href="#modal" data-toggle="modal" >
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                    <td class="text-center"><a href="#modal" data-toggle="modal" onclick="editProduct({{ $product['id'] }})">
+                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                    </a>
+                                </td>
+                                <td class="text-center">
+                                    <a href="#" onclick="delProduct({{ $product['id'] }})">
+                                        <i class="fa fa-trash-o fa-lg red"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                <div id="pagination">
+                    {{ $render }}
+                </div>
     </div>
 </div>
 </div>

@@ -7,15 +7,18 @@ use App\Model\Counterparty;
 
 class CounterpartyController extends Controller
 {
-    public function __construct()
+    public function __construct(Counterparty $counterparty)
     {
         $this->middleware('auth');
+        $this->model = $counterparty;
     }
 
     public function index()
     {
-        $counterparties = Counterparty::all();
-        $counterpartyInfo['counterparties'] = $counterparties->toArray();
+        $counterparties = $this->model->paginate(10);
+        $counterpartyInfo['counterparties'] = $counterparties;
+        // html код пагинации на странице
+        $counterpartyInfo['render'] = $counterparties->render();
 
         return view('counterparty', $counterpartyInfo);
     }

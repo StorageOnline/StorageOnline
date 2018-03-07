@@ -27,12 +27,13 @@ class Product extends Model
      */
     protected $dates = ['deleted_at'];
 
+    /**
+     * Подгрузка "условия запросов (QUERY SCOPES)"
+     * для того, чтоб модель выбирала только товары в привязке к компании
+     */
     protected static function boot()
     {
         parent::boot();
-        /*static::addGlobalScope('company', function(Builder $builder){
-            $builder->where('company_id', 1);
-        });*/
         static::addGlobalScope(new CompanyScope());
     }
 

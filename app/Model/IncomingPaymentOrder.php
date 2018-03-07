@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use App\Scopes\CompanyScope;
 use Illuminate\Database\Eloquent\Model;
 
 class IncomingPaymentOrder extends Model
@@ -12,6 +13,16 @@ class IncomingPaymentOrder extends Model
     public $timestamps = true;
 
     protected $fillable = ['*'];
+
+    /**
+     * Подгрузка "условия запросов (QUERY SCOPES)"
+     * для того, чтоб модель выбирала Приходные ордера в привязке к компании
+     */
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope(new CompanyScope());
+    }
 
     /**
      *  Устанавливает связь "один ко многим" номер накладной к сформированным товарам

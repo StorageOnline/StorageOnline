@@ -19,8 +19,9 @@ class ProductController extends Controller
 
     public function index()
     {
-        $items = $this->model->all();
-        $products ['products'] = $items->toArray();
+        $items = $this->model->paginate(10);
+        $products ['products'] = $items;
+        $products ['render'] = $items->render();
 
         return view('product', $products);
     }
@@ -36,7 +37,7 @@ class ProductController extends Controller
         $code = $request->product_code;
         $price = $request->product_price;
 
-        $product = Product::updateOrCreate(['id' => $id], ['name' => $name, 'code' => $code, 'quantity' => $quantity, 'price' => $price]);
+        $product = $this->model->updateOrCreate(['id' => $id], ['name' => $name, 'code' => $code, 'quantity' => $quantity, 'price' => $price]);
         // проверка и изменение цены если пользователь всё изменения
         if(!empty($product->relationPrice)) {
             // получение последней цены на товар
@@ -61,7 +62,7 @@ class ProductController extends Controller
     {
         $id = $request->id;
 
-        $productInfo = Product::find($id);
+        $productInfo = $this->model->find($id);
         // получение всех цен на товар
         $prices = $productInfo->relationPrice;
         // получение последней цены товара
@@ -81,7 +82,7 @@ class ProductController extends Controller
     public function delProduct(Request $request)
     {
         $id = $request->id;
-        $item = Product::find($id);
+        $item = $this->model->find($id);
         if($item->delete()) {
             return $this->getAllProducts();
         }
@@ -94,7 +95,7 @@ class ProductController extends Controller
      */
     public function getAllProducts()
     {
-        $items = Product::all();
+        $items = $this->model->all();
         $products = $items->toArray();
 
 //        dump($products);

@@ -20,7 +20,7 @@ class Controller extends BaseController
         $request_search = '%'.$request->search.'%';
         $items = $this->model->withTrashed()->where(function($q) use ($request_search){
             $q->where('name', 'LIKE', $request_search);
-        })->paginate(2);
+        })->paginate(10);
         $items->setPath('search?search='.$request->search);
         $products ['products'] = $items;
         $products ['render'] = $items->render();
@@ -33,7 +33,7 @@ class Controller extends BaseController
         $request_search = '%'.$request->search.'%';
         $items = $this->model->withTrashed()->where(function($q) use ($request_search){
             $q->where('name', 'LIKE', $request_search);
-        })->paginate(3);
+        })->paginate(10);
 
         return $items;
     }

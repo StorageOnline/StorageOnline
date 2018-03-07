@@ -10,17 +10,19 @@ use App\Model\IncomingPaymentOrder;
 
 class IncomingPaymentOrderController extends Controller
 {
-    public function __construct()
+    public function __construct(IncomingPaymentOrder $order)
     {
         $this->middleware('auth');
+        $this->model = $order;
     }
 
     public function index()
     {
-        $orders = IncomingPaymentOrder::with('relationCounterparty')->get();
+        $order = $this->model->with('relationCounterparty')->paginate(10);
         $counterparty = Counterparty::all()->where('type', 2);
-        $orders['orders'] = $orders->toArray();
+        $orders['orders'] = $order;
         $orders['counterparties'] =  $counterparty->toArray();
+        $orders['render'] =  $order->render();
 
         return view('incoming-payment-order', $orders);
     }
@@ -37,7 +39,7 @@ class IncomingPaymentOrderController extends Controller
         $summa = $request->summa;
 
         if($order_id) {
-            $order = IncomingPaymentOrder::find($order_id);
+            $order = $this->model->find($order_id);
             $order->counterparty_id = $counterparty_id;
             $order->sum = $summa;
             $order->quantity = $quantity;
@@ -76,7 +78,7 @@ class IncomingPaymentOrderController extends Controller
     {
         $id = $request->id;
 
-        $order = IncomingPaymentOrder::find($id);
+        $order = $this->model->find($id);
         foreach ($order->relationInvoiceIncoming as $item) {
             $item->delete();
         }
@@ -91,7 +93,7 @@ class IncomingPaymentOrderController extends Controller
      */
     public function  getAllIncomingPaymentOrder()
     {
-        $items = IncomingPaymentOrder::all();
+        $items = $this->model->all();
         foreach ($items as $item) {
             $item->relationCounterparty;
         }
@@ -105,7 +107,7 @@ class IncomingPaymentOrderController extends Controller
      */
     public function getOrderById(Request $request)
     {
-        $items = IncomingPaymentOrder::find($request->id);
+        $items = $this->model->find($request->id);
         foreach ($items->relationInvoiceIncoming as $item) {
             $item->relationProduct;
         }
@@ -128,7 +130,7 @@ class IncomingPaymentOrderController extends Controller
         $price = $product->price;
 
         if($order_id) {
-            $order = IncomingPaymentOrder::find($order_id);
+            $order = $this->model->find($order_id);
             if(!empty($items = $order->relationInvoiceIncoming->where('product_id', $product_id)->first())) {
                 $items->quantity++;
                 $items->price = $items->price + $price;
@@ -192,7 +194,7 @@ class IncomingPaymentOrderController extends Controller
         $product_id = $request->product_id;
         $order_id = $request->order_id;
 
-        $order = IncomingPaymentOrder::find($order_id);
+        $order = $this->model->find($order_id);
             $item = $order->relationInvoiceIncoming->where('id', $product_id)->first();
             $item->delete();
         $order->reFresh();

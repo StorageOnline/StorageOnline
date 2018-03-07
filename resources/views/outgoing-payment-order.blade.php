@@ -81,7 +81,7 @@
                             <tr>
                                 <td>{{ $order['id'] }}</td>
                                 <td class="small-display" >{{ $order['created_at'] }}</td>
-                                <td>{{ $order['relation_counterparty']['name'] }}</td>
+                                <td>{{ $order['relationCounterparty']['name'] }}</td>
                                 <td class="small-display text-center" >{{ $order['quantity'] }}</td>
                                 <td class="small-display text-center" >{{ $order['sum'] }}</td>
                                 <td class="text-center preview"><a href="#modal" data-toggle="modal" >
@@ -102,6 +102,9 @@
                         @endforeach
                         </tbody>
                     </table>
+                        <div id="pagination">
+                            {{ $render }}
+                        </div>
                   </div>
                 </div>
             </div>

@@ -63,49 +63,50 @@
                         </div>
                         </div>
                         <table id="" class="table">
-                        <thead>
-                        <tr>
-                            <th style="width: 40px;">&#8470;</th>
-                            <th style="width: 60px;">Тип</th>
-                            <th style="width: 400px;">Наименование</th>
-                            <th class="small-display" style="width: 150px;">Телефон</th>
-                            <th class="small-display" style="width: 150px;">Email</th>
-                            <th class="text-center" colspan="3" style="width: 50px;">Действия</th>
-                        </tr>
-                        </thead>
-                        <tbody id="all-counterparty-tab" class="">
-                        @foreach($counterparties as $counterparty)
+                            <thead>
                             <tr>
-                                <td>{{ $counterparty['id'] }}</td>
-                                @if($counterparty['type'] == 1)
-                                    <td class=""><span class="label label-danger">Покупатель</span></td>
-                                @else
-                                    <td class=""><span class="label label-success">Поставщик</span></td>
-                                @endif
-                                <td>{{ $counterparty['name'] }}</td>
-                                <td class="small-display">{{ $counterparty['tel'] }}</td>
-                                <td class="small-display">{{ $counterparty['email'] }}</td>
-                                <td class="text-center preview"><a href="#modal" data-toggle="modal" >
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                </a>
-                                </td>
-                                <td class="text-center"><a href="#modal" data-toggle="modal" onclick="editCounterparty({{ $counterparty['id'] }})">
-                                <i class="fa fa-pencil" aria-hidden="true"></i>
-                                </a>
-                                </td>    
-                                <td class="text-center">
-                                    <a href="#" onclick="delCounterparty({{ $counterparty['id'] }})">
-                                        <i class="fa fa-trash-o fa-lg red"></i>
-                                        </a>
-                                </td>
+                                <th style="width: 40px;">&#8470;</th>
+                                <th style="width: 60px;">Тип</th>
+                                <th style="width: 400px;">Наименование</th>
+                                <th class="small-display" style="width: 150px;">Телефон</th>
+                                <th class="small-display" style="width: 150px;">Email</th>
+                                <th class="text-center" colspan="3" style="width: 50px;">Действия</th>
                             </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody id="all-counterparty-tab" class="">
+                            @foreach($counterparties as $counterparty)
+                                <tr>
+                                    <td>{{ $counterparty['id'] }}</td>
+                                    @if($counterparty['type'] == 1)
+                                        <td class=""><span class="label label-danger">Покупатель</span></td>
+                                    @else
+                                        <td class=""><span class="label label-success">Поставщик</span></td>
+                                    @endif
+                                    <td>{{ $counterparty['name'] }}</td>
+                                    <td class="small-display">{{ $counterparty['tel'] }}</td>
+                                    <td class="small-display">{{ $counterparty['email'] }}</td>
+                                    <td class="text-center preview"><a href="#modal" data-toggle="modal" >
+                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                    </a>
+                                    </td>
+                                    <td class="text-center"><a href="#modal" data-toggle="modal" onclick="editCounterparty({{ $counterparty['id'] }})">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                    </a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="#" onclick="delCounterparty({{ $counterparty['id'] }})">
+                                            <i class="fa fa-trash-o fa-lg red"></i>
+                                            </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                        <div id="pagination">
+                            {{ $render }}
+                        </div>
                     </div>
                     </div>
-
-                    
                 </div>
             </div>
         </div>
