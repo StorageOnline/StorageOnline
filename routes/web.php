@@ -74,6 +74,8 @@ Route::group(['prefix' => '/storage'], function (){
     Route::post('/search', 'StorageController@search');
 });
 
+Route::get('/setting', 'SettingsController@index')->name('settings');
+
 Route::get('/users', 'UserController@index')->name('users');
 
 Route::get('/log', 'HomeController@index')->name('log');
