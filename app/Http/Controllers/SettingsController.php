@@ -11,7 +11,7 @@ class SettingsController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
         return view('settings');
     }
