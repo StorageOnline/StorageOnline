@@ -11,7 +11,7 @@ class OutgoingPaymentOrderController extends Controller
 {
     public function __construct(OutgoingPaymentOrder $order)
     {
-        $this->middleware('auth');
+        parent::__construct();
         $this->model = $order;
     }
 

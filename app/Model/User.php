@@ -42,4 +42,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Model\Companies\Company', 'user_company', 'user_id', 'company_id');
     }
+
+    public function relationUserCompany()
+    {
+        return $this->hasMany('App\Model\Companies\UserCompany', 'user_id', 'id');
+    }
 }

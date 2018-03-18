@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function __construct(User $user)
     {
-        $this->middleware('auth');
+        parent::__construct();
         $this->model = $user;
     }
 

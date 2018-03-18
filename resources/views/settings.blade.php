@@ -80,7 +80,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 control-block">
-                                                    <button type="button" class="btn btn-oval btn-success" onclick="setCompany(2)">Выбрать</button>
+                                                    <button type="button" class="btn btn-oval btn-success" onclick="setCompany(1)">Выбрать</button>
                                                     <button type="button" class="btn btn-oval btn-primary">Редактировать</button>
                                                     <button type="button" class="btn btn-oval btn-danger">Удалить</button>
                                                 </div> 

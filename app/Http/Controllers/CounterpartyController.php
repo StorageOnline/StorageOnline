@@ -9,7 +9,7 @@ class CounterpartyController extends Controller
 {
     public function __construct(Counterparty $counterparty)
     {
-        $this->middleware('auth');
+        parent::__construct();
         $this->model = $counterparty;
     }
 
