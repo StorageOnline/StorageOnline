@@ -25,7 +25,7 @@
                                         <div class="col-md-6 pLeft0">
                                             <h2>Управление компаниями</h2> 
                                             
-                                        </div>                                     
+                                        </div>
 
                                         <div class="col-md-6 add-btn-row pRight0"><a  data-toggle="tooltip" href="#modal" data-toggle="modal" onclick="" class="btn btn-success add-new-company" data-original-title="Добавить новую компанию"><i class="fa fa-plus"></i></a>
                                         </div>
