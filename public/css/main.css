@@ -594,7 +594,110 @@ ul.nav.nav-tabs.tools>li>a{
   float: right;
 }
 
+.company-item .btn {
+  padding-top: 2px!important;
+  padding-bottom: 2px!important;
+}
 
+
+/*настройка gender*/
+.c-radio {
+    margin-right: 4px;
+    position: relative;
+}
+.radio-inline, .checkbox-inline {
+    display: inline-block;
+    padding-left: 20px;
+    margin-bottom: 0;
+    vertical-align: middle;
+    font-weight: normal;
+    cursor: pointer;
+}
+.radio input[type="radio"], .radio-inline input[type="radio"] {
+    float: left;
+    margin-left: -20px;
+}
+.c-radio input {
+    opacity: 0;
+    position: absolute;
+    margin-left: 0 !important;
+}
+input[type="radio"]{
+    margin: 4px 0 0;
+    margin-top: 1px \9;
+    line-height: normal;
+}
+input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.c-radio span:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    text-align: center !important;
+    font-size: 12px;
+    line-height: 18px;
+    vertical-align: middle;
+}
+
+.fa-circle:before {
+    content: "\f111";
+}
+*:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+input[type=radio]:checked+span {
+    background-color: #fff;
+}
+
+input[type=radio]:checked+span {
+    border-color: #67a8e4;
+    /*background-color: #67a8e4;*/
+}
+.c-radio:hover span {
+    border-color: #67a8e4;
+}
+
+.c-radio span {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: -20px;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-right: 5px;
+}
+.c-radio *{
+    cursor: pointer;
+}
+
+input[type=radio]:checked+span:before {
+    color: #67a8e4;
+}
+input[type=checkbox]:checked+span:before, input[type=radio]:checked+span:before {
+    color: #67a8e4;
+    opacity: 1;
+    transition: color .3 ease-out;
+}
+
+.fa-circle:before {
+    content: "\f111";
+}
+/*END настройка gender*/
+
+.personal-info select{
+  padding: 6px 10px;
+}
 
 
 
@@ -604,6 +707,7 @@ ul.nav.nav-tabs.tools>li>a{
 
 @media (min-width: 1024px) and (max-width: 1199px){
 .login-block{width: 40%;}
+.gender-label{float: left;}
 }
 
 @media (max-width: 1199px) {
@@ -611,12 +715,15 @@ ul.nav.nav-tabs.tools>li>a{
     .control-block .btn-danger{ float: none;margin-top: 5%;}
     #company .container h2 {font-size: 24px;}
     .add-new-company {float: left;margin-bottom: 10px;}
+    
+    .birth-day-label {text-align: left!important;}
 }
 
 @media (max-width: 991px) {
    ul.nav.nav-pills {margin-bottom: 12px;}
    a.navmenu-brand.visible-md.visible-lg.hidden-sm.alert-success, .flags{display: none!important;}
    .nav {padding-top: 20px;}
+   .personal-info select {padding: 6px 13.5px;}
 }
 
 @media (max-width: 767px) {
@@ -631,5 +738,9 @@ ul.nav.nav-tabs.tools>li>a{
 
 @media (max-width: 360px) {
        ul.nav.navmenu-nav {min-height: 950px;}
+       .personal-info select {padding: 6px 10px;}
 }
 
+@media (max-width: 320px) {
+       .personal-info select {padding: 6px 4px;}
+}
