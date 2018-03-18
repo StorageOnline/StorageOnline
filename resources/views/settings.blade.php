@@ -80,13 +80,12 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 control-block">
-                                                    <button type="button" class="btn btn-oval btn-primary">Заблокировать</button>
-                                                    <button type="button" class="btn btn-oval btn-success">Редактировать</button>
+                                                    <button type="button" class="btn btn-oval btn-success" onclick="setCompany(2)">Выбрать</button>
+                                                    <button type="button" class="btn btn-oval btn-primary">Редактировать</button>
                                                     <button type="button" class="btn btn-oval btn-danger">Удалить</button>
                                                 </div> 
                                             </div>
                                         </div>
-                                        <a href="#" onclick="setCompany(2)">Выбрать компанию 2</a>
                                     </div>
 
                                     <div class="col-md-6 company-block">
@@ -136,21 +135,19 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 control-block">
-                                                    <button type="button" class="btn btn-oval btn-primary">Заблокировать</button>
-                                                    <button type="button" class="btn btn-oval btn-success">Редактировать</button>
+                                                    <button type="button" class="btn btn-oval btn-success" onclick="setCompany(3)">Выбрать</button>
+                                                    <button type="button" class="btn btn-oval btn-primary">Редактировать</button>
                                                     <button type="button" class="btn btn-oval btn-danger">Удалить</button>
                                                 </div> 
                                             </div>
                                         </div>
-                                        <a href="#" onclick="setCompany(3)">Выбрать компанию 3</a>
                                     </div>
                                 </div>
                                 <div id="datas" class="tab-pane fade">
                                     <h2 class="container">Персональные данные</h2>
                                     <div class="col-sm-6">
-
                                         <div class="panel panel-default">
-                                            <div class="panel-heading">Horizontal form</div>
+                                            <div class="panel-heading">Личная информация</div>
                                             <div class="panel-body">
                                                 <form class="form-horizontal">
                                                     <div class="form-group">
@@ -172,7 +169,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-sm-2 control-label">Datepicker</label>
+                                                        <label class="col-sm-2 control-label">Дата рождения</label>
                                                         <div class="col-sm-4">
 
                                                             <div  class="datetimepicker input-group date mb-lg">
@@ -184,41 +181,23 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
+                                                    <div class="col-lg-offset-2 col-lg-10">
+                                                        <div class="checkbox c-checkbox">
+                                                            <label>
+                                                                <input type="checkbox" checked="">
+                                                                <span class="fa fa-check"></span>Remember me</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
                                                         <div class="col-lg-offset-2 col-lg-10">
-                                                            <div class="checkbox c-checkbox">
-                                                                <label>
-                                                                    <input type="checkbox" checked="">
-                                                                    <span class="fa fa-check"></span>Remember me</label>
-                                                                </div>
-                                                            </div>
+                                                            <button type="submit" class="btn btn-sm btn-default">Sign in</button>
                                                         </div>
-                                                        <div class="form-group">
-                                                            <div class="col-lg-offset-2 col-lg-10">
-                                                                <button type="submit" class="btn btn-sm btn-default">Sign in</button>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
+                                                    </div>
+                                                </form>
                                             </div>
-
                                         </div>
-                                        <div>
-                                        <label for="name">Имя</label>
-                                        <input id="name" type="text" placeholder="Имя">
-                                        <label for="surname">Фамилия</label>
-                                        <input id="surname" type="text" placeholder="Фамилия"></br>
-                                        <label>Пол</label></br>
-                                        <label>Дата рождения</label></br>
-                                        {{--Контакты--}}
-                                        <h4>Контакты</h4>
-                                        <label>Телефон</label></br>
-                                        <label>Скайп</label></br>
-
                                     </div>
-
-                                    <button id="" type="submit" form="" class="btn btn-success">
-                                        Сохранить
-                                    </button>
                                 </div>
                                 <div id="vars" class="tab-pane fade">Переменные</div>
                             </div>
