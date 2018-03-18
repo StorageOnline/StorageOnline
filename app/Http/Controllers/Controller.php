@@ -14,6 +14,12 @@ class Controller extends BaseController
 
     // объект модели
     protected  $model;
+
+    public function __construct()
+    {
+        $this->middleware(['auth', 'set_comp']);
+    }
+
     // Поиск с пагинацией
     public function getSearch(Request $request)
     {

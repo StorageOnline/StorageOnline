@@ -21,15 +21,12 @@ Route::get('/setlocale/{locale}', function($locale){
     if(in_array($locale, \Config::get('app.locales'))){
         Session::put('locale', $locale);
     }
-//    echo Session::get('locale');
     return redirect()->back();
 });
 
-Route::post('/company/set/', function (Illuminate\Http\Request $request){
-    Session::put('company_id', $request->id);
-});
+Route::post('/company/set/', 'CompanyController@setCompanyId');
 
-Route::get('/home', 'HomeController@index')->middleware('set_comp')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => '/products'], function () {
     Route::get('/', 'ProductController@index')->name('products');

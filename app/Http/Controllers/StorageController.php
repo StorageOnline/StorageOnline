@@ -10,7 +10,7 @@ class StorageController extends Controller
     protected $model;
     public function __construct(Product $product)
     {
-        $this->middleware('auth');
+        parent::__construct();
         $this->model = $product;
     }
 

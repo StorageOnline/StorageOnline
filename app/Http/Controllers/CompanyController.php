@@ -4,16 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class SettingsController extends Controller
+class CompanyController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    public function index(Request $request)
+    public function setCompanyId(Request $request)
     {
-//        dump(session()->all());
-        return view('settings');
+        return session()->put('company_id', $request->id);
     }
 }
