@@ -143,52 +143,101 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="datas" class="tab-pane fade">
+                                <div id="datas" class="tab-pane fade personal-info">
                                     <h2 class="container">Персональные данные</h2>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <div class="panel panel-default">
                                             <div class="panel-heading">Личная информация</div>
                                             <div class="panel-body">
                                                 <form class="form-horizontal">
                                                     <div class="form-group">
                                                         <label for="login" class="col-lg-2 control-label">Логин</label>
-                                                        <div class="col-lg-10">
+                                                        <div class="col-lg-4">
                                                             <input id="login" type="text" placeholder="Логин" class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="name" class="col-lg-2 control-label">Имя</label>
-                                                        <div class="col-lg-10">
+                                                        <div class="col-lg-4">
                                                             <input id="name" type="text" placeholder="Имя" class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="surname" class="col-lg-2 control-label">Фамилия</label>
-                                                        <div class="col-lg-10">
+                                                        <div class="col-lg-4">
                                                             <input id="surname" type="text" placeholder="Фамилия" class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-sm-2 control-label">Дата рождения</label>
-                                                        <div class="col-sm-4">
+                                                        <label for="gender" class="col-lg-2 control-label gender-label">Пол</label>
+                                                        <div class="col-sm-10">
+                                                           <label class="radio-inline c-radio">
+                                                            <input id="inlineradio3" type="radio" name="i-radio" value="option3" checked>
+                                                            <span class="male fa fa-circle"></span>Мужской</label>
+                                                            <label class="radio-inline c-radio">
+                                                                <input id="inlineradio3" type="radio" name="i-radio" value="option3">
+                                                                <span class="fa fa-circle"></span>Женский</label>
 
-                                                            <div  class="datetimepicker input-group date mb-lg">
-                                                                <input id="datetimepicker" name="datetimepicker" type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa-calendar fa"></span>
-                                                                </span>
-                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                    <div class="col-lg-offset-2 col-lg-10">
-                                                        <div class="checkbox c-checkbox">
-                                                            <label>
-                                                                <input type="checkbox" checked="">
-                                                                <span class="fa fa-check"></span>Remember me</label>
-                                                            </div>
+                                                        <label class="col-sm-3 col-md-2 control-label birth-day-label">Дата рождения</label>
+                                                        <div class="col-sm-9">
+                                                           <select id="day" name="day">
+                                                              <script>
+                                                                  var myDate = new Date();
+                                                                  var day = myDate.getDay();
+                                                                  for(var i = 1; i <= 31; i++){
+                                                                      document.write('<option value="'+i+'">'+i+'</option>');
+                                                                  }
+                                                              </script>
+                                                          </select>
+
+                                                          <select id="month" name="month">
+                                                            <script>
+                                                                  var month = ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
+                                                                  for(var i = 0; i < month.length; i++){
+                                                                      document.write('<option value="'+month[i]+'">'+month[i]+'</option>');
+                                                                  }
+                                                              </script>
+                  
+                                                          </select>
+
+                                                         <select id="year" name="year">
+                                                          <script>
+                                                              var myDate = new Date();
+                                                              var year = myDate.getFullYear();
+                                                              for(var i = 1960; i < year+1; i++){
+                                                                  document.write('<option value="'+i+'">'+i+'</option>');
+                                                              }
+                                                          </script>
+                                                          </select>
+                                                      </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="work-experience" class="col-lg-2 control-label">Стаж работы</label>
+
+                                                        <div class="col-lg-10">
+                                                            <select id="work" name="work">
+                                                            <script>
+                                                                  for(var i = 1; i <=20; i++){
+                                                                      
+                                                                      if(i==1){
+                                                                        document.write('<option value="'+i+'">'+i+" год"+'</option>');
+                                                                      }
+                                                                      else if(i==2||i==3||i==4){
+                                                                         document.write('<option value="'+i+'">'+i+" года"+'</option>');
+                                                                      }
+                                                                      else{
+                                                                        document.write('<option value="'+i+'">'+i+" лет"+'</option>');
+                                                                      }
+                                                                  }
+                                                              </script>
+                  
+                                                          </select>
                                                         </div>
                                                     </div>
+                                                  
                                                     <div class="form-group">
                                                         <div class="col-lg-offset-2 col-lg-10">
                                                             <button type="submit" class="btn btn-sm btn-default">Sign in</button>
@@ -250,20 +299,3 @@
     </div>
 @endsection
 
-<!-- <script>
-    $(function()  {
-  $('#datetimepicker').val(moment().format('DD/MM/Y'));
-})
-
-$(document).ready(function(){
-        var date_input=$('input[name="datetimepicker"]'); //our date input has the name "date"
-        var container=$('.datetimepicker form').length>0 ? $('.datetimepicker form').parent() : "body";
-        date_input.datepicker({
-          format: 'dd/mm/yyyy',
-          container: container,
-          todayHighlight: true,
-          autoclose: true,
-        })
-      });
-</script>
-<script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script> -->
