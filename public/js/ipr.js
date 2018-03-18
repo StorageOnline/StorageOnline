@@ -909,3 +909,10 @@ function setChart(title, subtitle, yAxis, data)
     });
 }
 
+// Открытие модального окна в настройках, оповещение для выбора предприятия
+$(document).ready(function() {
+    console.log(1);
+    if($("#mes").length > 0) {
+        $("#modal").modal('show');
+    }
+});

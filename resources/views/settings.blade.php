@@ -8,11 +8,13 @@
                     <div class="panel-heading text-center">{{ trans('menu.settings') }}</div>
 
                     <div class="panel-body">
-                        <div class="alert-danger">
+
                             @if(session('message'))
+                            <div id="mes" class="alert-danger">
                                 {{ session('message') }}
+                            </div>
                             @endif
-                        </div>
+
                         <div class="row">
                             <ul class="nav nav-tabs tools">
                                 <li class="active"><a data-toggle="tab" href="#company">Управление компаниями</a></li>
@@ -260,42 +262,17 @@
 @section('modal')
     <!-- HTML-код модального окна -->
     <div id="modal" class="modal fade">
-        <div class="modal-dialog modal-lg modalInsideEmployee">
+        <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header" style="text-align: center;">
-                    <h4 class="modal-title" style="display: inline-block;">Информация о товаре</h4>
+                    <h4 class="modal-title" style="display: inline-block;">Выберите компанию</h4>
                     <button id="" type="button" class="close" data-dismiss="modal" aria-hidden="true">×
                     </button>
                 </div>
-                <div class="modal-body">
-                    <div class="col-md-12 padding-10">
-                        {{ csrf_field() }}
-                        <label for="product_name" class="col-md-4 control-label">Наименование</label>
-                        <input id="product_id" type="hidden" class="form-control" name="product_id">
-                        <div class="col-md-6">
-                            <input id="product_name" type="text" class="form-control" name="product_name" value="{{ old('product_name') }}" required autofocus>
-                        </div>
-                    </div>
-                    <div class="col-md-12 padding-10">
-                        <label for="product_quantity" class="col-md-4 control-label">Количество</label>
-                        <div class="col-md-6">
-                            <input id="product_quantity" type="text" class="form-control" name="product_quantity" value="{{ old('product_quantity') }}" required>
-                        </div>
-                    </div>
-                    <div class="col-md-12 padding-10">
-                        <label for="product_price" class="col-md-4 control-label">Цена</label>
-                        <div class="col-md-6">
-                            <input id="product_price" type="text" class="form-control" name="product_price" value="{{ old('product_price') }}" required>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-md-offset-8 btn-submit-counterpart">
-                        <button id="" type="submit" form="" class="btn btn-danger" onclick="setProducts();">
-                            Сохранить
-                        </button>
-                    </div>
+                <div class="modal-body alert-danger">
+                    {{ session('message') }}
                 </div>
             </div>
         </div>
     </div>
 @endsection
-
