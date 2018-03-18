@@ -25,7 +25,11 @@ Route::get('/setlocale/{locale}', function($locale){
     return redirect()->back();
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/company/set/', function (Illuminate\Http\Request $request){
+    Session::put('company_id', $request->id);
+});
+
+Route::get('/home', 'HomeController@index')->middleware('set_comp')->name('home');
 
 Route::group(['prefix' => '/products'], function () {
     Route::get('/', 'ProductController@index')->name('products');

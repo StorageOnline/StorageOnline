@@ -13,6 +13,8 @@ class SettingsController extends Controller
 
     public function index(Request $request)
     {
+//        session()->put('company_id', '1');
+//        dump(session()->all());
         return view('settings');
     }
 }

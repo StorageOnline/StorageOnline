@@ -8,6 +8,11 @@
                     <div class="panel-heading text-center">{{ trans('menu.settings') }}</div>
 
                     <div class="panel-body">
+                        <div class="alert-danger">
+                            @if(session('message'))
+                                {{ session('message') }}
+                            @endif
+                        </div>
                         <div class="row">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a data-toggle="tab" href="#company">Управление компаниями</a></li>
@@ -21,18 +26,21 @@
                                         <div class="col-md-12" style="height: 250px; border: 1px solid #fff">
                                            <span class="icon icon-plus2" style="margin: 100px 75px; display: block"></span>
                                         </div>
+                                        <a href="#" onclick="setCompany(1)">Выбрать компанию 1</a>
                                     </div>
 
                                     <div class="col-md-3" style="margin-left: 50px; border: 1px dashed #c5d7b5; background-color: #e8f4de;">
                                         <div class="col-md-12" style="height: 250px; border: 1px solid #fff">
                                             <span class="icon icon-plus2" style="margin: 100px 75px; display: block"></span>
                                         </div>
+                                        <a href="#" onclick="setCompany(2)">Выбрать компанию 2</a>
                                     </div>
 
                                     <div class="col-md-3" style="margin-left: 50px; border: 1px dashed #c5d7b5; background-color: #e8f4de;">
                                         <div class="col-md-12" style="height: 250px; border: 1px solid #fff">
                                             <span class="icon icon-plus2" style="margin: 100px 75px; display: block"></span>
                                         </div>
+                                        <a href="#" onclick="setCompany(3)">Выбрать компанию 3</a>
                                     </div>
 
                                 </div>

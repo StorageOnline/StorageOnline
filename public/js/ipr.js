@@ -826,6 +826,22 @@ function getSearchFunction() {
     });
 }
 
+function setCompany(id)
+{
+    $.ajax({
+        type: "POST",
+        url: "/company/set",
+        data: { id: id },
+        error: function (data) {
+            console.log(data);
+            alert('Ошибка выбора компании!');
+        },
+        success: function (data) {
+            console.log('Компания изменена');
+        }
+    });
+}
+
 /**
  * Построение графика
  */
