@@ -8,6 +8,11 @@
                     <div class="panel-heading text-center">{{ trans('menu.settings') }}</div>
 
                     <div class="panel-body">
+                        <div class="alert-danger">
+                            @if(session('message'))
+                                {{ session('message') }}
+                            @endif
+                        </div>
                         <div class="row">
                             <ul class="nav nav-tabs tools">
                                 <li class="active"><a data-toggle="tab" href="#company">Управление компаниями</a></li>
@@ -20,10 +25,12 @@
                                         <div class="col-md-6 pLeft0">
                                             <h2>Управление компаниями</h2> 
                                             
-                                        </div>
+                                        </div>                                     
+
                                         <div class="col-md-6 add-btn-row pRight0"><a  data-toggle="tooltip" href="#modal" data-toggle="modal" onclick="" class="btn btn-success add-new-company" data-original-title="Добавить новую компанию"><i class="fa fa-plus"></i></a>
                                         </div>
                                        
+
                                     </div>
                                     
                                     <div class="col-md-6 company-block">
@@ -79,6 +86,7 @@
                                                 </div> 
                                             </div>
                                         </div>
+                                        <a href="#" onclick="setCompany(2)">Выбрать компанию 2</a>
                                     </div>
 
                                     <div class="col-md-6 company-block">
@@ -134,6 +142,7 @@
                                                 </div> 
                                             </div>
                                         </div>
+                                        <a href="#" onclick="setCompany(3)">Выбрать компанию 3</a>
                                     </div>
                                 </div>
                                 <div id="datas" class="tab-pane fade">
