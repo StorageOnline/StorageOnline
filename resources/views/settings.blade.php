@@ -9,36 +9,191 @@
 
                     <div class="panel-body">
                         <div class="row">
-                            <ul class="nav nav-tabs">
+                            <ul class="nav nav-tabs tools">
                                 <li class="active"><a data-toggle="tab" href="#company">Управление компаниями</a></li>
                                 <li><a data-toggle="tab" href="#datas">Персональные данные</a></li>
                                 <li><a data-toggle="tab" href="#vars">Переменные</a></li>
                             </ul>
-                            <div class="tab-content">
+                            <div class="tab-content col-md-12">
                                 <div id="company" class="tab-pane fade in active">
-                                    <h2>Управление компаниями</h2>
-                                    <div class="col-md-3" style="margin-left: 50px; border: 1px dashed #c5d7b5; background-color: #e8f4de;">
-                                        <div class="col-md-12" style="height: 250px; border: 1px solid #fff">
-                                           <span class="icon icon-plus2" style="margin: 100px 75px; display: block"></span>
+                                    <div class="container">
+                                        <div class="col-md-6 pLeft0">
+                                            <h2>Управление компаниями</h2> 
+                                            
+                                        </div>
+                                        <div class="col-md-6 add-btn-row pRight0"><a  data-toggle="tooltip" href="#modal" data-toggle="modal" onclick="" class="btn btn-success add-new-company" data-original-title="Добавить новую компанию"><i class="fa fa-plus"></i></a>
+                                        </div>
+                                       
+                                    </div>
+                                    
+                                    <div class="col-md-6 company-block">
+                                        <div class="col-md-12 company-item">
+                                            <div class="row">
+                                                <div class="col-md-8 col-xs-8 descripton-company">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h2>Компашка-алкашка</h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-xs-4 company-logo">
+                                                    <h2>
+                                                    <img src="../../img/company-logo/company1.png" alt="">
+                                                    </h2>
+                                                </div> 
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <input id="name-company" class="bold uppercase" type="text" value="Алкаши бывалые">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label for="version" class="bold">Version:</label>
+                                                            <input id="version" type="text" value="1.0">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label for="" class="bold">Достижения:</label>
+                                                            <input id="" type="text" value="9 литров залпом / мин">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label for="" class="bold">Мировоззрение:</label>
+                                                            <input id="" type="text" value="Миром правит алкоголь">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label for="" class="bold">Дата создания:</label>
+                                                            <input id="" type="text" value="2018.03.17 / 2018.03.17">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 control-block">
+                                                    <button type="button" class="btn btn-oval btn-primary">Заблокировать</button>
+                                                    <button type="button" class="btn btn-oval btn-success">Редактировать</button>
+                                                    <button type="button" class="btn btn-oval btn-danger">Удалить</button>
+                                                </div> 
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-3" style="margin-left: 50px; border: 1px dashed #c5d7b5; background-color: #e8f4de;">
-                                        <div class="col-md-12" style="height: 250px; border: 1px solid #fff">
-                                            <span class="icon icon-plus2" style="margin: 100px 75px; display: block"></span>
+                                    <div class="col-md-6 company-block">
+                                        <div class="col-md-12 company-item">
+                                            <div class="row">
+                                                <div class="col-md-8 col-xs-8 descripton-company">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h2>Компашка-алкашка</h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-xs-4 company-logo">
+                                                    <h2>
+                                                    <img src="../../img/company-logo/company1.png" alt="">
+                                                    </h2>
+                                                </div> 
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <input id="name-company" class="bold uppercase" type="text" value="Алкаши бывалые">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label for="version" class="bold">Version:</label>
+                                                            <input id="version" type="text" value="1.0">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label for="" class="bold">Достижения:</label>
+                                                            <input id="" type="text" value="9 литров залпом / мин">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label for="" class="bold">Мировоззрение:</label>
+                                                            <input id="" type="text" value="Миром правит алкоголь">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label for="" class="bold">Дата создания:</label>
+                                                            <input id="" type="text" value="2018.03.17 / 2018.03.17">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 control-block">
+                                                    <button type="button" class="btn btn-oval btn-primary">Заблокировать</button>
+                                                    <button type="button" class="btn btn-oval btn-success">Редактировать</button>
+                                                    <button type="button" class="btn btn-oval btn-danger">Удалить</button>
+                                                </div> 
+                                            </div>
                                         </div>
                                     </div>
-
-                                    <div class="col-md-3" style="margin-left: 50px; border: 1px dashed #c5d7b5; background-color: #e8f4de;">
-                                        <div class="col-md-12" style="height: 250px; border: 1px solid #fff">
-                                            <span class="icon icon-plus2" style="margin: 100px 75px; display: block"></span>
-                                        </div>
-                                    </div>
-
                                 </div>
                                 <div id="datas" class="tab-pane fade">
-                                    <h3>Персональные данные</h3>
-                                    <div>
+                                    <h2 class="container">Персональные данные</h2>
+                                    <div class="col-sm-6">
+
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">Horizontal form</div>
+                                            <div class="panel-body">
+                                                <form class="form-horizontal">
+                                                    <div class="form-group">
+                                                        <label for="login" class="col-lg-2 control-label">Логин</label>
+                                                        <div class="col-lg-10">
+                                                            <input id="login" type="text" placeholder="Логин" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="name" class="col-lg-2 control-label">Имя</label>
+                                                        <div class="col-lg-10">
+                                                            <input id="name" type="text" placeholder="Имя" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="surname" class="col-lg-2 control-label">Фамилия</label>
+                                                        <div class="col-lg-10">
+                                                            <input id="surname" type="text" placeholder="Фамилия" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Datepicker</label>
+                                                        <div class="col-sm-4">
+
+                                                            <div  class="datetimepicker input-group date mb-lg">
+                                                                <input id="datetimepicker" name="datetimepicker" type="text" class="form-control">
+                                                                <span class="input-group-addon">
+                                                                    <span class="fa-calendar fa"></span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-lg-offset-2 col-lg-10">
+                                                            <div class="checkbox c-checkbox">
+                                                                <label>
+                                                                    <input type="checkbox" checked="">
+                                                                    <span class="fa fa-check"></span>Remember me</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-lg-offset-2 col-lg-10">
+                                                                <button type="submit" class="btn btn-sm btn-default">Sign in</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div>
                                         <label for="name">Имя</label>
                                         <input id="name" type="text" placeholder="Имя">
                                         <label for="surname">Фамилия</label>
@@ -106,3 +261,21 @@
         </div>
     </div>
 @endsection
+
+<!-- <script>
+    $(function()  {
+  $('#datetimepicker').val(moment().format('DD/MM/Y'));
+})
+
+$(document).ready(function(){
+        var date_input=$('input[name="datetimepicker"]'); //our date input has the name "date"
+        var container=$('.datetimepicker form').length>0 ? $('.datetimepicker form').parent() : "body";
+        date_input.datepicker({
+          format: 'dd/mm/yyyy',
+          container: container,
+          todayHighlight: true,
+          autoclose: true,
+        })
+      });
+</script>
+<script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script> -->

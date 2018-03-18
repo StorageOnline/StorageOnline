@@ -12,6 +12,14 @@ a:focus, a:hover {
     color: white;
 }
 
+.bold{
+  font-weight: bold;
+}
+
+.uppercase{
+  text-transform: uppercase;
+}
+
 .rightBorderNone {
     border-bottom-right-radius: 0!important;
     border-top-right-radius: 0!important;
@@ -28,6 +36,14 @@ a:focus, a:hover {
 
 .resetMargin {
   margin:0 !important;
+}
+
+.pRight0{
+  padding-right: 0px;
+}
+
+.pLeft0 {
+  padding-left: 0px;
 }
 
 .red {
@@ -494,14 +510,107 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00adee', endColorstr='#0078a5');
 }
 
-/*авторизация*/
+/*END авторизация*/
+
+/*настройки*/
+ul.nav.nav-tabs.tools{
+  border-top: none;
+  margin-left: 14px;
+  border-radius: 0px;
+}
+
+ul.nav.nav-tabs.tools>li>a{
+  color: black;
+}
+
+.tools>.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+    color: #f9f6f6!important;
+    background-color: #523A34!important;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    cursor: default;
+}
+
+.nav-tabs>li.active>a{
+  background: #523A34;
+  color: white!important;
+}
+
+.nav>li>a:hover {
+    text-decoration: none;
+    background-color: #b87d4b8a;
+}
+
+.company-block{
+  
+}
+
+.company-item{
+  border: 3px solid #efefef;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.company-item h2 {
+  font-size: 24px;
+  font-family: monospace;
+  font-style: italic;
+}
+
+.company-item input{
+  border:none;
+}
+
+#name-company {
+    margin-top: 30px;
+}
+
+/*.company-logo{
+  background-image: url('../img/company-logo/company1.png');
+  width: 145px;
+  height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+*/
+.company-logo img{
+  width:100%;
+  height:100%;
+}
+
+.add-new-company{
+  float: right;
+  width: 75px;
+  border-radius: 50px;
+}
+
+.control-block{
+  border-top: 1px solid #efefef;
+  padding: 10px 14px!important;
+  background: #e2e2e2;
+}
+
+.control-block .btn-danger{
+  float: right;
+}
+
+
+
+
+
+
+
+
+
 @media (min-width: 1024px) and (max-width: 1199px){
 .login-block{width: 40%;}
 }
 
 @media (max-width: 1199px) {
     .preview {display: table-cell;}
-    
+    .control-block .btn-danger{ float: none;margin-top: 5%;}
+    #company .container h2 {font-size: 24px;}
+    .add-new-company {float: left;margin-bottom: 10px;}
 }
 
 @media (max-width: 991px) {
