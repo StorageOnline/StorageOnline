@@ -18,7 +18,7 @@ class Product extends Model
     public $timestamps = false;
 
     // разрешенные поля для массового заполнения
-    protected $fillable = ['id', 'name', 'code', 'quantity', 'price'];
+    protected $fillable = ['id', 'name', 'code', 'quantity', 'price', 'company_id'];
 
     /**
      * Атрибуты, которые должны быть преобразованы в даты.

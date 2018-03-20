@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+// ---------------- Локализация ----------------------
 Route::get('/setlocale/{locale}', function($locale){
     if(in_array($locale, \Config::get('app.locales'))){
         Session::put('locale', $locale);
@@ -24,25 +25,31 @@ Route::get('/setlocale/{locale}', function($locale){
     return redirect()->back();
 });
 
-Route::post('/company/set/', 'CompanyController@setCompanyId');
-
+// ---------------- Главная ----------------------
 Route::get('/home', 'HomeController@index')->name('home');
 
+// ---------------- Товары ----------------------
 Route::group(['prefix' => '/products'], function () {
     Route::get('/', 'ProductController@index')->name('products');
     Route::post('/set-product', 'ProductController@setProduct')->name('set-product');
     Route::post('/del-product', 'ProductController@delProduct')->name('del-product');
     Route::post('/edit-product', 'ProductController@getProduct')->name('edit-product');
     Route::post('/get-all-products', 'ProductController@getAllProducts')->name('get-all-products');
+    Route::get('/search', 'ProductController@getSearch');
+    Route::post('/search', 'ProductController@search');
 });
 
+// ---------------- Контрагенты ----------------------
 Route::group(['prefix' => '/counterparty'], function () {
     Route::get('/', 'CounterpartyController@index')->name('counterparty');
     Route::post('/set-counterparty', 'CounterpartyController@setCounterparty')->name('set-counterparty');
     Route::post('/del-counterparty', 'CounterpartyController@delCounterparty')->name('del-counterparty');
     Route::post('/edit-counterparty', 'CounterpartyController@getCounterparty')->name('edit-counterparty');
+    Route::get('/search', 'ProductController@getSearch');
+    Route::post('/search', 'ProductController@search');
 });
 
+// ---------------- Приходный ордер ----------------------
 Route::group(['prefix' => '/incoming-payment-order'], function () {
     Route::get('/', 'IncomingPaymentOrderController@index')->name('incoming-payment-order');
     Route::post('/set-incoming-payment-order', 'IncomingPaymentOrderController@setIncomingPaymentOrder')->name('set-incoming-payment-order');
@@ -54,6 +61,7 @@ Route::group(['prefix' => '/incoming-payment-order'], function () {
     Route::post('/get-all-incoming-orders', 'IncomingPaymentOrderController@getAllIncomingPaymentOrder')->name('/get-all-incoming-orders');
 });
 
+// ---------------- Расходный ордер ----------------------
 Route::group(['prefix' => '/outgoing-payment-order'], function () {
     Route::get('/', 'OutgoingPaymentOrderController@index')->name('outgoing-payment-order');
     Route::post('/set-outgoing-payment-order', 'OutgoingPaymentOrderController@setOutgoingPaymentOrder')->name('set-outgoing-payment-order');
@@ -62,21 +70,31 @@ Route::group(['prefix' => '/outgoing-payment-order'], function () {
     Route::post('/get-outgoing-order', 'OutgoingPaymentOrderController@getOrderById')->name('/get-outgoing-order');
     Route::post('/del-product-outgoing', 'OutgoingPaymentOrderController@delProductOutgoing')->name('/del-product-outgoing');
     Route::post('/get-all-outgoing-orders', 'OutgoingPaymentOrderController@getAllOutgoingPaymentOrder')->name('/get-all-outgoing-orders');
+    Route::get('/search', 'ProductController@getSearch');
+    Route::post('/search', 'ProductController@search');
 });
 
+// ---------------- Отчеты ----------------------
 Route::group(['prefix' => '/reports'], function (){
     Route::get('/', 'ReportController@index')->name('reports');
     Route::post('/get-report', 'ReportController@getReport')->name('get-report');
 });
 
+// ---------------- Склад ----------------------
 Route::group(['prefix' => '/storage'], function (){
     Route::get('/', 'StorageController@index')->name('storage');
-    Route::get('/serach', 'StorageController@getSearch')->name('search');
+    Route::get('/search', 'StorageController@getSearch')->name('search');
     Route::post('/search', 'StorageController@search');
 });
 
+// ---------------- Компании ----------------------
+Route::post('/company/set/', 'CompanyController@setCompanyId');
+
+// ---------------- Настройки ----------------------
 Route::get('/setting', 'SettingsController@index')->name('settings');
 
+// ---------------- Пользователя ----------------------
 Route::get('/users', 'UserController@index')->name('users');
 
+// ---------------- Журнал ----------------------
 Route::get('/log', 'HomeController@index')->name('log');

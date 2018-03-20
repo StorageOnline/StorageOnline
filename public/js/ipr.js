@@ -58,6 +58,19 @@ function setCounterparty()
 }
 
 /**
+ * Просмотр товара
+ * @param id
+ */
+function getProduct(id)
+{
+    this.editProduct(id);
+    /*var inp = $("#form_product input");
+    $.each(inp, function(i, x){
+        $(inp[i]).prop({disabled:'disabled'});
+    })*/
+}
+
+/**
  * Редактирование продукта
  */
 function editProduct(id)
@@ -82,12 +95,16 @@ function editProduct(id)
                 name: data.product_info.name,
                 data: price,
             }
-            setChart('Изменение цен на товар', 'динамика', 'Цена', datas);
+
+            // заполнение данных по товару
             $('#product_id').val(data.product_info.id);
             $('#product_name').val(data.product_info.name);
             $('#product_code').val(data.product_info.code);
             $('#product_quantity').val(data.product_info.quantity);
             $('#product_price').val(data.product_price);
+
+            // отрисовка графика изменения цены
+            setChart('Изменение цен на товар', 'динамика', 'Цена', datas);
 
         }
     });
@@ -109,6 +126,7 @@ function editCounterparty(id)
             alert("Ошибка при редактировании контрагента");
         },
         success: function (data) {
+            // заполнение данных по Контрагенту
             $('#counterparty_id').val(data.id);
             $('#counterparty_name').val(data.name);
             $('#counterparty_type').val(data.type);
@@ -135,6 +153,7 @@ function delProduct(id)
             alert("Ошибка при удалении товара");
         },
         success: function (data) {
+            // обновление спика товаров
             updateProductsList(data);
         }
     });
@@ -176,7 +195,7 @@ function updateProductsList(data)
             + '<td class="small-display">' + item.code + '</td>'
             + '<td class="small-display">' + item.quantity + '</td>'
             + '<td class="small-display">' + item.price + '</td>'
-            + '<td class="text-center preview"><a href="" data-toggle="" onclick="">'
+            + '<td class="text-center"><a href="#modal" data-toggle="modal" onclick="getProduct(' + item.id + ')">'
                     + '<i class="fa fa-eye" aria-hidden="true"></i>'
                 + '</a>' + '</td>'
             + '<td class="text-center"><a href="#modal" data-toggle="modal" onclick="editProduct( ' + item.id + ')">'
@@ -229,10 +248,7 @@ function updateCounterpartyList(data)
  */
 function clearProductModal()
 {
-    $('#product_id').val('');
-    $('#product_name').val('');
-    $('#product_quantity').val('');
-    $('#product_price').val('');
+    document.getElementById('form_product').reset();
 }
 
 /**
@@ -783,9 +799,10 @@ function updateReportsList(data) {
  * посик по таблицам на страницах
  */
 function searchFunction() {
+    let controller = location.pathname;
     $.ajax({
         type: "post",
-        url: '/storage/search',
+        url: controller + '/search',
         data: {
             search: $("#search-table").val(),
         },
@@ -826,6 +843,10 @@ function getSearchFunction() {
     });
 }
 
+/**
+ * Выбор компаниив настройках
+ * @param id
+ */
 function setCompany(id)
 {
     $.ajax({

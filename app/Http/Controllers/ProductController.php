@@ -36,10 +36,19 @@ class ProductController extends Controller
         $quantity = $request->product_quantity;
         $code = $request->product_code;
         $price = $request->product_price;
+        $company_id = session('company_id');
 
-        $product = $this->model->updateOrCreate(['id' => $id], ['name' => $name, 'code' => $code, 'quantity' => $quantity, 'price' => $price]);
-        // проверка и изменение цены если пользователь всё изменения
-        if(!empty($product->relationPrice)) {
+        // создание или редактирование
+        $product = $this->model->updateOrCreate(
+                                            ['id' => $id],
+                                                ['name' => $name,
+                                                'code' => $code,
+                                                'quantity' => $quantity,
+                                                'price' => $price,
+                                                'company_id' => $company_id
+                                                ]);
+        // проверка и изменение цены если пользователь внёс изменения
+        if(!empty(count($product->relationPrice))) {
             // получение последней цены на товар
             $product_price = $product->relationPrice()->latest()->first()->price;
             if($product_price != $price) {
@@ -65,6 +74,7 @@ class ProductController extends Controller
         $productInfo = $this->model->find($id);
         // получение всех цен на товар
         $prices = $productInfo->relationPrice;
+//        dump(empty(0));
         // получение последней цены товара
         $price_last = $productInfo->relationPrice()->orderby('id', 'desc')->first()->price;
         $product = [
@@ -97,10 +107,18 @@ class ProductController extends Controller
     {
         $items = $this->model->all();
         $products = $items->toArray();
-
 //        dump($products);
         return $products;
     }
 
+    // живой поиск
+    public function search(Request $request)
+    {
+        $request_search = '%'.$request->search.'%';
+        $items = $this->model->where(function($q) use ($request_search){
+            $q->where('name', 'LIKE', $request_search);
+        })->paginate(10);
 
+        return $items;
+    }
 }
