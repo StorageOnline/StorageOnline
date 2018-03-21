@@ -682,34 +682,43 @@ function getAllIncomingOrders() {
             alert("Ошибка при формировании таблицы приходных накладных");
         },
         success: function (data) {
-            $('#all-incoming-tab').empty();
-
-            $.each(data, function (i, item) {
-                var stringTab = '<tr>'
-                    + '<td>' + item.id + '</td>'
-                    + '<td class="small-display">' + item.updated_at + '</td>'
-                    + '<td>' + item.relation_counterparty.name + '</td>'
-                    + '<td class="small-display text-center">' + item.quantity + '</td>'
-                    + '<td class="small-display text-center">' + item.sum + '</td>'
-                    + '<td class="text-center preview"><a href="" data-toggle="" onclick="">'
-                    + '<i class="fa fa-eye" aria-hidden="true"></i>'
-                    + '</a>' + '</td>'
-                    + '<td class="text-center"><a href="#modal" data-toggle="modal" onclick="editIncomingOrder( ' + item.id + ')">'
-                    + '<i class="fa fa-pencil" aria-hidden="true"></i>'
-                    + '</a>' + '</td>'
-                    + '<td class="text-center"><a href="#" onclick="delIncomingOrder( ' + item.id + ')">'
-                    + '<i class="fa fa-trash-o fa-lg red"></i>'
-                    + '</a>' + '</td>'
-                    + '</tr>';
-
-                $('#all-incoming-tab').append(stringTab);
-            });
+            updateIncomingList(data);
         }
     });
 }
 
 /**
- * Получение/обновление списка приходных накладных и вывод их в таблице
+ * Обновление таблицы приходных накладных
+ * @param data
+ */
+function updateIncomingList(data)
+{
+    $('#all-incoming-tab').empty();
+
+    $.each(data, function (i, item) {
+        var stringTab = '<tr>'
+            + '<td>' + item.id + '</td>'
+            + '<td class="small-display">' + item.updated_at + '</td>'
+            + '<td>' + item.relation_counterparty.name + '</td>'
+            + '<td class="small-display text-center">' + item.quantity + '</td>'
+            + '<td class="small-display text-center">' + item.sum + '</td>'
+            + '<td class="text-center preview"><a href="" data-toggle="" onclick="">'
+            + '<i class="fa fa-eye" aria-hidden="true"></i>'
+            + '</a>' + '</td>'
+            + '<td class="text-center"><a href="#modal" data-toggle="modal" onclick="editIncomingOrder( ' + item.id + ')">'
+            + '<i class="fa fa-pencil" aria-hidden="true"></i>'
+            + '</a>' + '</td>'
+            + '<td class="text-center"><a href="#" onclick="delIncomingOrder( ' + item.id + ')">'
+            + '<i class="fa fa-trash-o fa-lg red"></i>'
+            + '</a>' + '</td>'
+            + '</tr>';
+
+        $('#all-incoming-tab').append(stringTab);
+    });
+}
+
+/**
+ * Получение/обновление списка расходных накладных и вывод их в таблице
  */
 function getAllOutgoingOrders() {
     $.ajax({
@@ -719,29 +728,37 @@ function getAllOutgoingOrders() {
             alert("Ошибка при формировании таблицы Расходных накладных");
         },
         success: function (data) {
-            $('#all-outgoing-tab').empty();
-
-            $.each(data, function (i, item) {
-                var stringTab = '<tr>'
-                    + '<td>' + item.id + '</td>'
-                    + '<td class="small-display text-center">' + item.updated_at + '</td>'
-                    + '<td>' + item.relation_counterparty.name + '</td>'
-                    + '<td class="small-display text-center">' + item.quantity + '</td>'
-                    + '<td class="small-display text-center">' + item.sum + '</td>'
-                    + '<td class="text-center preview"><a href="" data-toggle="" onclick="">'
-                    + '<i class="fa fa-eye" aria-hidden="true"></i>'
-                    + '</a>' + '</td>'
-                    + '<td class="text-center"><a href="#modal" data-toggle="modal" onclick="editOutgoingOrder( ' + item.id + ')">'
-                    + '<i class="fa fa-pencil" aria-hidden="true"></i>'
-                    + '</a>' + '</td>'
-                    + '<td class="text-center"><a href="#" onclick="delOutgoingOrder( ' + item.id + ')">'
-                    + '<i class="fa fa-trash-o fa-lg red"></i>'
-                    + '</a>' + '</td>'
-                    + '</tr>';
-
-                $('#all-outgoing-tab').append(stringTab);
-            });
+            updateOutgoingList(data);
         }
+    });
+}
+
+/**
+ * Обновление таблицы расходных накладных
+ * @param data
+ */
+function updateOutgoingList(data) {
+    $('#all-outgoing-tab').empty();
+
+    $.each(data, function (i, item) {
+        var stringTab = '<tr>'
+            + '<td>' + item.id + '</td>'
+            + '<td class="small-display text-center">' + item.updated_at + '</td>'
+            + '<td>' + item.relation_counterparty.name + '</td>'
+            + '<td class="small-display text-center">' + item.quantity + '</td>'
+            + '<td class="small-display text-center">' + item.sum + '</td>'
+            + '<td class="text-center preview"><a href="" data-toggle="" onclick="">'
+            + '<i class="fa fa-eye" aria-hidden="true"></i>'
+            + '</a>' + '</td>'
+            + '<td class="text-center"><a href="#modal" data-toggle="modal" onclick="editOutgoingOrder( ' + item.id + ')">'
+            + '<i class="fa fa-pencil" aria-hidden="true"></i>'
+            + '</a>' + '</td>'
+            + '<td class="text-center"><a href="#" onclick="delOutgoingOrder( ' + item.id + ')">'
+            + '<i class="fa fa-trash-o fa-lg red"></i>'
+            + '</a>' + '</td>'
+            + '</tr>';
+
+        $('#all-outgoing-tab').append(stringTab);
     });
 }
 
@@ -799,6 +816,7 @@ function updateReportsList(data) {
  * посик по таблицам на страницах
  */
 function searchFunction() {
+    // определяем страницу, на которой отрабатывает поиск
     let controller = location.pathname;
     $.ajax({
         type: "post",
@@ -818,7 +836,26 @@ function searchFunction() {
             } else {
                 $('#pagination').show();
             }
-            updateProductsList(data.data);
+            // если страница на которой отрабаывает поиск - Контрагенты,
+            if(controller == "/counterparty") {
+                // то обновляем таблицу контрагентов
+                updateCounterpartyList(data.data);
+
+            // если страница Товары
+            } else if(controller == "/products"){
+                // то обновляем таблицу товаров
+                updateProductsList(data.data);
+
+            // если страница приходных накладных
+            } else if(controller == "/incoming-payment-order"){
+                // то обновляем таблицу приходных накладных
+                updateIncomingList(data.data);
+
+            // если страница расходных накладных
+            } else if (controller == "/outgoing-payment-order"){
+                // то обновляем таблицу расходных накладных
+                updateOutgoingList(data.data);
+            }
         }
     });
 }

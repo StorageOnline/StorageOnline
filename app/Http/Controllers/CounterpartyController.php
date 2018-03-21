@@ -94,4 +94,14 @@ class CounterpartyController extends Controller
 //        dump($products);
         return $counterparty;
     }
+
+    public function search(Request $request)
+    {
+        $request_search = '%'.$request->search.'%';
+        $items = Counterparty::where(function($q) use ($request_search){
+            $q->where('name', 'LIKE', $request_search);
+        })->paginate(10);
+
+        return $items;
+    }
 }

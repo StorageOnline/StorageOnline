@@ -17,7 +17,7 @@
                         <div class="col-md-4">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input id="search-table" name="search-table" class="form-control rightBorderNone" placeholder="Поиск по таблице" style="height: 35px;">
+                                        <input id="search-table" name="search-table" class="form-control rightBorderNone" onkeyup="searchFunction()" placeholder="Поиск по таблице" style="height: 35px;">
                                         <div class="input-group-addon">
                                             <a href="" class="fa fa-search with-btn" data-toggle="modal" data-target=""><i></i>
                                             </a>

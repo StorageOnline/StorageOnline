@@ -6,6 +6,7 @@ use App\Model\OutgoingPaymentOrder;
 use App\Model\Counterparty;
 use App\Model\Product;
 use Illuminate\Http\Request;
+use DB;
 
 class OutgoingPaymentOrderController extends Controller
 {
@@ -211,5 +212,19 @@ class OutgoingPaymentOrderController extends Controller
         ];
 
         return $outgoing_order;
+    }
+
+
+    // живой поиск
+    public function search(Request $request)
+    {
+        DB::enableQueryLog();
+        $request_search = '%'.$request->search.'%';
+        $items = $this->model->with(array('relationCounterparty' => function($q) use ($request_search){
+            $q->where('name', 'LIKE', $request_search);
+        }))->paginate(10);
+
+        dump(DB::getQueryLog());
+        return $items;
     }
 }

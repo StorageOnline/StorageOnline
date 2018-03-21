@@ -45,8 +45,8 @@ Route::group(['prefix' => '/counterparty'], function () {
     Route::post('/set-counterparty', 'CounterpartyController@setCounterparty')->name('set-counterparty');
     Route::post('/del-counterparty', 'CounterpartyController@delCounterparty')->name('del-counterparty');
     Route::post('/edit-counterparty', 'CounterpartyController@getCounterparty')->name('edit-counterparty');
-    Route::get('/search', 'ProductController@getSearch');
-    Route::post('/search', 'ProductController@search');
+//    Route::get('/search', 'CounterpartyController@getSearch');
+    Route::post('/search', 'CounterpartyController@search');
 });
 
 // ---------------- Приходный ордер ----------------------
@@ -70,8 +70,8 @@ Route::group(['prefix' => '/outgoing-payment-order'], function () {
     Route::post('/get-outgoing-order', 'OutgoingPaymentOrderController@getOrderById')->name('/get-outgoing-order');
     Route::post('/del-product-outgoing', 'OutgoingPaymentOrderController@delProductOutgoing')->name('/del-product-outgoing');
     Route::post('/get-all-outgoing-orders', 'OutgoingPaymentOrderController@getAllOutgoingPaymentOrder')->name('/get-all-outgoing-orders');
-    Route::get('/search', 'ProductController@getSearch');
-    Route::post('/search', 'ProductController@search');
+    Route::get('/search', 'OutgoingPaymentOrderController@getSearch');
+    Route::post('/search', 'OutgoingPaymentOrderController@search');
 });
 
 // ---------------- Отчеты ----------------------
