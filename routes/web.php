@@ -59,6 +59,8 @@ Route::group(['prefix' => '/incoming-payment-order'], function () {
     Route::post('/get-incoming-order', 'IncomingPaymentOrderController@getOrderById')->name('/get-incoming-order');
     Route::post('/del-product-incoming', 'IncomingPaymentOrderController@delProductIncoming')->name('/del-product-incoming');
     Route::post('/get-all-incoming-orders', 'IncomingPaymentOrderController@getAllIncomingPaymentOrder')->name('/get-all-incoming-orders');
+    Route::get('/search', 'IncomingPaymentOrderController@getSearch');
+    Route::post('/search', 'IncomingPaymentOrderController@search');
 });
 
 // ---------------- Расходный ордер ----------------------

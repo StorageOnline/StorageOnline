@@ -111,6 +111,15 @@ function editProduct(id)
 }
 
 /**
+ * Просмотр контрагента
+ * @param id
+ */
+function getCounterparty(id)
+{
+    this.editCounterparty(id);
+}
+
+/**
  * Редактирование контрагента
  */
 function editCounterparty(id)
@@ -228,7 +237,7 @@ function updateCounterpartyList(data)
             + '<td>' + item.name + '</td>'
             + '<td class="small-display">' + item.tel + '</td>'
             + '<td class="small-display">' + item.email + '</td>'
-            + '<td class="text-center preview"><a href="" data-toggle="" onclick="">'
+            + '<td class="text-center"><a href="" data-toggle="" onclick="getCounterparty( \' + item.id + \')">'
             + '<i class="fa fa-eye" aria-hidden="true"></i>'
             + '</a>' + '</td>'
             + '<td class="text-center"><a href="#modal" data-toggle="modal" onclick="editCounterparty( ' + item.id + ')">'
@@ -540,6 +549,14 @@ function getOrderById(id)
 }
 
 /**
+ * Получение информации о приходной накладной
+ * @param id
+ */
+function getIncomingOrder(id) {
+    this.editIncomingOrder(ig);
+}
+
+/**
  * Редактирование приходной накладной
  */
 function editIncomingOrder(id) {
@@ -607,6 +624,15 @@ function setIncomingOrder() {
             getAllIncomingOrders();
         }
     });
+}
+
+/**
+ * Получение информации о расходной наклданой
+ * @param id
+ */
+function getOutgoingOrder(id)
+{
+    this.editOutgoingOrder(id);
 }
 
 /**
@@ -743,11 +769,11 @@ function updateOutgoingList(data) {
     $.each(data, function (i, item) {
         var stringTab = '<tr>'
             + '<td>' + item.id + '</td>'
-            + '<td class="small-display text-center">' + item.updated_at + '</td>'
+            + '<td class="small-display">' + item.updated_at + '</td>'
             + '<td>' + item.relation_counterparty.name + '</td>'
             + '<td class="small-display text-center">' + item.quantity + '</td>'
             + '<td class="small-display text-center">' + item.sum + '</td>'
-            + '<td class="text-center preview"><a href="" data-toggle="" onclick="">'
+            + '<td class="text-center"><a href="#modal" data-toggle="modal" onclick="getOutgoingOrder( ' + item.id + ')">'
             + '<i class="fa fa-eye" aria-hidden="true"></i>'
             + '</a>' + '</td>'
             + '<td class="text-center"><a href="#modal" data-toggle="modal" onclick="editOutgoingOrder( ' + item.id + ')">'

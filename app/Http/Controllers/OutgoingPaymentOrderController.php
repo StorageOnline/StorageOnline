@@ -218,13 +218,15 @@ class OutgoingPaymentOrderController extends Controller
     // живой поиск
     public function search(Request $request)
     {
-        DB::enableQueryLog();
+//        DB::enableQueryLog();
         $request_search = '%'.$request->search.'%';
-        $items = $this->model->with(array('relationCounterparty' => function($q) use ($request_search){
-            $q->where('name', 'LIKE', $request_search);
-        }))->paginate(10);
+        // поиск по связанной таблице, в выборку попадают только строки из "relationCounterparty",
+        // которые удовлетворяют запросу и возвращается коллекция OutgoingPaymentOrder со связью relationCounterparty
+        $items = $this->model->whereHas('relationCounterparty', function($q) use ($request_search) {
+            return $q->where('name', 'LIKE', $request_search);
+        })->with('relationCounterparty')->paginate(10);
 
-        dump(DB::getQueryLog());
+//        dump(DB::getQueryLog());
         return $items;
     }
 }

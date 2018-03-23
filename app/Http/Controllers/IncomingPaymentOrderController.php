@@ -229,4 +229,19 @@ class IncomingPaymentOrderController extends Controller
         }
         return true;
     }
+
+    // живой поиск
+    public function search(Request $request)
+    {
+//        DB::enableQueryLog();
+        $request_search = '%'.$request->search.'%';
+        // поиск по связанной таблице, в выборку попадают только строки из "relationCounterparty",
+        // которые удовлетворяют запросу и возвращается коллекция OutgoingPaymentOrder со связью relationCounterparty
+        $items = $this->model->whereHas('relationCounterparty', function($q) use ($request_search) {
+            return $q->where('name', 'LIKE', $request_search);
+        })->with('relationCounterparty')->paginate(10);
+
+//        dump(DB::getQueryLog());
+        return $items;
+    }
 }

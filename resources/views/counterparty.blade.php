@@ -85,7 +85,7 @@
                                     <td>{{ $counterparty['name'] }}</td>
                                     <td class="small-display">{{ $counterparty['tel'] }}</td>
                                     <td class="small-display">{{ $counterparty['email'] }}</td>
-                                    <td class="text-center preview"><a href="#modal" data-toggle="modal" >
+                                    <td class="text-center"><a href="#modal" data-toggle="modal" onclick="getCounterparty({{ $counterparty['id'] }})">
                                         <i class="fa fa-eye" aria-hidden="true"></i>
                                     </a>
                                     </td>

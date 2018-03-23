@@ -85,7 +85,7 @@
                                 <td>{{ $order['relationCounterparty']['name'] }}</td>
                                 <td class="text-center small-display">{{ $order['quantity'] }}</td>
                                 <td class="text-center small-display">{{ $order['sum'] }}</td>
-                                <td class="text-center preview"><a href="#modal" data-toggle="modal" >
+                                <td class="text-center"><a href="#modal" data-toggle="modal" onclick="getIncomingOrder({{ $order['id'] }})">
                                     <i class="fa fa-eye" aria-hidden="true"></i>
                                 </a>
                                 </td>
