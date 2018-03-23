@@ -993,6 +993,64 @@ function setChart(title, subtitle, yAxis, data)
     });
 }
 
+function addCompany() {
+    let str = "<div class='col-md-6 company-block'>" +
+        "                                        <div class='col-md-12 company-item' style='border:3px solid #f5b8b8; background-color: rgba(245, 225, 232, 0.24); border-radius: 4px;'>" +
+        "                                            <div class='row'>" +
+        "                                                <div class='col-md-8 col-xs-8 descripton-company'>" +
+        "                                                    <div class='row'>" +
+        "                                                        <div class='col-md-12'>" +
+        "                                                            <h2><input placeholder='Наименование компании'></h2>" +
+        "                                                        </div>" +
+        "                                                    </div>" +
+        "                                                </div>" +
+        "                                                <div class='col-md-4 col-xs-4 company-logo'>" +
+        "                                                    <h2>" +
+        "                                                    <img src='../../img/company-logo/company1.png' alt=''>" +
+        "                                                    </h2>" +
+        "                                                </div>" +
+        "                                                <div class='col-md-12'>" +
+        "                                                    <div class='row'>" +
+        "                                                        <div class='col-md-12'>" +
+        "                                                            <input id='name-company' class='bold uppercase' type='text' value='' placeholder='Полное наименование  '>" +
+        "                                                        </div>" +
+        "                                                    </div>" +
+        "                                                    <div class='row'>" +
+        "                                                        <div class='col-md-12'>" +
+        "                                                            <label for='version' class='bold'>ОКПО:</label>" +
+        "                                                            <input id='version' type='text' value='14457036'>" +
+        "                                                        </div>" +
+        "                                                    </div>" +
+        "                                                    <div class='row'>" +
+        "                                                        <div class='col-md-12'>" +
+        "                                                            <label for='' class='bold'>Р.С.:</label>" +
+        "                                                            <input id='' type='text' value='26005040677843'>" +
+        "                                                        </div>" +
+        "                                                    </div>" +
+        "                                                    <div class='row'>" +
+        "                                                        <div class='col-md-12'>" +
+        "                                                            <label for='' class='bold'>Ардрес юридический:</label>" +
+        "                                                            <input id='' type='text' value='г.Днепр, ул.Набережная Победы, 32'>" +
+        "                                                        </div>" +
+        "                                                    </div>" +
+        "                                                    <div class='row'>" +
+        "                                                        <div class='col-md-12'>" +
+        "                                                            <label for='' class='bold'>Дата создания:</label>" +
+        "                                                            <input id='' type='text' value='2018.03.17 / 2018.03.17'>" +
+        "                                                        </div>" +
+        "                                                    </div>" +
+        "                                                </div>" +
+        "                                                <div class='col-md-12 control-block'>\n" +
+        "                                                    <button type='button' class='btn btn-oval btn-success' onclick='setCompany(1)'>Выбрать</button>" +
+        "                                                    <a href='#' style='margin-left: 100px'><span class='center' style='border-bottom: 1px dashed #428bca'>Сохранить</span></a>" +
+        "                                                    <button type='button' class='btn btn-oval btn-danger'>Удалить</button>" +
+        "                                                </div> \n" +
+        "                                            </div>\n" +
+        "                                        </div>\n" +
+        "                                    </div>";
+    $("#company .all-company-block").prepend(str);
+}
+
 // Открытие модального окна в настройках, оповещение для выбора предприятия
 $(document).ready(function() {
     console.log(1);

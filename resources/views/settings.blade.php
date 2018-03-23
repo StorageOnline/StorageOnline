@@ -29,118 +29,118 @@
                                             
                                         </div>
 
-                                        <div class="col-md-6 add-btn-row pRight0"><a  data-toggle="tooltip" href="#modal" data-toggle="modal" onclick="" class="btn btn-success add-new-company" data-original-title="Добавить новую компанию"><i class="fa fa-plus"></i></a>
+                                        <div class="col-md-6 add-btn-row pRight0"><a  data-toggle="tooltip" href="#modal" data-toggle="modal" onclick="addCompany()" class="btn btn-success add-new-company" data-original-title="Добавить новую компанию"><i class="fa fa-plus"></i></a>
                                         </div>
                                        
 
                                     </div>
-                                    
-                                    <div class="col-md-6 company-block">
-                                        <div class="col-md-12 company-item">
-                                            <div class="row">
-                                                <div class="col-md-8 col-xs-8 descripton-company">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <h2>Компашка-алкашка</h2>
+                                    <div class="all-company-block">
+                                        <div class="col-md-6 company-block">
+                                            <div class="col-md-12 company-item">
+                                                <div class="row">
+                                                    <div class="col-md-8 col-xs-8 descripton-company">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <h2>Компашка-алкашка</h2>
+                                                            </div>
                                                         </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-xs-4 company-logo">
+                                                        <h2>
+                                                        <img src="../../img/company-logo/company1.png" alt="">
+                                                        </h2>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <input id="name-company" class="bold uppercase" type="text" value="Алкаши бывалые">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label for="version" class="bold">Version:</label>
+                                                                <input id="version" type="text" value="1.0">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label for="" class="bold">Достижения:</label>
+                                                                <input id="" type="text" value="9 литров залпом / мин">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label for="" class="bold">Мировоззрение:</label>
+                                                                <input id="" type="text" value="Миром правит алкоголь">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label for="" class="bold">Дата создания:</label>
+                                                                <input id="" type="text" value="2018.03.17 / 2018.03.17">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 control-block">
+                                                        <button type="button" class="btn btn-oval btn-success" onclick="setCompany(1)">Выбрать</button>
+                                                        <button type="button" class="btn btn-oval btn-primary">Редактировать</button>
+                                                        <button type="button" class="btn btn-oval btn-danger">Удалить</button>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4 col-xs-4 company-logo">
-                                                    <h2>
-                                                    <img src="../../img/company-logo/company1.png" alt="">
-                                                    </h2>
-                                                </div> 
-                                                <div class="col-md-12">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <input id="name-company" class="bold uppercase" type="text" value="Алкаши бывалые">
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <label for="version" class="bold">Version:</label>
-                                                            <input id="version" type="text" value="1.0">
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <label for="" class="bold">Достижения:</label>
-                                                            <input id="" type="text" value="9 литров залпом / мин">
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <label for="" class="bold">Мировоззрение:</label>
-                                                            <input id="" type="text" value="Миром правит алкоголь">
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <label for="" class="bold">Дата создания:</label>
-                                                            <input id="" type="text" value="2018.03.17 / 2018.03.17">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12 control-block">
-                                                    <button type="button" class="btn btn-oval btn-success" onclick="setCompany(1)">Выбрать</button>
-                                                    <button type="button" class="btn btn-oval btn-primary">Редактировать</button>
-                                                    <button type="button" class="btn btn-oval btn-danger">Удалить</button>
-                                                </div> 
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="col-md-6 company-block">
-                                        <div class="col-md-12 company-item">
-                                            <div class="row">
-                                                <div class="col-md-8 col-xs-8 descripton-company">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <h2>Компашка-алкашка</h2>
+                                        <div class="col-md-6 company-block">
+                                            <div class="col-md-12 company-item">
+                                                <div class="row">
+                                                    <div class="col-md-8 col-xs-8 descripton-company">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <h2>Компашка-алкашка</h2>
+                                                            </div>
                                                         </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-xs-4 company-logo">
+                                                        <h2>
+                                                            <img src="../../img/company-logo/company1.png" alt="">
+                                                        </h2>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <input id="name-company" class="bold uppercase" type="text" value="Алкаши бывалые">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label for="version" class="bold">Version:</label>
+                                                                <input id="version" type="text" value="1.0">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label for="" class="bold">Достижения:</label>
+                                                                <input id="" type="text" value="9 литров залпом / мин">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label for="" class="bold">Мировоззрение:</label>
+                                                                <input id="" type="text" value="Миром правит алкоголь">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label for="" class="bold">Дата создания:</label>
+                                                                <input id="" type="text" value="2018.03.17 / 2018.03.17">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 control-block">
+                                                        <button type="button" class="btn btn-oval btn-success" onclick="setCompany(3)">Выбрать</button>
+                                                        <button type="button" class="btn btn-oval btn-primary">Редактировать</button>
+                                                        <button type="button" class="btn btn-oval btn-danger">Удалить</button>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4 col-xs-4 company-logo">
-                                                    <h2>
-                                                    <img src="../../img/company-logo/company1.png" alt="">
-                                                    </h2>
-                                                </div> 
-                                                <div class="col-md-12">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <input id="name-company" class="bold uppercase" type="text" value="Алкаши бывалые">
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <label for="version" class="bold">Version:</label>
-                                                            <input id="version" type="text" value="1.0">
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <label for="" class="bold">Достижения:</label>
-                                                            <input id="" type="text" value="9 литров залпом / мин">
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <label for="" class="bold">Мировоззрение:</label>
-                                                            <input id="" type="text" value="Миром правит алкоголь">
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <label for="" class="bold">Дата создания:</label>
-                                                            <input id="" type="text" value="2018.03.17 / 2018.03.17">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12 control-block">
-                                                    <button type="button" class="btn btn-oval btn-success" onclick="setCompany(3)">Выбрать</button>
-                                                    <button type="button" class="btn btn-oval btn-primary">Редактировать</button>
-                                                    <button type="button" class="btn btn-oval btn-danger">Удалить</button>
-                                                </div> 
                                             </div>
                                         </div>
                                     </div>
