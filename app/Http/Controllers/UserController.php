@@ -22,7 +22,17 @@ class UserController extends Controller
             $user->relationCompany;
         }
         $data['users'] = $users;
-//        dump($data);
         return view('user', $data);
     }
+
+    /**
+     * получение всех компаний, к которым у пользователя есть доступ
+     * @return mixed
+     */
+    public function getCompanyByUser()
+    {
+        return $this->model->relationUserCompany()->with('relationCompany')->get();
+    }
+
+
 }

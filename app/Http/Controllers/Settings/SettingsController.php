@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Settings;
 
-use App\Model\Companies\Company;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,8 +15,13 @@ class SettingsController extends Controller
 
     public function index(Request $request)
     {
-        $company = new CompanyController();
-        $data['company'] = $company->getCompany()->sortByDesc('created_at');
+        // получаем авторизованного пользователя
+        $user = new UserController(\Auth::user());
+
+        // перечень компаний, к которым у пользователя есть доступ
+        $data['company'] = $user->getCompanyByUser()->sortByDesc('created_at');
+        dump($data['company']);
+
         return view('settings', $data);
     }
 }

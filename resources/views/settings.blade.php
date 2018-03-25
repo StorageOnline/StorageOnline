@@ -43,7 +43,7 @@
                                                             <div class="col-md-8 col-xs-8 descripton-company">
                                                                 <div class="row">
                                                                     <div class="col-md-12">
-                                                                        <h2><input id="company-name" value="{{ $comp->name }}"></h2>
+                                                                        <h2><input id="company-name" value="{{ $comp->relationCompany->name }}"></h2>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -61,31 +61,33 @@
                                                                 <div class="row">
                                                                     <div class="col-md-12">
                                                                         <label for='company-okpo' class="bold">ОКПО</label>
-                                                                        <input id='company-okpo' type="text" value="{{ $comp->okpo }}">
+                                                                        <input id='company-okpo' type="text" value="{{ $comp->relationCompany->okpo }}">
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-md-12">
                                                                         <label for='company-acc' class="bold">Р.С.</label>
-                                                                        <input id='company-acc' type="text" value="{{ $comp->acc }}">
+                                                                        <input id='company-acc' type="text" value="{{ $comp->relationCompany->acc }}">
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-md-12">
                                                                         <label for='company_adress' class="bold">Адрес:</label>
-                                                                        <input id='company_adress' type="text" value="{{ $comp->adress }}">
+                                                                        <input id='company_adress' type="text" value="{{ $comp->relationCompany->adress }}">
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-md-12">
                                                                         <label for='company-tel' class="bold">Контакты:</label>
-                                                                        <input id='company-tel' type="text" value="{{ $comp->tel }}">
+                                                                        <input id='company-tel' type="text" value="{{ $comp->relationCompany->tel }}">
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-12 control-block">
+
                                                                 <button type="button" class="btn btn-oval btn-success" onclick="setCompany({{ $comp->id }})">Выбрать</button>
                                                                 <span type="" class="btn btn-oval edit-company"><i class="fa fa-pencil"></i> Редактировать</span>
+
                                                                 <button type="button" class="btn btn-oval btn-danger">Удалить</button>
                                                             </div>
                                                         </div>
