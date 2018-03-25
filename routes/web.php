@@ -103,7 +103,11 @@ Route::group(['prefix' => '/setting'],function (){
 });
 
 // ---------------- Пользователя ----------------------
-Route::get('/users', 'UserController@index')->name('users');
+Route::group(['prefix' => '/users'],function (){
+    Route::get('/', 'UserController@index')->name('users');
+    Route::post('/del-relation-company', 'UserController@delCompanyRelation');
+});
+
 
 // ---------------- Журнал ----------------------
 Route::get('/log', 'HomeController@index')->name('log');

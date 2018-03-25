@@ -34,5 +34,28 @@ class UserController extends Controller
         return $this->model->relationUserCompany()->with('relationCompany')->get();
     }
 
+    /**
+     * Псевдоудаление компании в настройках
+     * на самом деле удаляется связь в табилце User_Company
+     * @param Request $request
+     * @return string
+     */
+    public function delCompanyRelation(Request $request)
+    {
+        $user = \Auth::user();
+        if(isset($request->id)) {
+            // если выбранная для удаления компания не совпадает с автивной компанией на данный момент
+            if($request->id != session('company_id')) {
+                // удаляем связь
+                $companyRelation = $user->relationUserCompany()->where('company_id', $request->id)->first();
+                $companyRelation->delete();
+            // если выбранная для удаления компания совпадает с активной, то возвращаем ошибку
+            } else {
+                return "Нельзя удалить активную компанию";
+            }
+
+        }
+    }
+
 
 }

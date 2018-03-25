@@ -37,7 +37,7 @@
                                     <div class="all-company-block">
                                         @if($company)
                                             @foreach($company as $comp)
-                                                <div class="col-md-6 company-block">
+                                                <div class="col-md-6 company-block" data-companyid="{{ $comp->relationCompany->id }}">
                                                     <div class="col-md-12 company-item">
                                                         <div class="row">
                                                             <div class="col-md-8 col-xs-8 descripton-company">
@@ -88,7 +88,7 @@
                                                                 <button type="button" class="btn btn-oval btn-success" onclick="setCompany({{ $comp->relationCompany->id }})">Выбрать</button>
                                                                 <span type="" class="btn btn-oval edit-company"><i class="fa fa-pencil"></i> Редактировать</span>
 
-                                                                <button type="button" class="btn btn-oval btn-danger">Удалить</button>
+                                                                <button type="button" class="btn btn-oval btn-danger" onclick="delRelCompany({{ $comp->relationCompany->id }})">Удалить</button>
                                                             </div>
                                                         </div>
                                                     </div>

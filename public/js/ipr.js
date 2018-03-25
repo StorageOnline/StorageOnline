@@ -1057,6 +1057,9 @@ function addCompany()
     $("#company .all-company-block").prepend(str);
 }
 
+/**
+ * сохраняет изменения по компании
+ */
 function saveCompany() {
     /*if($("#new_comp").length > 0){
         $("#new_comp").find(".company-item").removeAttr('style');
@@ -1086,9 +1089,29 @@ function saveCompany() {
     });
 }
 
+function delRelCompany(id) {
+    $.ajax({
+        type: "POST",
+        url: "/users/del-relation-company",
+        data: {id:id},
+        error: function (data) {
+            alert("Ошибка при удалении компании!");
+        },
+        success: function (data) {
+            if (data == 0) {
+                console.log(data);
+                $("div[data-companyid=" + id + "]").remove();
+                alert("Компания успешно удалена");
+            } else {
+                alert(data);
+            }
+        }
+    });
+}
+
 // Открытие модального окна в настройках, оповещение для выбора предприятия
 $(document).ready(function() {
-    console.log(1);
+    // console.log(1);
     if($("#mes").length > 0) {
         $("#modal").modal('show');
     }
