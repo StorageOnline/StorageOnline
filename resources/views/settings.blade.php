@@ -35,114 +35,64 @@
 
                                     </div>
                                     <div class="all-company-block">
-                                        <div class="col-md-6 company-block">
-                                            <div class="col-md-12 company-item">
-                                                <div class="row">
-                                                    <div class="col-md-8 col-xs-8 descripton-company">
+                                        @if($company)
+                                            @foreach($company as $comp)
+                                                <div class="col-md-6 company-block">
+                                                    <div class="col-md-12 company-item">
                                                         <div class="row">
+                                                            <div class="col-md-8 col-xs-8 descripton-company">
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <h2><input id="company-name" value="{{ $comp->name }}"></h2>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-4 company-logo">
+                                                                <h2>
+                                                                    <img src="../../img/company-logo/company1.png" alt="">
+                                                                </h2>
+                                                            </div>
                                                             <div class="col-md-12">
-                                                                <h2>Компашка-алкашка</h2>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <input id="company-full-name" class="bold uppercase company-full-name" type="text" value="{{ $comp->full_name }}">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <label for='company-okpo' class="bold">ОКПО</label>
+                                                                        <input id='company-okpo' type="text" value="{{ $comp->okpo }}">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <label for='company-acc' class="bold">Р.С.</label>
+                                                                        <input id='company-acc' type="text" value="{{ $comp->acc }}">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <label for='company_adress' class="bold">Адрес:</label>
+                                                                        <input id='company_adress' type="text" value="{{ $comp->adress }}">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <label for='company-tel' class="bold">Контакты:</label>
+                                                                        <input id='company-tel' type="text" value="{{ $comp->tel }}">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12 control-block">
+                                                                <button type="button" class="btn btn-oval btn-success" onclick="setCompany({{ $comp->id }})">Выбрать</button>
+                                                                <button type="button" class="btn btn-oval btn-primary">Редактировать</button>
+                                                                <button type="button" class="btn btn-oval btn-danger">Удалить</button>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-4 col-xs-4 company-logo">
-                                                        <h2>
-                                                        <img src="../../img/company-logo/company1.png" alt="">
-                                                        </h2>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <input id="name-company" class="bold uppercase" type="text" value="Алкаши бывалые">
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <label for="version" class="bold">Version:</label>
-                                                                <input id="version" type="text" value="1.0">
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <label for="" class="bold">Достижения:</label>
-                                                                <input id="" type="text" value="9 литров залпом / мин">
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <label for="" class="bold">Мировоззрение:</label>
-                                                                <input id="" type="text" value="Миром правит алкоголь">
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <label for="" class="bold">Дата создания:</label>
-                                                                <input id="" type="text" value="2018.03.17 / 2018.03.17">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12 control-block">
-                                                        <button type="button" class="btn btn-oval btn-success" onclick="setCompany(1)">Выбрать</button>
-                                                        <button type="button" class="btn btn-oval edit-company"><i class="fa fa-pencil"></i> Редактировать</button>
-                                                        <button type="button" class="btn btn-oval btn-danger">Удалить</button>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 company-block">
-                                            <div class="col-md-12 company-item">
-                                                <div class="row">
-                                                    <div class="col-md-8 col-xs-8 descripton-company">
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <h2>Компашка-алкашка</h2>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4 col-xs-4 company-logo">
-                                                        <h2>
-                                                            <img src="../../img/company-logo/company1.png" alt="">
-                                                        </h2>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <input id="name-company" class="bold uppercase" type="text" value="Алкаши бывалые">
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <label for="version" class="bold">Version:</label>
-                                                                <input id="version" type="text" value="1.0">
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <label for="" class="bold">Достижения:</label>
-                                                                <input id="" type="text" value="9 литров залпом / мин">
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <label for="" class="bold">Мировоззрение:</label>
-                                                                <input id="" type="text" value="Миром правит алкоголь">
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <label for="" class="bold">Дата создания:</label>
-                                                                <input id="" type="text" value="2018.03.17 / 2018.03.17">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12 control-block">
-                                                        <button type="button" class="btn btn-oval btn-success" onclick="setCompany(3)">Выбрать</button>
-                                                        <button type="button" class="btn btn-oval edit-company"><i class="fa fa-pencil"></i> Редактировать</button>
-                                                        <button type="button" class="btn btn-oval btn-danger">Удалить</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                            @endforeach
+                                        @endif
                                     </div>
                                 </div>
                                 <div id="datas" class="tab-pane fade personal-info">
