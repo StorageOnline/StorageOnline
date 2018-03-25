@@ -20,7 +20,7 @@ class SettingsController extends Controller
 
         // перечень компаний, к которым у пользователя есть доступ
         $data['company'] = $user->getCompanyByUser()->sortByDesc('created_at');
-        dump($data['company']);
+//        dump($data['company']);
 
         return view('settings', $data);
     }
