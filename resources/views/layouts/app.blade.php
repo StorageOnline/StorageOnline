@@ -8,6 +8,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     {{--<script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>--}}
     <script src="{{ asset('js/checkbox.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/main.js') }}" type="text/javascript"></script>
+
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
@@ -49,6 +51,8 @@
             </div>
             
             <ul class="nav navmenu-nav">
+                <li class="current-company"><a href="#">ООО "Рога и Копыта"</a></li>
+
                 <li class="products"><a href="{{ route('products') }}"><i class="icon icon-shop2"></i> {{ trans('menu.products') }}</a></li>
                 <li class="counterparty"><a href="{{ route('counterparty') }}"><i class="icon icon-address-book"></i> {{ trans('menu.counterparty') }}</a></li>
                 <li class="incoming-payment-order"><a href="{{ route('incoming-payment-order') }}"><i class="icon icon-box-add"></i> {{ trans('menu.incoming_order') }}</a></li>

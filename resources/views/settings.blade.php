@@ -83,7 +83,7 @@
                                                     </div>
                                                     <div class="col-md-12 control-block">
                                                         <button type="button" class="btn btn-oval btn-success" onclick="setCompany(1)">Выбрать</button>
-                                                        <button type="button" class="btn btn-oval btn-primary">Редактировать</button>
+                                                        <button type="button" class="btn btn-oval edit-company"><i class="fa fa-pencil"></i> Редактировать</button>
                                                         <button type="button" class="btn btn-oval btn-danger">Удалить</button>
                                                     </div>
                                                 </div>
@@ -137,7 +137,7 @@
                                                     </div>
                                                     <div class="col-md-12 control-block">
                                                         <button type="button" class="btn btn-oval btn-success" onclick="setCompany(3)">Выбрать</button>
-                                                        <button type="button" class="btn btn-oval btn-primary">Редактировать</button>
+                                                        <button type="button" class="btn btn-oval edit-company"><i class="fa fa-pencil"></i> Редактировать</button>
                                                         <button type="button" class="btn btn-oval btn-danger">Удалить</button>
                                                     </div>
                                                 </div>
@@ -186,33 +186,12 @@
                                                         <label class="col-sm-3 col-md-2 control-label birth-day-label">Дата рождения</label>
                                                         <div class="col-sm-9">
                                                            <select id="day" name="day">
-                                                              <script>
-                                                                  var myDate = new Date();
-                                                                  var day = myDate.getDay();
-                                                                  for(var i = 1; i <= 31; i++){
-                                                                      document.write('<option value="'+i+'">'+i+'</option>');
-                                                                  }
-                                                              </script>
                                                           </select>
 
                                                           <select id="month" name="month">
-                                                            <script>
-                                                                  var month = ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
-                                                                  for(var i = 0; i < month.length; i++){
-                                                                      document.write('<option value="'+month[i]+'">'+month[i]+'</option>');
-                                                                  }
-                                                              </script>
-                  
                                                           </select>
 
                                                          <select id="year" name="year">
-                                                          <script>
-                                                              var myDate = new Date();
-                                                              var year = myDate.getFullYear();
-                                                              for(var i = 1960; i < year+1; i++){
-                                                                  document.write('<option value="'+i+'">'+i+'</option>');
-                                                              }
-                                                          </script>
                                                           </select>
                                                       </div>
                                                     </div>
@@ -221,21 +200,6 @@
 
                                                         <div class="col-lg-10">
                                                             <select id="work" name="work">
-                                                            <script>
-                                                                  for(var i = 1; i <=20; i++){
-                                                                      
-                                                                      if(i==1){
-                                                                        document.write('<option value="'+i+'">'+i+" год"+'</option>');
-                                                                      }
-                                                                      else if(i==2||i==3||i==4){
-                                                                         document.write('<option value="'+i+'">'+i+" года"+'</option>');
-                                                                      }
-                                                                      else{
-                                                                        document.write('<option value="'+i+'">'+i+" лет"+'</option>');
-                                                                      }
-                                                                  }
-                                                              </script>
-                  
                                                           </select>
                                                         </div>
                                                     </div>
