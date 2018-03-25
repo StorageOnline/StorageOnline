@@ -85,7 +85,7 @@
                                                             </div>
                                                             <div class="col-md-12 control-block">
                                                                 <button type="button" class="btn btn-oval btn-success" onclick="setCompany({{ $comp->id }})">Выбрать</button>
-                                                                <button type="button" class="btn btn-oval btn-primary">Редактировать</button>
+                                                                <span type="" class="btn btn-oval edit-company"><i class="fa fa-pencil"></i> Редактировать</span>
                                                                 <button type="button" class="btn btn-oval btn-danger">Удалить</button>
                                                             </div>
                                                         </div>
