@@ -1001,59 +1001,59 @@ function addCompany()
         return alert("Для добавления новой компании сохраните изменения!");
     }
     let str = "<div id='new_comp' class='col-md-6 company-block'>" +
-        "                                        <div class='col-md-12 company-item' style='border:3px solid #f5b8b8; background-color: rgba(245, 225, 232, 0.24); border-radius: 4px;'>" +
-        "                                            <div class='row'>" +
-        "                                                <div class='col-md-8 col-xs-8 descripton-company'>" +
-        "                                                    <div class='row'>" +
-        "                                                        <div class='col-md-12'>" +
-        "                                                            <h2><input id='company-name' placeholder='Наименование компании'></h2>" +
-        "                                                        </div>" +
-        "                                                    </div>" +
-        "                                                </div>" +
-        "                                                <div class='col-md-4 col-xs-4 company-logo'>" +
-        "                                                    <h2>" +
-        "                                                    <img src='../../img/company-logo/company1.png' alt=''>" +
-        "                                                    </h2>" +
-        "                                                </div>" +
-        "                                                <div class='col-md-12'>" +
-        "                                                    <div class='row'>" +
-        "                                                        <div class='col-md-12'>" +
-        "                                                            <input id='company-full-name' class='bold uppercase company-full-name' type='text' value='' placeholder='Полное наименование  '>" +
-        "                                                        </div>" +
-        "                                                    </div>" +
-        "                                                    <div class='row'>" +
-        "                                                        <div class='col-md-12'>" +
-        "                                                            <label for='version' class='bold'>ОКПО:</label>" +
-        "                                                            <input id='company-okpo' type='text' value='14457036'>" +
-        "                                                        </div>" +
-        "                                                    </div>" +
-        "                                                    <div class='row'>" +
-        "                                                        <div class='col-md-12'>" +
-        "                                                            <label for='company-acc' class='bold'>Р.С.:</label>" +
-        "                                                            <input id='company-acc' type='text' value='26005040677843'>" +
-        "                                                        </div>" +
-        "                                                    </div>" +
-        "                                                    <div class='row'>" +
-        "                                                        <div class='col-md-12'>" +
-        "                                                            <label for='company_adress' class='bold'>Ардрес юридический:</label>" +
-        "                                                            <input id='company_adress' type='text' value='г.Днепр, ул.Набережная Победы, 32'>" +
-        "                                                        </div>" +
-        "                                                    </div>" +
-        "                                                    <div class='row'>" +
-        "                                                        <div class='col-md-12'>" +
-        "                                                            <label for='company-tel' class='bold'>Контакты:</label>" +
-        "                                                            <input id='company-tel' type='text' value='+380930121000'>" +
-        "                                                        </div>" +
-        "                                                    </div>" +
-        "                                                </div>" +
-        "                                                <div class='col-md-12 control-block'>\n" +
-        "                                                    <button type='button' class='btn btn-oval btn-success' onclick='setCompany(1)'>Выбрать</button>" +
-        "                                                    <span style='margin-left: 100px'><span class='center' style='border-bottom: 1px dashed #428bca' onclick='saveCompany()'>Сохранить</span></span>" +
-        "                                                    <button type='button' class='btn btn-oval btn-danger'>Удалить</button>" +
-        "                                                </div> \n" +
-        "                                            </div>\n" +
-        "                                        </div>\n" +
-        "                                    </div>";
+    "                                        <div class='col-md-12 company-item company-item-new'>" +
+    "                                            <div class='row'>" +
+    "                                                <div class='col-md-8 col-xs-8 descripton-company'>" +
+    "                                                    <div class='row'>" +
+    "                                                        <div class='col-md-12'>" +
+    "                                                            <h2><input id='company-name' placeholder='Наименование компании'></h2>" +
+    "                                                        </div>" +
+    "                                                    </div>" +
+    "                                                </div>" +
+    "                                                <div class='col-md-4 col-xs-4 company-logo'>" +
+    "                                                    <h2>" +
+    "                                                    <img src='../../img/company-logo/company1.png' alt=''>" +
+    "                                                    </h2>" +
+    "                                                </div>" +
+    "                                                <div class='col-md-12'>" +
+    "                                                    <div class='row'>" +
+    "                                                        <div class='col-md-12'>" +
+    "                                                            <input id='company-full-name' class='bold uppercase company-full-name' type='text' value='' placeholder='Полное наименование  '>" +
+    "                                                        </div>" +
+    "                                                    </div>" +
+    "                                                    <div class='row'>" +
+    "                                                        <div class='col-md-12'>" +
+    "                                                            <label for='version' class='bold'>ОКПО:</label>" +
+    "                                                            <input id='company-okpo' type='text' value='14457036'>" +
+    "                                                        </div>" +
+    "                                                    </div>" +
+    "                                                    <div class='row'>" +
+    "                                                        <div class='col-md-12'>" +
+    "                                                            <label for='company-acc' class='bold'>Р.С.:</label>" +
+    "                                                            <input id='company-acc' type='text' value='26005040677843'>" +
+    "                                                        </div>" +
+    "                                                    </div>" +
+    "                                                    <div class='row'>" +
+    "                                                        <div class='col-md-12'>" +
+    "                                                            <label for='company_adress' class='bold'>Ардрес юридический:</label>" +
+    "                                                            <input id='company_adress' type='text' value='г.Днепр, ул.Набережная Победы, 32'>" +
+    "                                                        </div>" +
+    "                                                    </div>" +
+    "                                                    <div class='row'>" +
+    "                                                        <div class='col-md-12'>" +
+    "                                                            <label for='company-tel' class='bold'>Контакты:</label>" +
+    "                                                            <input id='company-tel' type='text' value='+380930121000'>" +
+    "                                                        </div>" +
+    "                                                    </div>" +
+    "                                                </div>" +
+    "                                                <div class='col-md-12 control-block'>\n" +
+    "                                                    <button type='button' class='btn btn-oval btn-success' onclick='setCompany(1)'>Выбрать</button>" +
+    "                                                    <span><span class='center save-company' onclick='saveCompany()'><i class='fa fa-floppy-o'></i> Сохранить</span></span>" +
+    "                                                    <button type='button' class='btn btn-oval btn-danger'>Удалить</button>" +
+    "                                                </div> \n" +
+    "                                            </div>\n" +
+    "                                        </div>\n" +
+    "                                    </div>";
     $("#company .all-company-block").prepend(str);
 }
 
