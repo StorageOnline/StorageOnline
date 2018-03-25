@@ -89,11 +89,18 @@ Route::group(['prefix' => '/storage'], function (){
     Route::post('/search', 'StorageController@search');
 });
 
-// ---------------- Компании ----------------------
-Route::post('/company/set/', 'CompanyController@setCompanyId');
-
 // ---------------- Настройки ----------------------
-Route::get('/setting', 'SettingsController@index')->name('settings');
+Route::group(['prefix' => '/setting'],function (){
+    Route::get('/','Settings\SettingsController@index')->name('settings');
+
+    // ---------------- Компании ----------------------
+    Route::group(['prefix' => '/company'],function () {
+        // ----------- Выбор компании (ajax) -------------
+        Route::post('/set/', 'Settings\CompanyController@setCompanyId');
+        // -------------- Сохранение компании (ajax) ------------
+        Route::post('/save/', 'Settings\CompanyController@saveCompany');
+    });
+});
 
 // ---------------- Пользователя ----------------------
 Route::get('/users', 'UserController@index')->name('users');

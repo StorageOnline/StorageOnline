@@ -914,7 +914,7 @@ function setCompany(id)
 {
     $.ajax({
         type: "POST",
-        url: "/company/set",
+        url: "/setting/company/set",
         data: { id: id },
         error: function (data) {
             console.log(data);
@@ -993,14 +993,20 @@ function setChart(title, subtitle, yAxis, data)
     });
 }
 
-function addCompany() {
-    let str = "<div class='col-md-6 company-block'>" +
+// Добавляет форму для добавления информации о компании
+function addCompany()
+{
+    // проверяет есть ли на странице уже открытаю форма добавления компании
+    if($("#new_comp").length > 0){
+        return alert("Для добавления новой компании сохраните изменения!");
+    }
+    let str = "<div id='new_comp' class='col-md-6 company-block'>" +
         "                                        <div class='col-md-12 company-item' style='border:3px solid #f5b8b8; background-color: rgba(245, 225, 232, 0.24); border-radius: 4px;'>" +
         "                                            <div class='row'>" +
         "                                                <div class='col-md-8 col-xs-8 descripton-company'>" +
         "                                                    <div class='row'>" +
         "                                                        <div class='col-md-12'>" +
-        "                                                            <h2><input placeholder='Наименование компании'></h2>" +
+        "                                                            <h2><input id='company-name' placeholder='Наименование компании'></h2>" +
         "                                                        </div>" +
         "                                                    </div>" +
         "                                                </div>" +
@@ -1012,43 +1018,72 @@ function addCompany() {
         "                                                <div class='col-md-12'>" +
         "                                                    <div class='row'>" +
         "                                                        <div class='col-md-12'>" +
-        "                                                            <input id='name-company' class='bold uppercase' type='text' value='' placeholder='Полное наименование  '>" +
+        "                                                            <input id='company-full-name' class='bold uppercase company-full-name' type='text' value='' placeholder='Полное наименование  '>" +
         "                                                        </div>" +
         "                                                    </div>" +
         "                                                    <div class='row'>" +
         "                                                        <div class='col-md-12'>" +
         "                                                            <label for='version' class='bold'>ОКПО:</label>" +
-        "                                                            <input id='version' type='text' value='14457036'>" +
+        "                                                            <input id='company-okpo' type='text' value='14457036'>" +
         "                                                        </div>" +
         "                                                    </div>" +
         "                                                    <div class='row'>" +
         "                                                        <div class='col-md-12'>" +
-        "                                                            <label for='' class='bold'>Р.С.:</label>" +
-        "                                                            <input id='' type='text' value='26005040677843'>" +
+        "                                                            <label for='company-acc' class='bold'>Р.С.:</label>" +
+        "                                                            <input id='company-acc' type='text' value='26005040677843'>" +
         "                                                        </div>" +
         "                                                    </div>" +
         "                                                    <div class='row'>" +
         "                                                        <div class='col-md-12'>" +
-        "                                                            <label for='' class='bold'>Ардрес юридический:</label>" +
-        "                                                            <input id='' type='text' value='г.Днепр, ул.Набережная Победы, 32'>" +
+        "                                                            <label for='company_adress' class='bold'>Ардрес юридический:</label>" +
+        "                                                            <input id='company_adress' type='text' value='г.Днепр, ул.Набережная Победы, 32'>" +
         "                                                        </div>" +
         "                                                    </div>" +
         "                                                    <div class='row'>" +
         "                                                        <div class='col-md-12'>" +
-        "                                                            <label for='' class='bold'>Дата создания:</label>" +
-        "                                                            <input id='' type='text' value='2018.03.17 / 2018.03.17'>" +
+        "                                                            <label for='company-tel' class='bold'>Контакты:</label>" +
+        "                                                            <input id='company-tel' type='text' value='+380930121000'>" +
         "                                                        </div>" +
         "                                                    </div>" +
         "                                                </div>" +
         "                                                <div class='col-md-12 control-block'>\n" +
         "                                                    <button type='button' class='btn btn-oval btn-success' onclick='setCompany(1)'>Выбрать</button>" +
-        "                                                    <a href='#' style='margin-left: 100px'><span class='center' style='border-bottom: 1px dashed #428bca'>Сохранить</span></a>" +
+        "                                                    <span style='margin-left: 100px'><span class='center' style='border-bottom: 1px dashed #428bca' onclick='saveCompany()'>Сохранить</span></span>" +
         "                                                    <button type='button' class='btn btn-oval btn-danger'>Удалить</button>" +
         "                                                </div> \n" +
         "                                            </div>\n" +
         "                                        </div>\n" +
         "                                    </div>";
     $("#company .all-company-block").prepend(str);
+}
+
+function saveCompany() {
+    /*if($("#new_comp").length > 0){
+        $("#new_comp").find(".company-item").removeAttr('style');
+        $("#new_comp").removeAttr('id');
+    }*/
+    let data = {
+        company_name: $("#company-name").val(),
+        company_full_name: $("#company-full-name").val(),
+        company_okpo: $("#company-okpo").val(),
+        company_acc: $("#company-acc").val(),
+        company_adress: $("#company_adress").val(),
+        company_tel: $("#company-tel").val(),
+    };
+    $.ajax({
+       type: "POST",
+       url: '/setting/company/save',
+       data: data,
+       error: function (data) {
+           alert('Ошибка при сохранении компании');
+       },
+        success: function (data) {
+            if($("#new_comp").length > 0){
+                $("#new_comp").find(".company-item").removeAttr('style');
+                $("#new_comp").removeAttr('id');
+            }
+        }
+    });
 }
 
 // Открытие модального окна в настройках, оповещение для выбора предприятия
