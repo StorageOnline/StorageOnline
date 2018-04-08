@@ -37,19 +37,18 @@ class IncomingPaymentOrderController extends Controller
         $order_date = $request->order_date;
         $quantity = $request->quantity;
         $summa = $request->summa;
+        $company_id = session('company_id');
 
         if($order_id) {
             $order = $this->model->find($order_id);
-            $order->counterparty_id = $counterparty_id;
-            $order->sum = $summa;
-            $order->quantity = $quantity;
         } else {
             $order = new IncomingPaymentOrder();
-
-            $order->counterparty_id = $counterparty_id;
-            $order->summa = $summa;
-            $order->quantity = $quantity;
         }
+        $order->counterparty_id = $counterparty_id;
+        $order->sum = $summa;
+        $order->quantity = $quantity;
+        $order->company_id = $company_id;
+
         $order->save();
 
         $this->updateProductQuantity($order->relationInvoiceIncoming);
@@ -141,6 +140,7 @@ class IncomingPaymentOrderController extends Controller
                     'product_id' => $product_id,
                     'price' => $price,
                     'quantity' => 1,
+                    'company_id' => session('company_id'),
                 ]);
                 $order->reFresh();
             }
@@ -161,6 +161,7 @@ class IncomingPaymentOrderController extends Controller
             $order->counterparty_id = $counterparty_id;
             $order->quantity = $incoming_payment_order_quantity;
             $order->sum = $incoming_payment_order_summa;
+            $order->company_id = session('company_id');
             $order->save();
             $order_id = $order->id;
 
@@ -169,6 +170,7 @@ class IncomingPaymentOrderController extends Controller
                 'product_id' => $product_id,
                 'price' => $price,
                 'quantity' => 1,
+                'company_id' => session('company_id'),
             ]);
             $order->reFresh();
 
