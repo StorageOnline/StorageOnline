@@ -247,11 +247,22 @@ class IncomingPaymentOrderController extends Controller
         return $items;
     }
 
+    /**
+     * Формирование PDF файла по ID накладной
+     * @param $id
+     * @return mixed
+     */
     public function getToPdf($id)
     {
         $pdf = new PdfController();
         $result = $pdf->exportIncomingView($this->model->find($id)->relationInvoiceIncoming()->with('relationProduct')->get());
-//        dump($this->model->find($id)->relationInvoiceIncoming()->with('relationProduct')->get());
+        return $result;
+    }
+
+    public function getToPdfLoad($id)
+    {
+        $pdf = new PdfController();
+        $result = $pdf->exportIncomingLoad($this->model->find($id)->relationInvoiceIncoming()->with('relationProduct')->get(), $id);
         return $result;
     }
 }

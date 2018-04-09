@@ -293,6 +293,8 @@ function clearIncomingModal()
     $('#incoming_payment_order_date').val('');
     $('#incoming_payment_order_quantity').val(0);
     $('#incoming_payment_order_summa').val(0);
+    $('#btn-viewpdf').attr('href', '');
+    $('#btn-downloadpdf').attr('href', '');
     $('#invoice-tab').empty();
 }
 
@@ -553,7 +555,7 @@ function getOrderById(id)
  * @param id
  */
 function getIncomingOrder(id) {
-    this.editIncomingOrder(ig);
+    this.editIncomingOrder(id);
 }
 
 /**
@@ -571,9 +573,13 @@ function editIncomingOrder(id) {
             $('#incoming_payment_order_id').val(data.id);
             $('#counterparty_id').val(data.counterparty_id);
             $('#incoming_payment_order_date').val(data.updated_at);
+            // для экспорта в PDF
+            $('#btn-viewpdf').attr('href', '/incoming-payment-order/incoming-to-pdf/' + data.id);
+            $('#btn-downloadpdf').attr('href', '/incoming-payment-order/incoming-load-pdf/' + data.id);
            /* $('#incoming_payment_order_quantity').val(data.quantity);
             $('#incoming_payment_order_summa').val(data.sum);*/
             updateInvoice(data);
+            $('#modal').modal('show');
         }
     });
 }
@@ -728,10 +734,10 @@ function updateIncomingList(data)
             + '<td>' + item.relation_counterparty.name + '</td>'
             + '<td class="small-display text-center">' + item.quantity + '</td>'
             + '<td class="small-display text-center">' + item.sum + '</td>'
-            + '<td class="text-center preview"><a href="" data-toggle="" onclick="">'
+            + '<td class="text-center"><a href="#" onclick="getIncomingOrder( ' + item.id + ')">'
             + '<i class="fa fa-eye" aria-hidden="true"></i>'
             + '</a>' + '</td>'
-            + '<td class="text-center"><a href="#modal" data-toggle="modal" onclick="editIncomingOrder( ' + item.id + ')">'
+            + '<td class="text-center"><a href="#" onclick="editIncomingOrder( ' + item.id + ')">'
             + '<i class="fa fa-pencil" aria-hidden="true"></i>'
             + '</a>' + '</td>'
             + '<td class="text-center"><a href="#" onclick="delIncomingOrder( ' + item.id + ')">'

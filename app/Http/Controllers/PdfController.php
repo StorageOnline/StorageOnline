@@ -42,4 +42,16 @@ class PdfController extends Controller
         $pdf = PDF::loadView('pdf.incoming-pdf', ['items' => $order]);
         return $pdf->stream('incoming.pdf');
     }
+
+    /**
+     * Скачивание приходной накладной в PDF
+     * @param $model
+     * @return mixed
+     */
+    public function exportIncomingLoad($model, $num)
+    {
+        $order = $model->all();
+        $pdf = PDF::loadView('pdf.incoming-pdf', ['items' => $order]);
+        return $pdf->download('incoming-' . $num . '.pdf');
+    }
 }

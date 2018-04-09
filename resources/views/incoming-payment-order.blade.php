@@ -85,12 +85,12 @@
                                 <td>{{ $order['relationCounterparty']['name'] }}</td>
                                 <td class="text-center small-display">{{ $order['quantity'] }}</td>
                                 <td class="text-center small-display">{{ $order['sum'] }}</td>
-                                <td class="text-center"><a href="#modal" data-toggle="modal" onclick="getIncomingOrder({{ $order['id'] }})">
+                                <td class="text-center"><a href="#" onclick="getIncomingOrder({{ $order['id'] }})">
                                     <i class="fa fa-eye" aria-hidden="true"></i>
                                 </a>
                                 </td>
                                 <td class="text-center">
-                                    <a href="#modal" data-toggle="modal" onclick="editIncomingOrder({{ $order['id'] }})">
+                                    <a href="#" onclick="editIncomingOrder({{ $order['id'] }})">
                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                     </a>
                                 </td>
@@ -210,8 +210,9 @@
                                     <span class="caret"> </span>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-                                    <li><a href="/incoming-payment-order/incoming-to-pdf/{{ $order['id'] }}">Экспорт в PDF</a></li>
-                                    <li><a href="{{ route('incoming-load-pdf') }}">Скачать</a></li>
+                                    {{--<li><a id="btn-download" href="/incoming-payment-order/incoming-to-pdf/{{ $order['id'] }}">Экспорт в PDF</a></li>--}}
+                                    <li><a id="btn-viewpdf" href="">Экспорт в PDF</a></li>
+                                    <li><a id="btn-downloadpdf" href="">Скачать</a></li>
                                     <li><a href="#">Отправить</a></li>
                                 </ul>
                             </div>

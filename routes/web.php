@@ -68,7 +68,7 @@ Route::group(['prefix' => '/incoming-payment-order'], function () {
     # экспорт в PDF
     Route::get('/incoming-to-pdf/{id}', 'IncomingPaymentOrderController@getToPdf')->name('incoming-to-pdf');
     # скачать в PDF
-    Route::get('/incoming-load-pdf', 'IncomingPaymentOrderController@getToPdfLoad')->name('incoming-load-pdf');
+    Route::get('/incoming-load-pdf/{id}', 'IncomingPaymentOrderController@getToPdfLoad')->name('incoming-load-pdf');
 });
 
 // ---------------- Расходный ордер ----------------------
