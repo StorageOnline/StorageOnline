@@ -6,6 +6,7 @@ use App\Model\IncomingInvoice;
 use App\Model\IncomingPaymentOrder;
 use Illuminate\Http\Request;
 use App\Model\Product;
+use PDF;
 
 class ProductController extends Controller
 {
@@ -120,5 +121,27 @@ class ProductController extends Controller
         })->paginate(10);
 
         return $items;
+    }
+
+    /**
+     * Экспортировать в PDF
+     * @return mixed
+     */
+    public function getProductsToPdf()
+    {
+        $pdf = new PdfController();
+        $result = $pdf->exportProductsView($this->model);
+        return $result;
+    }
+
+    /**
+     * Скачать в pdf
+     * @return mixed
+     */
+    public function getProductsToPdfLoad()
+    {
+        $pdf = new PdfController();
+        $result = $pdf->exportProductsLoad($this->model);
+        return $result;
     }
 }

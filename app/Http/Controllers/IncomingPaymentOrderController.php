@@ -246,4 +246,12 @@ class IncomingPaymentOrderController extends Controller
 //        dump(DB::getQueryLog());
         return $items;
     }
+
+    public function getToPdf($id)
+    {
+        $pdf = new PdfController();
+        $result = $pdf->exportIncomingView($this->model->find($id)->relationInvoiceIncoming()->with('relationProduct')->get());
+//        dump($this->model->find($id)->relationInvoiceIncoming()->with('relationProduct')->get());
+        return $result;
+    }
 }
