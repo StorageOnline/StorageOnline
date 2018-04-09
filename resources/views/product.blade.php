@@ -9,8 +9,24 @@
 
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-12 add-btn-row">
+                        <div class="col-md-1 add-btn-row">
                             <a href="#modal" class="btn btn-success"  data-toggle="modal" onclick="clearProductModal()">Добавить</a>
+                        </div>
+                        <div class="dropdown col-md-1 add-btn-row">
+                            <button id="dropdownMenu"
+                                    class="btn btn-primary dropdown-toggle"
+                                    type="button"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="true">
+                                Экспорт
+                                <span class="caret"> </span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                                <li><a href="{{ route('products-to-pdf') }}">Экспорт в PDF</a></li>
+                                <li><a href="{{ route('products-load-pdf') }}">Скачать</a></li>
+                                <li><a href="#">Отправить</a></li>
+                            </ul>
                         </div>
                     </div>
                     <div class="row">

@@ -9,10 +9,10 @@
 
                     <div class="panel-body">
                          <div class="row">
-                            <div class="col-md-12 add-btn-row">
-                                <a href="#modal" class="btn btn-success"  data-toggle="modal" onclick="clearIncomingModal()">Добавить</a>
-                                <a href="#" class="btn btn-danger"  onclick="">Возврат товара</a>
-                            </div>
+                             <div class="col-md-12 add-btn-row dropdown">
+                                 <a href="#modal" class="btn btn-success"  data-toggle="modal" onclick="clearIncomingModal()">Добавить</a>
+                                 <a href="#" class="btn btn-danger"  onclick="">Возврат товара</a>
+                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
@@ -199,6 +199,22 @@
                             <button id="" type="submit" form="" class="btn btn-danger" onclick="setIncomingOrder();">
                                 Отменить
                             </button>
+                            <div class="dropup">
+                                <button id="dropdownMenu"
+                                        class="btn btn-primary dropdown-toggle"
+                                        type="button"
+                                        data-toggle="dropdown"
+                                        aria-haspopup="true"
+                                        aria-expanded="true">
+                                    Экспорт
+                                    <span class="caret"> </span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                                    <li><a href="/incoming-payment-order/incoming-to-pdf/{{ $order['id'] }}">Экспорт в PDF</a></li>
+                                    <li><a href="{{ route('incoming-load-pdf') }}">Скачать</a></li>
+                                    <li><a href="#">Отправить</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

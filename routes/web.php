@@ -37,6 +37,10 @@ Route::group(['prefix' => '/products'], function () {
     Route::post('/get-all-products', 'ProductController@getAllProducts')->name('get-all-products');
     Route::get('/search', 'ProductController@getSearch');
     Route::post('/search', 'ProductController@search');
+    # экспорт в PDF
+    Route::get('/products-to-pdf', 'ProductController@getProductsToPdf')->name('products-to-pdf');
+    # скачать в PDF
+    Route::get('/products-load-pdf', 'ProductController@getProductsToPdfLoad')->name('products-load-pdf');
 });
 
 // ---------------- Контрагенты ----------------------
@@ -61,6 +65,10 @@ Route::group(['prefix' => '/incoming-payment-order'], function () {
     Route::post('/get-all-incoming-orders', 'IncomingPaymentOrderController@getAllIncomingPaymentOrder')->name('/get-all-incoming-orders');
     Route::get('/search', 'IncomingPaymentOrderController@getSearch');
     Route::post('/search', 'IncomingPaymentOrderController@search');
+    # экспорт в PDF
+    Route::get('/incoming-to-pdf/{id}', 'IncomingPaymentOrderController@getToPdf')->name('incoming-to-pdf');
+    # скачать в PDF
+    Route::get('/incoming-load-pdf', 'IncomingPaymentOrderController@getToPdfLoad')->name('incoming-load-pdf');
 });
 
 // ---------------- Расходный ордер ----------------------
