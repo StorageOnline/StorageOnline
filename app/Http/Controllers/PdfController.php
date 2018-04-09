@@ -54,4 +54,28 @@ class PdfController extends Controller
         $pdf = PDF::loadView('pdf.incoming-pdf', ['items' => $order]);
         return $pdf->download('incoming-' . $num . '.pdf');
     }
+
+    /**
+     * Экспорт Расходной накладной в PDF
+     * @param $model
+     * @return mixed
+     */
+    public function exportOutgoingView($model)
+    {
+        $order = $model->all();
+        $pdf = PDF::loadView('pdf.outgoing-pdf', ['items' => $order]);
+        return $pdf->stream('incoming.pdf');
+    }
+
+    /**
+     * Скачивание Расходной накладной в PDF
+     * @param $model
+     * @return mixed
+     */
+    public function exportOutgoingLoad($model, $num)
+    {
+        $order = $model->all();
+        $pdf = PDF::loadView('pdf.outgoing-pdf', ['items' => $order]);
+        return $pdf->download('outgoing-' . $num . '.pdf');
+    }
 }

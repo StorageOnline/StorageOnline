@@ -36,20 +36,18 @@ class OutgoingPaymentOrderController extends Controller
         $counterparty_id = $request->counterparty_id;
         $order_date = $request->order_date;
         $quantity = $request->quantity;
+        $company_id = session('company_id');
         $summa = $request->summa;
 
         if($order_id) {
             $order = $this->model->find($order_id);
-            $order->counterparty_id = $counterparty_id;
-            $order->sum = $summa;
-            $order->quantity = $quantity;
         } else {
             $order = new OutgoingPaymentOrder();
-
-            $order->counterparty_id = $counterparty_id;
-            $order->summa = $summa;
-            $order->quantity = $quantity;
         }
+        $order->counterparty_id = $counterparty_id;
+        $order->sum = $summa;
+        $order->quantity = $quantity;
+        $order->company_id = $company_id;
         $order->save();
 
         return $order;
@@ -123,6 +121,7 @@ class OutgoingPaymentOrderController extends Controller
         $counterparty_id = $request->counterparty_id;
         $outgoing_payment_order_quantity = $request->outgoing_payment_order_quantity;
         $outgoing_payment_order_summa = $request->outgoing_payment_order_summa;
+        $company_id = session('company_id');
 
         $product = Product::find($product_id);
         $price = $product->price;
@@ -139,14 +138,13 @@ class OutgoingPaymentOrderController extends Controller
                     'product_id' => $product_id,
                     'price' => $price,
                     'quantity' => 1,
+                    'company_id' => $company_id,
                 ]);
                 $order->reFresh();
             }
             foreach ($order->relationInvoiceOutgoing as $item) {
                 $item->relationProduct;
             }
-
-
 
             $outgoing_order = [
                 'quantity' => $order->relationInvoiceOutgoing()->sum('quantity'),
@@ -162,6 +160,7 @@ class OutgoingPaymentOrderController extends Controller
             $order->counterparty_id = $counterparty_id;
             $order->quantity = $outgoing_payment_order_quantity;
             $order->sum = $outgoing_payment_order_summa;
+            $order->company_id = $company_id;
             $order->save();
             $order_id = $order->id;
 
@@ -170,6 +169,7 @@ class OutgoingPaymentOrderController extends Controller
                 'product_id' => $product_id,
                 'price' => $price,
                 'quantity' => 1,
+                'company_id' => $company_id,
             ]);
             $order->reFresh();
 
@@ -228,5 +228,29 @@ class OutgoingPaymentOrderController extends Controller
 
 //        dump(DB::getQueryLog());
         return $items;
+    }
+
+    /**
+     * Формирование PDF файла по ID накладной
+     * @param $id
+     * @return mixed
+     */
+    public function getToPdf($id)
+    {
+        $pdf = new PdfController();
+        $result = $pdf->exportOutgoingView($this->model->find($id)->relationInvoiceOutgoing()->with('relationProduct')->get());
+        return $result;
+    }
+
+    /**
+     * Скачивание PDF файла по ID
+     * @param $id
+     * @return mixed
+     */
+    public function getToPdfLoad($id)
+    {
+        $pdf = new PdfController();
+        $result = $pdf->exportOutgoingLoad($this->model->find($id)->relationInvoiceOutgoing()->with('relationProduct')->get(), $id);
+        return $result;
     }
 }

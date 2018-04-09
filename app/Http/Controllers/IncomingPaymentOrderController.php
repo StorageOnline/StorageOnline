@@ -259,6 +259,11 @@ class IncomingPaymentOrderController extends Controller
         return $result;
     }
 
+    /**
+     * Скачивание PDF файла по ID
+     * @param $id
+     * @return mixed
+     */
     public function getToPdfLoad($id)
     {
         $pdf = new PdfController();

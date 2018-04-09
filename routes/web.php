@@ -82,6 +82,10 @@ Route::group(['prefix' => '/outgoing-payment-order'], function () {
     Route::post('/get-all-outgoing-orders', 'OutgoingPaymentOrderController@getAllOutgoingPaymentOrder')->name('/get-all-outgoing-orders');
     Route::get('/search', 'OutgoingPaymentOrderController@getSearch');
     Route::post('/search', 'OutgoingPaymentOrderController@search');
+    # экспорт в PDF
+    Route::get('/outgoing-to-pdf/{id}', 'OutgoingPaymentOrderController@getToPdf')->name('outgoing-to-pdf');
+    # скачать в PDF
+    Route::get('/outgoing-load-pdf/{id}', 'OutgoingPaymentOrderController@getToPdfLoad')->name('outgoing-load-pdf');
 });
 
 // ---------------- Отчеты ----------------------

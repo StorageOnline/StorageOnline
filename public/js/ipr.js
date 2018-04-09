@@ -601,7 +601,10 @@ function editOutgoingOrder(id) {
             $('#outgoing_payment_order_id').val(data.id);
             $('#counterparty_id').val(data.counterparty_id);
             $('#outgoing_payment_order_date').val(data.updated_at);
+            $('#btn-viewpdf').attr('href', '/outgoing-payment-order/outgoing-to-pdf/' + data.id);
+            $('#btn-downloadpdf').attr('href', '/outgoing-payment-order/outgoing-load-pdf/' + data.id);
             updateInvoiceOutgoing(data);
+            $('#modal').modal('show');
         }
     });
 }

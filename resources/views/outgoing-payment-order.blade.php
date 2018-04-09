@@ -84,12 +84,12 @@
                                 <td>{{ $order['relationCounterparty']['name'] }}</td>
                                 <td class="small-display text-center" >{{ $order['quantity'] }}</td>
                                 <td class="small-display text-center" >{{ $order['sum'] }}</td>
-                                <td class="text-center"><a href="#modal" data-toggle="modal" onclick="getOutgoingOrder({{ $order['id'] }})">
+                                <td class="text-center"><a href="#" onclick="getOutgoingOrder({{ $order['id'] }})">
                                     <i class="fa fa-eye" aria-hidden="true"></i>
                                 </a>
                                 </td>
                                 <td class="text-center">
-                                    <a href="#modal" data-toggle="modal" onclick="editOutgoingOrder({{ $order['id'] }})">
+                                    <a href="#" onclick="editOutgoingOrder({{ $order['id'] }})">
                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                     </a>
                                 </td>
@@ -190,6 +190,22 @@
                             <button id="" type="submit" form="" class="btn btn-danger" onclick="setOutgoingOrder();">
                                 Сохранить
                             </button>
+                            <div class="dropup">
+                                <button id="dropdownMenu"
+                                        class="btn btn-primary dropdown-toggle"
+                                        type="button"
+                                        data-toggle="dropdown"
+                                        aria-haspopup="true"
+                                        aria-expanded="true">
+                                    Экспорт
+                                    <span class="caret"> </span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                                    <li><a id="btn-viewpdf" href="#">Экспорт в PDF</a></li>
+                                    <li><a id="btn-downloadpdf" href="#">Скачать</a></li>
+                                    <li><a href="#">Отправить</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
