@@ -23,7 +23,7 @@ class OutgoingPaymentOrder extends Model
     }
 
     /**
-     * Устанавливает связь один к одному между IncomingPaymentOrder и Counterparty
+     * Устанавливает связь один к одному между OutgoingPaymentOrder и Counterparty
      */
     public function relationCounterparty()
     {
@@ -36,5 +36,14 @@ class OutgoingPaymentOrder extends Model
     public function relationInvoiceOutgoing()
     {
         return $this->hasMany('App\Model\OutgoingInvoice', 'outgoing_payment_order_id', 'id');
+    }
+
+    /**
+     * Устанавливает связь один к одному между OutgoingPaymentOrder и Company
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function relationCompany()
+    {
+        return $this->hasOne('App\Model\Companies\Company', 'id', 'company_id');
     }
 }

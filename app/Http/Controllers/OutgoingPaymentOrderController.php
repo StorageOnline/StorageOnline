@@ -238,7 +238,10 @@ class OutgoingPaymentOrderController extends Controller
     public function getToPdf($id)
     {
         $pdf = new PdfController();
-        $result = $pdf->exportOutgoingView($this->model->find($id)->relationInvoiceOutgoing()->with('relationProduct')->get());
+//        $result = $pdf->exportOutgoingView($this->model->find($id)->relationInvoiceOutgoing()->with('relationProduct')->get());
+        $order = $this->model->find($id);
+        $order->load(['relationInvoiceOutgoing.relationProduct', 'relationCounterparty', 'relationCompany'])->get();
+        $result = $pdf->exportOutgoingView($order);
         return $result;
     }
 

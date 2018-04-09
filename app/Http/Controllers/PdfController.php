@@ -62,7 +62,8 @@ class PdfController extends Controller
      */
     public function exportOutgoingView($model)
     {
-        $order = $model->all();
+        $order = $model;
+//        return dump($order);
         $pdf = PDF::loadView('pdf.outgoing-pdf', ['items' => $order]);
         return $pdf->stream('incoming.pdf');
     }
