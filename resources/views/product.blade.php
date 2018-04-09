@@ -9,10 +9,10 @@
 
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-1 add-btn-row">
+                        <div class="col-md-2 add-btn-row product-add">
                             <a href="#modal" class="btn btn-success"  data-toggle="modal" onclick="clearProductModal()">Добавить</a>
                         </div>
-                        <div class="dropdown col-md-1 add-btn-row">
+                        <div class="dropdown col-md-2 add-btn-row" style="padding-left: 0px;">
                             <button id="dropdownMenu"
                                     class="btn btn-primary dropdown-toggle"
                                     type="button"

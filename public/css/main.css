@@ -806,7 +806,12 @@ li.current-company:hover {
 
 
 
+/*Товар*/
 
+.product-add{
+  width: 12%;
+  padding-right: 0px;
+}
 
 
 
@@ -819,6 +824,7 @@ li.current-company:hover {
 @media (min-width: 1024px) and (max-width: 1199px){
 .login-block{width: 40%;}
 .gender-label{float: left;}
+.product-add{width: 20%;}
 }
 
 @media (max-width: 1199px) {
