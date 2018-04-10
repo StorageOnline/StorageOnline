@@ -123,3 +123,6 @@ Route::group(['prefix' => '/users'],function (){
 
 // ---------------- Журнал ----------------------
 Route::get('/log', 'HomeController@index')->name('log');
+
+// ---------------- GAME -------------------------
+Route::get('/game', 'Game\GameController@index')->name('game');
