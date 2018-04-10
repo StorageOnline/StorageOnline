@@ -10,7 +10,6 @@
     <script src="{{ asset('js/checkbox.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/main.js') }}" type="text/javascript"></script>
 
-
     <!-- Latest compiled and minified JavaScript -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
     <!-- Latest compiled and minified CSS -->
@@ -19,6 +18,8 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <!-- VUE JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -34,14 +35,10 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('font/icomoon.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-extended.css') }}">
 
-    
-
-
-
 
 </head>
 <body>
-    <div id="app">
+    <div id="row">
         <div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm scrollBar">
             <a class="navmenu-brand visible-md visible-lg hidden-sm alert-success" href="/home">Storage.Online</a>
             <div class="flags">
@@ -68,7 +65,7 @@
                     </form>
                     <a href="#" style="border-right: 0px;" data-toggle="tooltip" title="{{ trans('menu.calc') }}"><i class="fa fa-calculator"></i></a>
                     <a href="{{ route('settings') }}" style="border-right: 0px;" data-toggle="tooltip" title="{{ trans('menu.settings') }}"><i class="fa fa-gears"></i></a>
-                    <a href="#" style="border-right: 0px;" data-toggle="tooltip" title="{{ trans('menu.game') }}"><i class="fa fa-rocket"></i></a>
+                    <a href="{{ route('game') }}" style="border-right: 0px;" data-toggle="tooltip" title="{{ trans('menu.game') }}"><i class="fa fa-rocket"></i></a>
                 </div>
             </ul>
         </div>
@@ -89,6 +86,7 @@
         <div class="container">
             @yield('content')
             @yield('modal')
+            @yield('game')
         </div>
 
     </div>
