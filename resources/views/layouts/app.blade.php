@@ -18,6 +18,9 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <!-- Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -36,7 +39,7 @@
 
 </head>
 <body>
-    <div id="row">
+    <div id="row" :class="{'modal_open': modalShow === true }">
         <div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm scrollBar">
             <a class="navmenu-brand visible-md visible-lg hidden-sm alert-success" href="/home">Storage.Online</a>
             <div class="flags">
@@ -120,6 +123,9 @@
         });
     
     </script>
+    <!-- Vue -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
 </body>
 </html>
 

@@ -1124,4 +1124,20 @@ $(document).ready(function() {
     if($("#mes").length > 0) {
         $("#modal").modal('show');
     }
+
+    // Modal opens
+if (modalShow === true) document.body.classList.add('modal-open');
+
+// Modal closes
+document.body.classList.remove('modal-closed');
 });
+
+
+// Vue
+
+new Vue({
+  el: '.container',
+  data: {
+    modalShow: false
+  }
+})
