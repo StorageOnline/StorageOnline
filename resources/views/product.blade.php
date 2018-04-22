@@ -10,7 +10,13 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-2 add-btn-row product-add">
-                            <a href="#modal" class="btn btn-success"  data-toggle="modal" onclick="clearProductModal()">Добавить</a>
+                            <button
+                            id="new_product" 
+                            class="btn btn-success"  
+                            v-on:click="modalShow = true"
+                            data-target="#myModal"
+                            onclick="clearProductModal()"
+                            >Добавить</button>
                         </div>
                         <div class="dropdown col-md-2 add-btn-row" style="padding-left: 0px;">
                             <button id="dropdownMenu"
@@ -127,15 +133,25 @@
 </div>
 </div>
 </div>
+
+
 @endsection
 @section('modal')
 <!-- HTML-код модального окна -->
-<div id="modal" class="modal fade">
-    <div class="modal-dialog modal-lg modalInsideEmployee">
-        <div class="modal-content">
+<transition name="modal">     
+<div class="modal modal-vue fade in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" v-if="modalShow">
+  <div class="modal-dialog">
+      <div class="modal-content modal_content__product">
             <div class="modal-header" style="text-align: center;">
                 <h4 class="modal-title" style="display: inline-block;">Информация о товаре</h4>
-                <button id="" type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                <button 
+                type="button" 
+                class="close" 
+                data-dismiss="modal" 
+                aria-hidden="true"
+                v-on:click="modalShow = false"
+                >
+                ×
                 </button>
             </div>
             <div class="modal-body">
@@ -167,23 +183,29 @@
                                 <input id="product_price" type="text" class="form-control" name="product_price" value="{{ old('product_price') }}" required>
                             </div>
                         </div>
-                        <div class="col-md-4 col-md-offset-8 btn-submit">
-                            <button id="" type="submit" form="" class="btn btn-danger" onclick="setProducts();">
-                                Сохранить
-                            </button>
-                        </div>
+                        
 
                     </div>
                 </form>
             </div>
-            <div class="modal-footer">
+      <div class="modal-footer">
                 <div id="container" class="" style="min-width: 310px;
                 max-width: 800px;
                 /*height: 400px;*/
                 margin: 0 auto;">
+                <div class="col-md-4 col-md-offset-8 btn-submit">
+                            <button id="" type="submit" form="" class="btn btn-danger" onclick="setProducts();">
+                                Сохранить
+                            </button>
+                        </div>
             </div>
         </div>
     </div>
 </div>
 </div>
+</transition>
+<transition name="fade"> 
+<div class="modal-backdrop fade in" v-if="modalShow"></div>
+</transition>
 @endsection
+
