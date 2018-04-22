@@ -167,6 +167,7 @@
                                     </div>
                                 </div>
                                 <div id="vars" class="tab-pane fade">Переменные</div>
+                                {{ phpinfo() }}
                             </div>
                         </div>
                     </div>
