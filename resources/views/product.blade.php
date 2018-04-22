@@ -105,7 +105,12 @@
                                         <td class="small-display">{{ $product['code'] }}</td>
                                         <td class="small-display">{{ $product['quantity'] }}</td>
                                         <td class="small-display">{{ $product['price'] }}</td>
-                                        <td class="text-center"><a href="#modal" data-toggle="modal" onclick="getProduct({{ $product['id'] }})">
+                                        <td class="text-center">
+                                            {{--<a href="#modal"
+                                               data-toggle="modal"
+                                               onclick="getProduct({{ $product['id'] }})">--}}
+                                            <a href="#"
+                                               @click="showItem( {{ $product['id'] }} )">
                                             <i class="fa fa-eye" aria-hidden="true"></i>
                                         </a>
                                     </td>
@@ -162,25 +167,49 @@
                             <label for="product_name" class="col-md-4 control-label">Наименование</label>
                             <input id="product_id" type="hidden" class="form-control" name="product_id">
                             <div class="col-md-6">
-                                <input id="product_name" type="text" class="form-control" name="product_name" value="{{ old('product_name') }}" required autofocus>
+                                <input id="product_name"
+                                       type="text"
+                                       class="form-control"
+                                       name="product_name"
+                                       value="{{ old('product_name') }}"
+                                       v-bind:value="product.name"
+                                       required autofocus>
                             </div>
                         </div>
                         <div class="col-md-12 padding-10">
                             <label for="product_code" class="col-md-4 control-label">Код</label>
                             <div class="col-md-6">
-                                <input id="product_code" type="text" class="form-control" name="product_code" value="{{ old('product_code') }}" required>
+                                <input id="product_code"
+                                       type="text"
+                                       class="form-control"
+                                       name="product_code"
+                                       value="{{ old('product_code') }}"
+                                       v-bind:value="product.code"
+                                       required>
                             </div>
                         </div>
                         <div class="col-md-12 padding-10">
                             <label for="product_quantity" class="col-md-4 control-label">Количество</label>
                             <div class="col-md-6">
-                                <input id="product_quantity" type="text" class="form-control" name="product_quantity" value="{{ old('product_quantity') }}" required>
+                                <input id="product_quantity"
+                                       type="text"
+                                       class="form-control"
+                                       name="product_quantity"
+                                       value="{{ old('product_quantity') }}"
+                                       v-bind:value="product.quantity"
+                                       required>
                             </div>
                         </div>
                         <div class="col-md-12 padding-10">
                             <label for="product_price" class="col-md-4 control-label">Цена</label>
                             <div class="col-md-6">
-                                <input id="product_price" type="text" class="form-control" name="product_price" value="{{ old('product_price') }}" required>
+                                <input id="product_price"
+                                       type="text"
+                                       class="form-control"
+                                       name="product_price"
+                                       value="{{ old('product_price') }}"
+                                       v-bind:value="product.price"
+                                       required>
                             </div>
                         </div>
                         

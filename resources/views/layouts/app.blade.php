@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    {{--<script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>--}}
     <script src="{{ asset('js/checkbox.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/main.js') }}" type="text/javascript"></script>
 
@@ -20,6 +19,8 @@
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <!-- Vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     
 
     <!-- CSRF Token -->
@@ -39,7 +40,7 @@
 
 </head>
 <body>
-    <div id="row" :class="{'modal_open': modalShow === true }">
+    <div id="row">
         <div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm scrollBar">
             <a class="navmenu-brand visible-md visible-lg hidden-sm alert-success" href="/home">Storage.Online</a>
             <div class="flags">
@@ -124,7 +125,7 @@
     
     </script>
     <!-- Vue -->
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+{{--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>--}}
 
 </body>
 </html>

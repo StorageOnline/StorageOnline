@@ -257,7 +257,7 @@ function updateCounterpartyList(data)
  */
 function clearProductModal()
 {
-    document.getElementById('form_product').reset();
+    // document.getElementById('form_product').reset();
 }
 
 /**
@@ -1133,11 +1133,43 @@ $(document).ready(function() {
 });
 
 
-// Vue
-
-new Vue({
+/**
+ * Открытие модального окна в товарах через VUE
+ */
+let product = new Vue({
   el: '.container',
   data: {
-    modalShow: false
-  }
-})
+      modalShow: false,
+      name: '',
+      code: '',
+      quantity: '',
+      price: '',
+  },
+  methods: {
+      showItem: function (id) {
+          $than = this;
+          axios.post('/products/edit-product', {
+              id: id,
+          }).then(function (response) {
+              $than.name = response.data.product_info.name;
+              $than.code = response.data.product_info.code;
+              $than.quantity = response.data.product_info.quantity;
+              $than.price = response.data.product_info.price;
+
+              console.log('Удачный ответ: ');
+              console.log(response.data);
+          })
+              .catch(function (error) {
+                  console.log("Ошибка: ");
+                  console.log(error);
+              });
+
+          return this.modalShow = true;
+      },
+  },
+});
+
+/**
+ * Просмотр товара через VUE
+ */
+
