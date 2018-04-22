@@ -1126,10 +1126,10 @@ $(document).ready(function() {
     }
 
     // Modal opens
-if (modalShow === true) document.body.classList.add('modal-open');
+// document.body.classList.add('modal-open');
 
 // Modal closes
-document.body.classList.remove('modal-closed');
+// document.body.classList.remove('modal-closed');
 });
 
 

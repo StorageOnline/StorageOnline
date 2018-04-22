@@ -199,7 +199,8 @@
                         {{--Конец таблицы товаров--}}
                     </div>
                     </div>
-                        <div class="col-md-6 col-md-offset-6 text-right pRight0">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-6 text-right">
                             <button id="" type="submit" form="" class="btn btn-success" onclick="setIncomingOrder();">
                                 Сохранить
                             </button>
@@ -223,6 +224,7 @@
                                     <li><a href="#">Отправить</a></li>
                                 </ul>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>
