@@ -20,7 +20,7 @@
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <!-- Vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    
+    <script src="https://unpkg.com/vuejs-datepicker"></script>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

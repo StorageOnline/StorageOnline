@@ -1135,9 +1135,74 @@ $(document).ready(function() {
 
 // Vue
 
-new Vue({
-  el: '.container',
+
+//Товары
+
+let product = new Vue({
+  el: '#product-vue',
   data: {
     modalShow: false
   }
-})
+});
+
+// Приходный ордер
+
+let incoming_order = new Vue({
+  el: '#incoming-order-vue',
+  data: {
+    prop_date: {
+      'format': 'dd/MM/yyyy',
+      'monday-first': true,
+      'calendarButton': true,
+      'calendar-button-icon': 'fa fa-calendar',
+      'value': new Date(),
+      'bootstrap-styling': true,
+      'inputClass': 'calendar-vue',
+    }  
+  },
+  components: {
+    vuejsDatepicker,
+  },
+});
+
+// Расходный ордер
+
+let outgoing_order = new Vue({
+  el: '#outgoing-order-vue',
+  data: {
+    prop_date: {
+      'format': 'dd/MM/yyyy',
+      'monday-first': true,
+      'calendarButton': true,
+      'calendar-button-icon': 'fa fa-calendar',
+      'value': new Date(),
+      'bootstrap-styling': true,
+      'inputClass': 'calendar-vue',
+    } 
+  },
+  components: {
+    vuejsDatepicker,
+  },
+});
+
+
+//Очеты
+
+let reports = new Vue({
+  el: '#reports-vue',
+  data: {
+    prop_date: {
+      'format': 'dd/MM/yyyy',
+      'monday-first': true,
+      'calendarButton': true,
+      'calendar-button-icon': 'fa fa-calendar',
+      'value': new Date(),
+      'bootstrap-styling': true,
+      'inputClass': 'calendar-vue',
+    } 
+  },
+  components: {
+    vuejsDatepicker,
+  },
+});
+

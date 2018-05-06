@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div id="reports-vue">
     <div class="container small-container">
         <div class="row">
             <div class="col-md-12 small-column">
@@ -10,11 +11,10 @@
                     <div class="panel-body">
                         <div class="row report-date">
                             <div class="col-md-3">
-                                <input id="date_start" type="date" name="date_start"/>
+                                    <vuejs-datepicker v-bind="prop_date" ></vuejs-datepicker>
                             </div>
                             <div class="col-md-3">
-                                <input id="date_end" type="date" name="date_end"/>
-
+                                    <vuejs-datepicker v-bind="prop_date" ></vuejs-datepicker>
                             </div>
                             <div class="col-md-3">
                             <a href="#modal" class="btn btn-success col-md-offset-1"  onclick="getReport()">Сформировать</a>
@@ -107,5 +107,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

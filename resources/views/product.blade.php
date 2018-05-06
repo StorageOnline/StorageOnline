@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+<div id="product-vue">
 <div class="container small-container">
     <div class="row">
         <div class="col-md-12 small-column">
@@ -138,6 +140,7 @@
 @endsection
 @section('modal')
 <!-- HTML-код модального окна -->
+
 <transition name="modal">     
 <div class="modal modal-vue fade in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" v-if="modalShow">
   <div class="modal-dialog">
@@ -207,5 +210,7 @@
 <transition name="fade"> 
 <div class="modal-backdrop fade in" v-if="modalShow"></div>
 </transition>
+
+</div>
 @endsection
 

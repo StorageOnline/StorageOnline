@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div id="incoming-order-vue">
     <div class="container small-container">
         <div class="row">
             <div class="col-md-12 small-column">
@@ -135,10 +136,9 @@
                      <div class="col-md-6">
                         <label for="incoming_payment_order_date" class="col-md-4 control-label">Дата</label>
                         <div class="col-md-6">
-                            <div class="">
-                                <input id="incoming_payment_order_date" type="date" class="form-control" name="incoming_payment_order_date" value="{{ old('incoming_payment_order_date') }}" required autofocus>
+                               <!--  <input id="incoming_payment_order_date" type="date" class="form-control" name="incoming_payment_order_date" value="{{ old('incoming_payment_order_date') }}" required autofocus> -->
+                             <vuejs-datepicker v-bind="prop_date" ></vuejs-datepicker> 
 
-                            </div>
                         </div>
                     </div>
                     </div>
@@ -230,8 +230,8 @@
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+
+
 
 <!-- HTML-код модального окна -->
 <div id="modal2" style="z-index: 9999; " class="modal fade in">
@@ -261,3 +261,6 @@
         </div>
     </div>
 </div>
+</div>
+
+@endsection
